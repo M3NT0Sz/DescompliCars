@@ -1,0 +1,412 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Cooper Hewitt Heavy', Serif;
+    box-sizing: border-box;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+  }
+
+body{
+    background-color:rgb(236, 237, 242);
+    
+}
+.container{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:auto;
+}
+
+.menu{
+    display: flex;
+    z-index: 0;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2.5rem;
+    padding-right: 2,5rem;
+    width: 100%;
+    height: 10vh;
+    background: white;
+    position: relative;
+    top: 0;
+    color: black;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 7%);
+}
+.imagemmenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    position: relative;
+    vertical-align: middle;
+}
+
+.imagemmenu img{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.navbar{
+    width: 100%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.tabelamenu{
+    display: flex;
+    height: 100%;
+}
+
+.linkmenu{
+    align-items: center;
+    border-bottom-width: 2px;
+    border-color: transparent;
+    display: flex;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    position: relative;
+    font-size: 25px;
+    box-sizing:border-box;
+}
+
+.linkmenu a{
+    color: black;
+    text-decoration: none;
+}
+
+.linkmenu:hover{
+    border-bottom: 2px solid #004aad;
+}
+
+.iconesmenu{
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-right: 20px;
+}
+
+.iconesmenu i{
+    width: 100%;
+    height: auto;
+    position: relative;
+    color: #004aad;
+    box-sizing:border-box;
+}
+
+.bxs-user, .bxs-bell{
+    font-size: 1.5rem;
+    margin-right: 25px;
+}
+
+.linkicones{
+    color: white;
+}
+
+
+
+.h1{
+    font-family: 'Cooper Hewitt Heavy', Serif ;
+    color:  #004aad;
+    text-align: center;
+    margin: 0 auto 40px auto;
+
+    
+}
+
+.hr{
+    height: 3px;
+    width: 50px;
+    margin: 15px auto 20px auto;
+    background-color: #004aad;
+}
+
+.gallery{
+    display: flex;
+    width: 90%;
+    height: 60vh;
+    margin-left: 50px;
+    overflow-x: auto;
+    
+}
+
+.Ph1{
+    
+    
+    margin: 0px 0px 16px;
+    font-size: auto;
+    font-weight: 700;
+    
+    line-height: 1.2; 
+    color: rgb(123, 123, 243);
+    font-weight: 500;
+    font-size: 2.5rem;
+    line-height: 2.2rem;
+    word-break: break-word;
+    bottom: 20px;
+    width: 80%;
+    position: absolute;
+    z-index: 10;
+}
+
+
+
+.imgSuv{
+    display: flex;
+    width: 30vh;
+    height: 35vh;
+    border-radius: 10px;
+    margin-left: 35px;
+    overflow: hidden;
+   position: relative;
+   transition: width 1s, height 1s, transform 1s;
+
+    
+}
+
+.imgSuv:hover{
+    width: 40vh;
+    height: 40vh;
+    transform: rotateY('90');
+}
+
+.imgTudo{
+    display: flex;
+    width:30vh ;
+    height: 35vh;
+    border-radius: 10px;
+    margin-left: 35px;
+    overflow: hidden;
+    position: relative;
+    transition: width 1s, height 1s, transform 1s;
+}
+
+.imgTudo:hover{
+    width:40vh;
+    height: 40vh;
+    transform: rotate('90');
+}
+
+.top-titlea{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 0 auto 40px auto;
+}
+
+.top-titlea h3{
+    color:#004aad;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+hr{
+    height: 3px;
+    width: 50px;
+    margin: 15px auto 20px auto;
+    background-color: #004aad;
+}
+
+.rowa{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.featured-boxa{
+    background-color: white;
+    position: relative;
+    transition: .5s;
+    overflow: hidden;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 55%);
+    display: flex;
+    margin-top: 20px;
+    width: 150px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    transition: width 1s, height 1s, transform 1s;
+}
+
+.featured-imga{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.featured-imga img{
+    width: 100%;
+    height: 100%;
+}
+
+.featured-boxa h1{
+    font-size: 100%;
+    overflow: auto;
+}
+
+.rowa a{
+    text-decoration: none;
+    color: black;
+}
+
+.featured-boxa:hover{
+    width: 200px;
+    height: 250px;
+    transform: rotateY('90');
+}
+
+.concessionariaa{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    position: relative;
+}
+
+.containerconcea{
+    display: flex;
+    max-width: 100%;
+    width: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.rodaPg{
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 55%);
+}
+
+.sec{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    color: black;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sec h1{
+    font-size: 20px;
+}
