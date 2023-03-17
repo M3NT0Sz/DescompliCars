@@ -1,6 +1,8 @@
 function esconderMod(){
-    const cadmod = document.querySelector("#cadmod")
-    const marca = document.querySelector("#marca")
+    const cadmod = document.querySelector("#cadmod");
+    const modelo = document.querySelector("#modelo");
+    const marca = document.querySelector("#marca");
+    modelo.addEventListener("change", esconderAnoMod);    
     const valorSelecionado = marca.value;
 
     if(valorSelecionado === "Escolha uma Marca"){
@@ -19,37 +21,37 @@ function esconderMod(){
 }
 
 function esconderAnoMod(){
-    const cadanomod = document.querySelector("#cadanomod")
+    const cadanomod = document.querySelector("#cadAnoMod")
     const modelo = document.querySelector("#modelo")
     const valorSelecionado = modelo.value;
 
-    if(valorSelecionado === "Escolha um Modelo"){
+    if(valorSelecionado === ""){
         cadanomod.style.display = 'none';
-    } else if(valorSelecionado === "2023"){
+    } else if(valorSelecionado != ""){
         cadanomod.style.display = '';
     }
 }
 
 function esconderAnoFab(){
-    const cadanofab = document.querySelector("#cadanofab")
+    const cadanofab = document.querySelector("#cadAnoFab")
     const anomod = document.querySelector("#anomodelo")
     const valorSelecionado = anomod.value;
 
-    if(valorSelecionado === 'escolhaano'){
+    if(valorSelecionado === ""){
         cadanofab.style.display = 'none';
-    } else if(valorSelecionado === 'ano1'){
+    } else if(valorSelecionado != ""){
         cadanofab.style.display = '';
     }
 }
 
 function esconderVersao(){
-    const cadversao =  document.querySelector("#cadversao")
+    const cadversao =  document.querySelector("#cadVersao")
     const anofab = document.querySelector("#anofab")
     const valorSelecionado = anofab.value;
 
-    if(valorSelecionado === "Escolha um ano"){
+    if(valorSelecionado === ""){
         cadversao.style.display = 'none';
-    } else if(valorSelecionado === "2023"){
+    } else if(valorSelecionado != ""){
         cadversao.style.display = '';
     }
 }

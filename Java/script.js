@@ -10,7 +10,7 @@ setInterval(function(){
 
 function nextImg(){
     coutn++;
-    if(coutn>3){
+    if(coutn>4){
         coutn=1;
     }
 

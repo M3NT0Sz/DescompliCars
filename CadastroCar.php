@@ -22,34 +22,110 @@
             <h1>Cadastre seu veiculo</h1>
             <form method="post" action="PHP/cadcar.php">
                 <div class=caddeita>
-                <?php require "CadPHP/marca.php";
-                    echo $_SESSION['marca'];
-                ?>
+                <h2>Marca</h2>
+                    <select class=marca name=marca id=marca onclick='esconderMod()'>
+                        <option value='Escolha uma Marca'>
+                            Escolha uma Marca
+                        </option>
+                        <option value='Audi'>
+                            Audi
+                        </option>
+                        <option value=BMW>
+                            BMW
+                        </option>
+                        <option value=CAOA>
+                            CAOA Chery
+                        </option>
+                        <option value=Chevrolet>
+                            Chevrolet
+                        </option>
+                        <option value=Citroen>
+                            Citroen
+                        </option>
+                        <option value=Fiat>
+                            Fiat
+                        </option>
+                        <option value=Ford>
+                            Ford
+                        </option>
+                        <option value=Honda>
+                            Honda
+                        </option>
+                        <option value=Hyundai>
+                            Hyundai
+                        </option>
+                        <option value=Jepp>
+                            Jepp
+                        </option>
+                        <option value=Kia>
+                            Kia
+                        </option>
+                        <option value=Honda>
+                            Land Rover
+                        </option>
+                        <option value=Honda>
+                            Mercedes
+                        </option>
+                        <option value=Honda>
+                            Mini
+                        </option>
+                        <option value=Honda>
+                            Mitsubishi
+                        </option>
+                        <option value=Honda>
+                            Nissan
+                        </option>
+                        <option value=Honda>
+                            Peugeot
+                        </option>
+                        <option value=Honda>
+                            Porche
+                        </option>
+                        <option value=Honda>
+                            RAM
+                        </option>
+                        <option value=Honda>
+                            Renault
+                        </option>
+                        <option value=Honda>
+                            Subaru
+                        </option>
+                        <option value=Honda>
+                            Suzuki
+                        </option>
+                        <option value=Honda>
+                            Toyota
+                        </option>
+                        <option value=Honda>
+                            Volkswagen
+                        </option>
+                        <option value=Honda>
+                            Volvo
+                        </option>
+                    </select>
                 </div>
                 <div class=caddeita id=cadmod>
-                <?php require "CadPHP/modelo.php";
-                    echo $_SESSION['modelo'];
-                ?>
+                    <h2>Modelo</h2><input type="text" name="modelo" id="modelo" >
                 </div>
-                <div class=caddeita id="cadanomod">
-                <?php require "CadPHP/anomodelo.php";
-                    echo $_SESSION['anomod'];
-                ?>
+                <div class="caddeita" id="cadAnoMod">
+                    <h2>Ano Modelo</h2><input type="number" name="anomod" min="1990" max="2099" id="anomodelo" onclick="esconderAnoFab()">
                 </div>
-                <div class=caddeita id="cadanofab">
-                <?php require "CadPHP/anofabri.php";
-                    echo $_SESSION['anofab'];
-                ?>
+                <div class="caddeita" id="cadAnoFab">
+                    <h2>Ano De Fabricação</h2><input type="number" name="anofab" min="1990" max="2099" id="anofab" onclick="esconderVersao()">
                 </div>
-                <div class=caddeita id="cadversao">
-                <?php require "CadPHP/versao.php";
-                    echo $_SESSION['versao'];
-                ?>
+                <div class="caddeita" id="cadVersao">
+                    <h2>Versão</h2><input type="text" name="versao">
                 </div>
-                <button class="button-6">Cadastrar</button>
+                <div class="buttomD">
+                    <button class="butom " type="submit"> Cadastrar</button>
+                <div>
+                
             </form>
+                </div>
+            </div>
         </div>
     </div>
+                
     <!--Rodapé-->
     <?php require "PHP/rodape.php";
         echo $_SESSION['rodape'];

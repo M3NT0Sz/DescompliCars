@@ -93,3 +93,22 @@
     color: rgba(0, 0, 0, 0.65);
     transform: translateY(0);
   }
+
+  .butom{
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    left: -100%;
+    background: -webkit-linear-gradient(right, #005cd8, #004aad, #005cd8, #004aad);
+    border-radius: 5px;
+    transition: all 0.4s ease;
+    color:white
+  }
+
+  .buttomD{
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+  }

@@ -1,7 +1,7 @@
 <?php
     session_start();
     include_once("../PHP/conexao.php");
-    $_SESSION['cima'] = "<div class=container>;
+    $_SESSION['cima'] = "<div class=container>
         <div class=menu>
             <div class=imagemmenu>
                 <a href=../index.php><img src=../Imagens/Logo.png></a>
