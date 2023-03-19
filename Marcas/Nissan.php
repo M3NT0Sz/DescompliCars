@@ -10,15 +10,43 @@
     <title>DescompliCars</title>
 </head>
 <body>
-    <!--MenuBar-->
-    <?php require "../PHP/marcas.php";
+<?php require "../PHP/marcas.php";
         echo $_SESSION['cima'];
     ?>
     <!--Fecha MenuBar-->
+    <div class="slideshow-container">
+
+        <div id="radio1" class="mySlides fade">
+          <img src="../imgLogosECarros/Chevrolet/chevroletLogo.png" style="width:auto; height:400px;">
+        </div>
+        
+        <div id="radio2" class="mySlides fade">
+          <img src="../imgLogosECarros/BMW/320iBMW.png" style="width:auto; height: 400px;;">
+        </div>
+        
+        <div id="radio3" class="mySlides fade">
+          <img src="../imgLogosECarros/Chevrolet/carro2.png" style="width:auto; height: 400px;;">
+        </div>
+        
+        <div id="radio4" class="mySlides fade">
+          <img src="../imgLogosECarros/Chevrolet/carro1.png" style="width:auto; height: 400px;;">
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        </div>
     <!--Rodapé-->
     <?php require "../PHP/rodape2.php";
         echo $_SESSION['rodape'];
     ?>
     <!--Rodapé Fechar-->
+    <script src="../Java/script.js"></script>
+    <script src="../Java/app.js"></script>
+    <script>
+      setInterval(() => {
+        plusSlides(1)
+      }, 5000);
+    </script>
 </body>
 </html> 
