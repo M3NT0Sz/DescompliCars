@@ -17,11 +17,11 @@
     <div class="slideshow-container">
 
         <div id="radio1" class="mySlides fade">
-          <img src="../imgLogosECarros/Chevrolet/chevroletLogo.png" style="width:auto; height:400px;">
+          <img src="../imgLogosECarros/Chevrolet/Logo-Chevrolet.png" style="width:auto; height:400px;">
         </div>
         
         <div id="radio2" class="mySlides fade">
-          <img src="../imgLogosECarros/BMW/320iBMW.png" style="width:auto; height: 400px;;">
+          <img src="../imgLogosECarros/Chevrolet/carro3.png" style="width:auto; height: 400px;;">
         </div>
         
         <div id="radio3" class="mySlides fade">
