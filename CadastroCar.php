@@ -131,6 +131,6 @@
         echo $_SESSION['rodape'];
     ?>
     <!--Rodapé Fechar-->
-    <script src="JS/cadcarros.js"></script>
+    <script src="Java/cadcarros.js"></script>
 </body>
 </html>
