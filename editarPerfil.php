@@ -30,10 +30,7 @@
                     <div class="letrasusu">
                         Informações
                     </div>
-                    <div class="letrasusu">
-                    <a class="letrasusu" href="editarPerfil.php">Editar Perfil</a> 
-                         
-                    </div>
+                    
                     <a class="letrasusu" href=PHP/sair.php><form action="PHP/sair.php" method="post">
                         Sair
                     </form></a>

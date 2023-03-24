@@ -17,7 +17,7 @@
     <div class="slideshow-container">
 
         <div id="radio1" class="mySlides fade">
-          <img src="../imgLogosECarros/Chevrolet/chevroletLogo.png" style="width:auto; height:400px;">
+          <img src="../imgLogosECarros//chevroletLogo.png" style="width:auto; height:400px;">
         </div>
         
         <div id="radio2" class="mySlides fade">
