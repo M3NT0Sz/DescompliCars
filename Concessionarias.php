@@ -51,6 +51,12 @@
                         <h1>Citroen</h1>
                     </div>
                 </div></a>
+                <a href="Marcas/Ferrari.php"><div class="featured-box">
+                    <div class="featured-img">
+                        <img src="Concessionarias/Logo-Ferrari.png">
+                        <h1>Ferrari</h1>
+                    </div>
+                </div></a>
                 <a href="Marcas/FIAT.php"><div class="featured-box">
                     <div class="featured-img">
                         <img src="Concessionarias/Logo-Fiat.png">
