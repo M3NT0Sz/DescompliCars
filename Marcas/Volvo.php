@@ -17,19 +17,19 @@
     <div class="slideshow-container">
 
         <div id="radio1" class="mySlides fade">
-          <img src="../imgLogosECarros/Chevrolet/chevroletLogo.png" style="width:auto; height:400px;">
+          <img src="../imgLogosECarros/Volvo/VolvoLogo.png" style="width:auto; height:400px;">
         </div>
         
         <div id="radio2" class="mySlides fade">
-          <img src="../imgLogosECarros/BMW/320iBMW.png" style="width:auto; height: 400px;;">
+          <img src="../imgLogosECarros/Volvo/carro1.png" style="width:auto; height: 400px;;">
         </div>
         
         <div id="radio3" class="mySlides fade">
-          <img src="../imgLogosECarros/Chevrolet/carro2.png" style="width:auto; height: 400px;;">
+          <img src="../imgLogosECarros/Volvo/carro2.png" style="width:auto; height: 400px;;">
         </div>
         
         <div id="radio4" class="mySlides fade">
-          <img src="../imgLogosECarros/Chevrolet/carro1.png" style="width:auto; height: 400px;;">
+          <img src="../imgLogosECarros/Volvo/carro3.png" style="width:auto; height: 400px;;">
         </div>
         
         <a class="prev" onclick="plusSlides(-1)">❮</a>
