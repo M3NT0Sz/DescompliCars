@@ -23,7 +23,7 @@
     <div class="slideshow-container">
 
         <div id="radio1" class="mySlides fade">
-          <img src="Carosel/1.png" style="width:100%">
+          <img src="Carosel/1.png" style="width:100%;">
         </div>
         
         <div id="radio2" class="mySlides fade">

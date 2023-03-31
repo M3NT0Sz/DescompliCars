@@ -11,7 +11,7 @@
 
 .wrapper{
     overflow: hidden;
-    max-width: 390px;
+    max-width: 700px;
     background: #fff;
     padding: 30px;
     border-radius: 5px;
@@ -86,7 +86,7 @@
     user-select: none;
   }
   .wrapper .form-container{
-    width: 100%;
+    width: auto;
     overflow: hidden;
   }
   .form-container .form-inner{
@@ -99,9 +99,12 @@
   }
   .form-inner form .field{
     height: 50px;
-    width: 100%;
+    width: auto;
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
   }
+  
   .form-inner form .field input{
     height: 100%;
     width: 100%;

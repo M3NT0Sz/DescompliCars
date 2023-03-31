@@ -27,10 +27,11 @@
                 ?></h2>
                 </div>
                 <h2><div class="restousu">
-                    <div class="letrasusu">
-                        Informações
-                    </div>
-                    
+                    <a class="letrasusu" href="Perfil.php">
+                            <div>
+                                Voltar
+                            </div>
+                        </a>
                     <a class="letrasusu" href=PHP/sair.php><form action="PHP/sair.php" method="post">
                         Sair
                     </form></a>

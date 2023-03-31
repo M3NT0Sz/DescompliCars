@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../Imagens/DescomplicarsIcon.png" rel="icon">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>DescompliCars</title>
+</head>
+<body>
+<?php require "../PHP/marcas.php";
+        echo $_SESSION['cima'];
+    ?>
+    <!--Fecha MenuBar-->
+    <div class="slideshow-container">
+
+        <div id="radio1" class="mySlides fade">
+          <img src="../imgLogosECarros/Lamborghini/LamborghiniLogo.png" style="width:auto; height:400px;">
+        </div>
+        
+        <div id="radio2" class="mySlides fade">
+          <img src="../imgLogosECarros/Lamborghini/carro1.png" style="width:auto; height: 400px;;">
+        </div>
+        
+        <div id="radio3" class="mySlides fade">
+          <img src="../imgLogosECarros/Lamborghini/carro2.png" style="width:auto; height: 400px;;">
+        </div>
+        
+        <div id="radio4" class="mySlides fade">
+          <img src="../imgLogosECarros/Lamborghini/carro3.png" style="width:auto; height: 400px;;">
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        </div>
+    <!--Rodapé-->
+    <?php require "../PHP/rodape2.php";
+        echo $_SESSION['rodape'];
+    ?>
+    <!--Rodapé Fechar-->
+    <script src="../Java/script.js"></script>
+    <script src="../Java/app.js"></script>
+    <script>
+      setInterval(() => {
+        plusSlides(1)
+      }, 5000);
+    </script>
+</body>
+</html>

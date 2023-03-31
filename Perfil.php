@@ -1,8 +1,9 @@
 <?php
-    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,53 +14,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DescompliCars</title>
 </head>
+
 <body>
     <?php require "PHP/verificar.php";
-        echo $_SESSION['cima'];
+    echo $_SESSION['cima'];
     ?>
 
     <div class="lados">
         <div class="lado_di">
             <div class="coisas_di">
                 <div class="nomeusu">
-                <h2><?php
-                    echo $_SESSION['login'];
-                ?></h2>
+                    <h2><?php
+                        echo $_SESSION['login'];
+                        ?></h2>
                 </div>
-                <h2><div class="restousu">
-                    <div class="letrasusu">
-                        Informações
-                    </div>
-                    <div class="letrasusu">
-                    <a class="letrasusu" href="editarPerfil.php">Editar Perfil</a> 
-                         
-                    </div>
-                    <a class="letrasusu" href=PHP/sair.php><form action="PHP/sair.php" method="post">
-                        Sair
-                    </form></a>
-                    <?php
-                //mostrando a msg de login e senha inválidos!
-                    if(isset($_SESSION['msgC']))
-                    {
-                        echo $_SESSION['msgC'];
-                        unset($_SESSION['msgC']);
-                    }
-                ?>
+                <h2>
+                    <div class="restousu">
+                        <div class="letrasusu">
+                            Informações
+                        </div>
+                        <a class="letrasusu" href="editarPerfil.php">
+                            <div>
+                                Editar Perfil
+                            </div>
+                        </a>
+                        <a class="letrasusu" href=PHP/sair.php>
+                            <form action="PHP/sair.php" method="post">
+                                Sair
+                            </form>
+                        </a>
+                        <?php
+                        //mostrando a msg de login e senha inválidos!
+                        if (isset($_SESSION['msgC'])) {
+                            echo $_SESSION['msgC'];
+                            unset($_SESSION['msgC']);
+                        }
+                        ?>
 
-                </div></h2>    
+                    </div>
+                </h2>
             </div>
         </div>
         <div class="quadrado">
-        <a href="CadastroCar.php">
-            <div class="quad">
-                <img src="Imagens/Pergunta/Supra.png">
-                <h3>Vai colocar opinião sobre o seu carro?</h3>
-            </div>
-        </a>
+            <a href="CadastroCar.php">
+                <div class="quad">
+                    <img src="Imagens/Pergunta/Supra.png">
+                    <h3>Vai colocar opinião sobre o seu carro?</h3>
+                </div>
+            </a>
         </div>
     </div>
     <?php require "PHP/rodape.php";
-        echo $_SESSION['rodape'];
+    echo $_SESSION['rodape'];
     ?>
 </body>
+
 </html>
