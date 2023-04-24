@@ -33,16 +33,30 @@
                         <div class="letrasusu">
                             Informações
                         </div>
-                        <a class="letrasusu" href="editarPerfil.php">
-                            <div>
-                                Editar Perfil
-                            </div>
-                        </a>
+                        <form style="width:100%;" action="editarPerfil.php" method="post">
+                            <a class="letrasusu" href="editarPerfil.php">
+                                <div>
+                                    <?php
+                                    foreach ($_SESSION['loginA'] as $codigo) {
+                                        $codigo = $codigo['cod'];
+                                        echo "<input type=hidden name=codigo value=$codigo>";
+                                    }
+                                    ?>
+                                    Editar Perfil
+                                </div>
+                            </a>
+                        </form>
                         <a class="letrasusu" href=PHP/sair.php>
                             <form action="PHP/sair.php" method="post">
                                 Sair
                             </form>
                         </a>
+                        <?php
+                            if(isset($_SESSION['editado'])){
+                                echo $_SESSION['editado'];
+                                unset($_SESSION['editado']);
+                            }
+                        ?>
                         <?php
                         //mostrando a msg de login e senha inválidos!
                         if (isset($_SESSION['msgC'])) {

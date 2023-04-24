@@ -9,9 +9,15 @@
     $result = mysqli_query($conn, $sql);
     $row_usuario = mysqli_fetch_array($result);  
     if(mysqli_num_rows($result) == 1)
-    {
+    { 
+        if (!isset($_SESSION['loginA'])) {
+            $_SESSION['loginA'] = array();
+        }
         
-        $_SESSION['login'] = $row_usuario['usu_nome'] ." ". $row_usuario['usu_sobrenome'];
+        $_SESSION['loginA'][] = array(
+            'cod' => $row_usuario['usu_cod']
+        );
+        $_SESSION['login'] = $row_usuario['usu_nome'] ." ". $row_usuario['usu_sobrenome'] . "<input type=hidden name=codigo value=".$row_usuario['usu_cod'].">";
         header("Location: ../Perfil.php");
     }
     else
