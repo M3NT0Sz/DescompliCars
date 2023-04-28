@@ -105,11 +105,10 @@
                 <input type="hidden" class="id" name="codigo" value=<?php echo $row_usuario['usu_cod'] ?>>
                     <script>
                         function excluir() {
-                            if (confirm("Tem certeza que deseja excluir este item?")) {
+                            if (confirm("Tem certeza que deseja excluir sua conta?")) {
                                 const input = document.getElementsByClassName("id");
                                 event.preventDefault();
                                 window.location.href = "PHP/excluir.php?codigo="+input[0].value
-
                             } else {
 
                             }
