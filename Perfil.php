@@ -73,7 +73,7 @@
             <a href="CadastroCar.php">
                 <div class="quad">
                     <img src="Imagens/Pergunta/Supra.png">
-                    <h3>Vai colocar opinião sobre o seu carro?</h3>
+                    <h3>Vai colocar sua opinião sobre algum carro?</h3>
                 </div>
             </a>
         </div>
