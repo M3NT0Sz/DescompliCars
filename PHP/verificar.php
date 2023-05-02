@@ -2,11 +2,11 @@
     session_start();
     include_once("PHP/conexao.php");
     $_SESSION['cima'] = "
-    <link href=https://fonts.cdnfonts.com/css/lambo rel=stylesheet>
-    <div class=container>
+    <link href=https://fonts.cdnfonts.com/css/maven-pro rel=stylesheet>
+    <div class=container style='margin-bottom:10vh;'>
         <div class=menu>
             <div class=imagemmenu>
-                <a class=linkmenus href=index.php><img src=Imagens/Logo.png><font color=black size=5>Descompli</font><font color=#004aad size=5>Cars</font></a>
+                <a href=index.php class=linkmenus><img src=Imagens/Logo.png><h2><font color=black>Descompli</font><font color=#004aad>Cars</font></h2></a>
             </div>
             <div class=navbar>
                 <ul class=tabelamenu>

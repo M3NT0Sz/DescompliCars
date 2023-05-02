@@ -1,7 +1,7 @@
-*{
+* {
     padding: 0%;
     margin: 0%;
-    font-family: 'Lambo', sans-serif;
+    font-family: 'Maven Pro', sans-serif;
     box-sizing: border-box;
 }
 
@@ -11,10 +11,11 @@
     height: auto;
     position: relative;
     margin: auto;
-  }
-  
-  /* Next & previous buttons */
-  .prev, .next {
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -27,21 +28,22 @@
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-  }
-  
-  /* Position the "next button" to the right */
-  .next {
+}
+
+/* Position the "next button" to the right */
+.next {
     right: 0;
     border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-  
-  /* Caption text */
-  .text {
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
     color: #f2f2f2;
     font-size: 15px;
     padding: 8px 12px;
@@ -49,19 +51,19 @@
     bottom: 8px;
     width: 100%;
     text-align: center;
-  }
-  
-  /* Number text (1/3 etc) */
-  .numbertext {
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
     color: #f2f2f2;
     font-size: 12px;
     padding: 8px 12px;
     position: absolute;
     top: 0;
-  }
-  
-  /* The dots/bullets/indicators */
-  .dot {
+}
+
+/* The dots/bullets/indicators */
+.dot {
     cursor: pointer;
     height: 15px;
     width: 15px;
@@ -70,73 +72,85 @@
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
-  }
-  
-  .active, .dot:hover {
+}
+
+.active,
+.dot:hover {
     background-color: #717171;
-  }
-  
-  /* Fading animation */
-  .fade {
+}
+
+/* Fading animation */
+.fade {
     animation-name: fade;
     animation-duration: 1.5s;
-  }
-  
-  @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
-  
-  /* On smaller screens, decrease text size */
-  @media only screen and (max-width: 300px) {
-    .prev, .next,.text {font-size: 11px}
-  }
-
-body{
-    background-color:rgb(236, 237, 242);
-    
 }
-.container{
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+
+    .prev,
+    .next,
+    .text {
+        font-size: 11px
+    }
+}
+
+body {
+    background-color: rgb(236, 237, 242);
+
+}
+
+.container {
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    width:100%;
-    height:auto;
+    width: 100%;
+    height: auto;
 }
 
-.menu{
+.menu {
     display: flex;
-    z-index: 0;
+    z-index: 3;
     overflow: hidden;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding-left: 2.5rem;
-    padding-right: 2,5rem;
     width: 100%;
     height: 10vh;
     background: white;
-    position: relative;
+    position: fixed;
     top: 0;
     color: black;
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 7%);
 }
-.imagemmenu{
+
+.imagemmenu {
     display: flex;
     justify-content: center;
     align-items: center;
     top: 0;
     position: relative;
     vertical-align: middle;
+    margin-left: 20px;
 }
 
-.imagemmenu img{
+.imagemmenu img {
     width: auto;
     height: 70px;
     display: flex;
 }
 
-.linkmenus{
+.linkmenus {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -144,21 +158,21 @@ body{
     text-decoration: none;
 }
 
-.navbar{
+.navbar {
     width: 100%;
     display: flex;
-    height: 100%;
+    height: 10vh;
     align-items: center;
     justify-content: center;
     align-content: center;
 }
 
-.tabelamenu{
+.tabelamenu {
     display: flex;
-    height: 100%;
+    height: 10vh;
 }
 
-.linkmenu{
+.linkmenu {
     align-items: center;
     border-bottom-width: 2px;
     border-color: transparent;
@@ -167,77 +181,84 @@ body{
     padding-right: 1.5rem;
     position: relative;
     font-size: 25px;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
-.linkmenu a{
+.linkmenu a {
     color: black;
     text-decoration: none;
 }
 
-.linkmenu:hover{
+.linkmenu:hover {
     border-bottom: 2px solid #004aad;
 }
 
-.iconesmenu{
+.iconesmenu {
     display: flex;
     align-items: center;
     position: relative;
-    margin-right: 20px;
 }
 
-.iconesmenu i{
+.iconesmenu i {
     width: 100%;
     height: auto;
     position: relative;
     color: #004aad;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
-.bxs-user, .bxs-bell{
+.bxs-user {
+    margin-right: 20px;
+}
+
+.bxs-bell{
+    margin-right: 20px;
+}
+
+.bxs-user,
+.bxs-bell {
     font-size: 1.5rem;
-    margin-right: 25px;
 }
 
-.linkicones{
+.linkicones {
     color: white;
 }
 
 
 
-.h1{
-    font-family: 'Cooper Hewitt Heavy', Serif ;
-    color:  #004aad;
+.h1 {
+    font-family: 'Cooper Hewitt Heavy', Serif;
+    color: #004aad;
     text-align: center;
     margin: 0 auto 40px auto;
 
-    
+
 }
 
-.hr{
+.hr {
     height: 3px;
     width: 50px;
     margin: 15px auto 20px auto;
     background-color: #004aad;
 }
 
-.gallery{
+.gallery {
     display: flex;
     width: 90%;
     height: 60vh;
     margin-left: 50px;
     overflow-x: auto;
-    
+
 }
 
-.Ph1{
-    
-    
+.Ph1 {
+
+
     margin: 0px 0px 16px;
     font-size: auto;
     font-weight: 700;
-    
-    line-height: 1.2; 
+
+    line-height: 1.2;
     color: rgb(123, 123, 243);
     font-weight: 500;
     font-size: 2.5rem;
@@ -251,28 +272,28 @@ body{
 
 
 
-.imgSuv{
+.imgSuv {
     display: flex;
     width: 30vh;
     height: 35vh;
     border-radius: 10px;
     margin-left: 35px;
     overflow: hidden;
-   position: relative;
-   transition: width 1s, height 1s, transform 1s;
+    position: relative;
+    transition: width 1s, height 1s, transform 1s;
 
-    
+
 }
 
-.imgSuv:hover{
+.imgSuv:hover {
     width: 40vh;
     height: 40vh;
     transform: rotateY('90');
 }
 
-.imgTudo{
+.imgTudo {
     display: flex;
-    width:30vh ;
+    width: 30vh;
     height: 35vh;
     border-radius: 10px;
     margin-left: 35px;
@@ -281,21 +302,21 @@ body{
     transition: width 1s, height 1s, transform 1s;
 }
 
-.imgTudo:hover{
-    width:40vh;
+.imgTudo:hover {
+    width: 40vh;
     height: 40vh;
     transform: rotate('90');
 }
 
-.top-titlea{
+.top-titlea {
     width: 100%;
     height: auto;
     text-align: center;
     margin: 0 auto 40px auto;
 }
 
-.top-titlea h3{
-    color:#004aad;
+.top-titlea h3 {
+    color: #004aad;
     font-size: 40px;
     font-weight: 600;
     line-height: 1.2;
@@ -303,14 +324,14 @@ body{
     margin-top: 20px;
 }
 
-hr{
+hr {
     height: 3px;
     width: 50px;
     margin: 15px auto 20px auto;
     background-color: #004aad;
 }
 
-.rowa{
+.rowa {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -320,7 +341,7 @@ hr{
     align-content: center;
 }
 
-.featured-boxa{
+.featured-boxa {
     background-color: white;
     position: relative;
     transition: .5s;
@@ -338,7 +359,7 @@ hr{
     transition: width 1s, height 1s, transform 1s;
 }
 
-.featured-imga{
+.featured-imga {
     position: relative;
     overflow: hidden;
     display: flex;
@@ -348,28 +369,28 @@ hr{
     flex-direction: column;
 }
 
-.featured-imga img{
+.featured-imga img {
     width: 100%;
     height: 100%;
 }
 
-.featured-boxa h1{
+.featured-boxa h1 {
     font-size: 100%;
     overflow: auto;
 }
 
-.rowa a{
+.rowa a {
     text-decoration: none;
     color: black;
 }
 
-.featured-boxa:hover{
+.featured-boxa:hover {
     width: 200px;
     height: 250px;
     transform: rotateY('90');
 }
 
-.concessionariaa{
+.concessionariaa {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -378,7 +399,7 @@ hr{
     position: relative;
 }
 
-.containerconcea{
+.containerconcea {
     display: flex;
     max-width: 100%;
     width: auto;
@@ -391,7 +412,7 @@ hr{
     align-content: center;
 }
 
-.rodaPg{
+.rodaPg {
     display: flex;
     width: 100%;
     height: auto;
@@ -402,7 +423,7 @@ hr{
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 55%);
 }
 
-.sec{
+.sec {
     margin-top: 30px;
     margin-bottom: 30px;
     padding-left: 5%;
@@ -415,11 +436,11 @@ hr{
     justify-content: center;
 }
 
-.sec h1{
+.sec h1 {
     font-size: 20px;
 }
 
-.imgMeio{
+.imgMeio {
     width: 100%;
     height: auto;
     display: flex;
@@ -428,13 +449,13 @@ hr{
     text-align: center;
 }
 
-.imgLogos{
-    width:auto;
-    height:500px;
+.imgLogos {
+    width: auto;
+    height: 500px;
 }
 
-.mySlides{
-    display:flex;
-    text-align:center;
-    justify-content:center;
+.mySlides {
+    display: flex;
+    text-align: center;
+    justify-content: center;
 }
