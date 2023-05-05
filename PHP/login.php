@@ -15,7 +15,9 @@
         }
         
         $_SESSION['loginA'][] = array(
-            'cod' => $row_usuario['usu_cod']
+            'cod' => $row_usuario['usu_cod'],
+            'nome' => $row_usuario['usu_nome'],
+            'sobrenome' => $row_usuario['usu_sobrenome']
         );
         $_SESSION['login'] = $row_usuario['usu_nome'] ." ". $row_usuario['usu_sobrenome'] . "<input type=hidden name=codigo value=".$row_usuario['usu_cod'].">";
         header("Location: ../Perfil.php");

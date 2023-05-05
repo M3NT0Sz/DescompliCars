@@ -23,88 +23,58 @@
     <div class="cadquad">
         <div class="cadquadrado">
             <h1>Cadastre seu veiculo</h1>
-            <form method="post" action="PHP/prod_cadCar.php">
+            <form method="post" action="PHP/prod_cadCar.php" enctype="multipart/form-data">
                 <div class=caddeita>
                     <h2>Marca</h2>
                     <select class=marca name=marca id=marca onclick='esconderMod()'>
-                        <option value='Escolha uma Marca'>
-                            Escolha uma Marca
-                        </option>
-                        <option value='Audi'>
-                            Audi
-                        </option>
-                        <option value=BMW>
-                            BMW
-                        </option>
-                        <option value=CAOA>
-                            CAOA Chery
-                        </option>
-                        <option value=Chevrolet>
-                            Chevrolet
-                        </option>
-                        <option value=Citroen>
-                            Citroen
-                        </option>
-                        <option value=Fiat>
-                            Fiat
-                        </option>
-                        <option value=Ford>
-                            Ford
-                        </option>
-                        <option value=Honda>
-                            Honda
-                        </option>
-                        <option value=Hyundai>
-                            Hyundai
-                        </option>
-                        <option value=Jepp>
-                            Jepp
-                        </option>
-                        <option value=Kia>
-                            Kia
-                        </option>
-                        <option value=Honda>
-                            Land Rover
-                        </option>
-                        <option value=Honda>
-                            Mercedes
-                        </option>
-                        <option value=Honda>
-                            Mini
-                        </option>
-                        <option value=Honda>
-                            Mitsubishi
-                        </option>
-                        <option value=Honda>
-                            Nissan
-                        </option>
-                        <option value=Honda>
-                            Peugeot
-                        </option>
-                        <option value=Honda>
-                            Porche
-                        </option>
-                        <option value=Honda>
-                            RAM
-                        </option>
-                        <option value=Honda>
-                            Renault
-                        </option>
-                        <option value=Honda>
-                            Subaru
-                        </option>
-                        <option value=Honda>
-                            Suzuki
-                        </option>
-                        <option value=Honda>
-                            Toyota
-                        </option>
-                        <option value=Honda>
-                            Volkswagen
-                        </option>
-                        <option value=Honda>
-                            Volvo
-                        </option>
+                        <?php
+                        $cars = [
+                            'Audi',
+                            'BMW',
+                            'CAOA Chery',
+                            'Chevrolet',
+                            'Citroen',
+                            'Fiat',
+                            'Ford',
+                            'Honda',
+                            'Hyundai',
+                            'Jeep',
+                            'Kia',
+                            'Land Rover',
+                            'Mercedes',
+                            'Mini',
+                            'Mitsubishi',
+                            'Nissan',
+                            'Peugeot',
+                            'Porche',
+                            'RAM',
+                            'Renault',
+                            'Subaru',
+                            'Suzuki',
+                            'Toyota',
+                            'Volkswagen',
+                            'Volvo',
+                            'Ferrari',
+                            'Lamborghini'
+                            
+                        ];
+                        echo "<option value='Escolha uma Marca'>
+                        Escolha uma Marca
+                    </option>";
+                        for ($x = 0; $x < sizeof($cars); $x++) {
+                            echo "<option value=$cars[$x]>
+                            " . $cars[$x] . "
+                        </option>";
+                        }
+
+
+                        ?>
+
+
+
+
+
+                     
                     </select>
                 </div>
                 <div class=caddeita id=cadmod>
@@ -118,6 +88,9 @@
                 </div>
                 <div class="caddeita" id="cadVersao">
                     <h2>Versão</h2><input type="text" name="versao">
+                </div>
+                <div class="caddeita" id="cadVersao">
+                    <h2>Tipo</h2><input type="text" name="tipo">
                 </div>
                 <div class="caddeita">
                     <h2>Imagem do veículo</h2>

@@ -18,6 +18,8 @@ $sql = "UPDATE usuarios SET usu_nome = '$nome', usu_sobrenome = '$sobreNome', us
 $comando = mysqli_query($conn, $sql);
 if(mysqli_affected_rows($conn)){
     $_SESSION['editado'] = "Usuario editado com sucesso";
+    unset($_SESSION['login']);
+    $_SESSION['edit'] = $nome. " " .$sobreNome;    
     header("location:../Perfil.php");
 }else{
     $_SESSION['naoeditado'] = "Usuario não editado";

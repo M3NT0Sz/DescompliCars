@@ -1,10 +1,11 @@
 <?php
     session_start();
     include_once("../PHP/conexao.php");
-    $_SESSION['cima'] = "<div class=container>
+    $_SESSION['cima'] = "
+    <div class=container style='margin-bottom:10vh;'>
         <div class=menu>
             <div class=imagemmenu>
-                <a href=../index.php><img src=../Imagens/Logo.png></a>
+                <a href=../index.php class=linkmenus><img src=../Imagens/Logo.png><h2><font color=black>Descompli</font><font color=#004aad>Cars</font></h2></a>
             </div>
             <div class=navbar>
                 <ul class=tabelamenu>

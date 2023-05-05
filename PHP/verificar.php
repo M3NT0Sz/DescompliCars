@@ -6,7 +6,7 @@
     <div class=container style='margin-bottom:10vh;'>
         <div class=menu>
             <div class=imagemmenu>
-                <a href=index.php class=linkmenus><img src=Imagens/Logo.png><h2><font color=black>Descompli</font><font color=#004aad>Cars</font></h2></a>
+                <a href=index.php class=linkmenus style=text-decoration:none;><img src=Imagens/Logo.png><h2><font color=black>Descompli</font><font color=#004aad>Cars</font></h2></a>
             </div>
             <div class=navbar>
                 <ul class=tabelamenu>

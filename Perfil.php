@@ -25,7 +25,11 @@
             <div class="coisas_di">
                 <div class="nomeusu">
                     <h2><?php
-                        echo $_SESSION['login'];
+                            if(isset($_SESSION['login'])){
+                                echo $_SESSION['login'];
+                            }else if(isset($_SESSION['edit'])){
+                                echo $_SESSION['edit'];
+                            }
                         ?></h2>
                 </div>
                 <h2>

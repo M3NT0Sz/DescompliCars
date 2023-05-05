@@ -29,7 +29,11 @@
             <div class="coisas_di">
                 <div class="nomeusu">
                     <h2><?php
-                        echo $_SESSION['login'];
+                        if (isset($_SESSION['login'])) {
+                            echo $_SESSION['login'];
+                        } else if (isset($_SESSION['edit'])) {
+                            echo $_SESSION['edit'];
+                        }
                         ?></h2>
                 </div>
                 <h2>
@@ -102,19 +106,19 @@
                     </div>
                 </form>
                 <div class="quadlado">
-                <input type="hidden" class="id" name="codigo" value=<?php echo $row_usuario['usu_cod'] ?>>
+                    <input type="hidden" class="id" name="codigo" value=<?php echo $row_usuario['usu_cod'] ?>>
                     <script>
                         function excluir() {
                             if (confirm("Tem certeza que deseja excluir sua conta?")) {
                                 const input = document.getElementsByClassName("id");
                                 event.preventDefault();
-                                window.location.href = "PHP/excluir.php?codigo="+input[0].value
+                                window.location.href = "PHP/excluir.php?codigo=" + input[0].value
                             } else {
 
                             }
                         }
                     </script>
-                        <button class="botao" type="submit" onclick="excluir()">Excluir</button>
+                    <button class="botao" type="submit" onclick="excluir()">Excluir</button>
                 </div>
                 </form>
             </div>
