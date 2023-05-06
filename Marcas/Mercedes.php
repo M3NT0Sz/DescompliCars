@@ -41,29 +41,28 @@
   <?php
   $caraudi = "SELECT * FROM carros WHERE car_marca like 'Mercedes'";
   $comando = mysqli_query($conn, $caraudi);
-  while ($row = mysqli_fetch_array($comando)) {
-    $marca = $row['car_marca'];
-    $modelo = $row['car_modelo'];
-    $anomod = $row['car_anomod'];
-    $anofab = $row['car_anofab'];
-    $versao = $row['car_versao'];
-    $tipo = $row['car_tipo'];
-    $imagem = base64_encode($row['car_image']);
-    echo "<a href=Modelos/Familia.php>
-    <div class=featured-boxa>
-      <div class=featured-imga>
-        <img src='data:image/jpeg;base64,$imagem'>
-        <h1>$marca</h1>
-        <h1>$modelo</h1>
-        <h1>$anomod</h1>
-        <h1>$anofab</h1>
-        <h1>$versao</h1>
-        <h1>$tipo</h1>
-      </div>";
-    echo "
-    </div>
-  </a>";
-  }
+  echo "<div class=rowb>";
+    while ($row = mysqli_fetch_array($comando)) {
+      $marca = $row['car_marca'];
+      $modelo = $row['car_modelo'];
+      $anomod = $row['car_anomod'];
+      $anofab = $row['car_anofab'];
+      $versao = $row['car_versao'];
+      $tipo = $row['car_tipo'];
+      $imagem = base64_encode($row['car_image']);
+      echo "<a href=Modelos/Familia.php><div class=featured-boxb>
+          <div class=featured-imgb>
+              <img src='data:image/jpeg;base64,$imagem'>
+              <h1>$marca</h1>
+              <h1>$modelo</h1>
+              <h1>$anomod</h1>
+              <h1>$anofab</h1>
+              <h1>$versao</h1>
+              <h1>$tipo</h1>
+          </div>";
+          echo "</div></a>";
+    }
+    echo "</div>";
   ?>
   <!--Rodapé-->
   <?php require "../PHP/rodape2.php";

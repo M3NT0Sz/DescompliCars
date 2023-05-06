@@ -38,8 +38,9 @@
         
         </div>
         <?php
-  $caraudi = "SELECT * FROM carros WHERE car_marca like 'Chery'";
+  $caraudi = "SELECT * FROM carros WHERE car_marca like 'CAOA Chery'";
   $comando = mysqli_query($conn, $caraudi);
+  echo "<div class=rowb>";
     while ($row = mysqli_fetch_array($comando)) {
       $marca = $row['car_marca'];
       $modelo = $row['car_modelo'];
@@ -48,8 +49,8 @@
       $versao = $row['car_versao'];
       $tipo = $row['car_tipo'];
       $imagem = base64_encode($row['car_image']);
-      echo "<a href=Modelos/Familia.php><div class=featured-boxa>
-          <div class=featured-imga>
+      echo "<a href=Modelos/Familia.php><div class=featured-boxb>
+          <div class=featured-imgb>
               <img src='data:image/jpeg;base64,$imagem'>
               <h1>$marca</h1>
               <h1>$modelo</h1>
@@ -60,6 +61,7 @@
           </div>";
           echo "</div></a>";
     }
+    echo "</div>";
   ?>
     <!--Rodapé-->
     <?php require "../PHP/rodape2.php";

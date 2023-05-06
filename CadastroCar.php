@@ -34,13 +34,15 @@
                             'CAOA Chery',
                             'Chevrolet',
                             'Citroen',
+                            'Ferrari',
                             'Fiat',
                             'Ford',
                             'Honda',
                             'Hyundai',
                             'Jeep',
                             'Kia',
-                            'Land Rover',
+                            'Lamborghini',
+                            'LandRover',
                             'Mercedes',
                             'Mini',
                             'Mitsubishi',
@@ -53,10 +55,7 @@
                             'Suzuki',
                             'Toyota',
                             'Volkswagen',
-                            'Volvo',
-                            'Ferrari',
-                            'Lamborghini'
-                            
+                            'Volvo'
                         ];
                         echo "<option value='Escolha uma Marca'>
                         Escolha uma Marca
@@ -66,15 +65,7 @@
                             " . $cars[$x] . "
                         </option>";
                         }
-
-
                         ?>
-
-
-
-
-
-                     
                     </select>
                 </div>
                 <div class=caddeita id=cadmod>
@@ -90,14 +81,20 @@
                     <h2>Versão</h2><input type="text" name="versao">
                 </div>
                 <div class="caddeita" id="cadVersao">
-                    <h2>Tipo</h2><input type="text" name="tipo">
+                    <h2>Tipo</h2><select name="tipo" id="">
+                        <option value="SUVs">SUVs</option>
+                        <option value="Hatchers">Hatchers</option>
+                        <option value="Picapes">Picapes</option>
+                        <option value="Eletricos">Eletricos</option>
+                        <option value="Sedans">Sedans</option>
+                    </select>
                 </div>
                 <div class="caddeita">
                     <h2>Imagem do veículo</h2>
                     <input type="file" name="imagem" accept="image/*">
                 </div>
                 <div class="buttomD">
-                    <button class="butom " type="submit"> Cadastrar</button>
+                    <button class="butom " type="submit">Cadastrar</button>
                     <div>
 
             </form>
