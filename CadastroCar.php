@@ -13,7 +13,7 @@
     <title>DescompliCars</title>
 </head>
 
-<body onload="esconderMod(); esconderAnoMod(); esconderAnoFab(); esconderVersao();">
+<body>
     <!--MenuBar-->
     <?php require "PHP/verificar.php";
     echo $_SESSION['cima'];
@@ -26,7 +26,7 @@
             <form method="post" action="PHP/prod_cadCar.php" enctype="multipart/form-data">
                 <div class=caddeita>
                     <h2>Marca</h2>
-                    <select class=marca name=marca id=marca onclick='esconderMod()'>
+                    <select class=marca name=marca id=marca>
                         <?php
                         $cars = [
                             'Audi',

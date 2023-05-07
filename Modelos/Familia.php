@@ -16,7 +16,7 @@
     ?>
     <!--Fecha MenuBar-->
     <!--Rodapé-->
-    <?php require "PHP/rodape.php";
+    <?php require "../PHP/rodape2.php";
         echo $_SESSION['rodape'];
     ?>
     <!--Rodapé Fechar-->

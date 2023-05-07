@@ -53,7 +53,7 @@
         <h3>Modelos</h3>
         <hr>
     <div class="rowa">
-      <a href="#" id="modelos"><div class="featured-boxa">
+      <a href="Modelos/SUVs.php" id="modelos"><div class="featured-boxa">
           <div class="featured-imga">
               <img src="Carros/abcdefg.png">
               <h1>SUVs</h1>
