@@ -19,6 +19,9 @@
     ?>
     <!--Fecha MenuBar-->
     <?php
+    foreach ($_SESSION['loginA'] as $codigo) {
+        $codigousu = $codigo['cod'];
+    }
     $cod = $_POST['cod'];
     $marcas = "SELECT * FROM marcas WHERE mar_cod = $cod";
     $comando = mysqli_query($conn, $marcas);
@@ -26,9 +29,8 @@
         $marca = $row['mar_nome'];
         $imagem = base64_encode($row['mar_image']);
 
-        echo "<center><img src='data:image/jpeg;base64,$imagem'><br>
-            <h1><font color=#004aad>$marca</font></h1>
-        </center>";
+        echo "<div class=marcatudo><div class=imagemmarca><img src='data:image/jpeg;base64,$imagem'></div><br>
+            <h1><font color=#004aad>$marca</font></h1></div>";
         $teste = "SELECT * FROM carros WHERE car_marca='$marca'";
         $comando = mysqli_query($conn, $teste);
         while ($row = mysqli_fetch_array($comando)) {
@@ -54,25 +56,27 @@
             <div class=featured-imgb>
             <form action=carros.php method=post>
               <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$marca</h1>
               <h1>$modelo</h1>
               <h1>$anomod</h1>
               <h1>$anofab</h1>
               <h1>$versao</h1>
-              <h1>$tipo</h1>
               <input type=hidden name=cod value=$cod>
-              <button>Ver Opniões</button>
-              </form>
-              <form method=post action=PHP/procexcluir.php>
-              <input type=hidden name=cod value=$cod>
-              <button>Excluir</button>
-              </form>
-              <form method=post action=PHP/proceditcar.php>
-              <input type=hidden name=cod value=$cod>
-              <button>Editar</button>
-              </form>
-          </div>";
-                    echo "</div>";
+              <button class=button-6>Ver Opniões</button>
+              </form>";
+
+                if($codigousu == "1"){
+                echo"<form method=post action=PHP/procexcluir.php>
+                <input type=hidden name=cod value=$cod>
+                <button>Excluir</button>
+                </form>
+                <form method=post action=PHP/proceditcar.php>
+                <input type=hidden name=cod value=$cod>
+                <button>Editar</button>
+                </form>";
+                } else {
+                    echo "";
+                }
+                echo "</div></div>";
                 }
             }
         }
@@ -112,19 +116,23 @@
               <h1>$versao</h1>
               <h1>$tipo</h1>
               <input type=hidden name=cod value=$cod>
-              <button>Ver Opniões</button>
-              </form>
-              <form method=post action=PHP/procexcluir.php>
+              <button class=button-6>Ver Opniões</button>
+              </form>";
+
+              if($codigousu == "1"){
+              echo"<form method=post action=PHP/procexcluir.php>
               <input type=hidden name=cod value=$cod>
               <button>Excluir</button>
               </form>
               <form method=post action=PHP/proceditcar.php>
               <input type=hidden name=cod value=$cod>
               <button>Editar</button>
-              </form>
-          </div>";
-                    echo "</div>";
-                }
+              </form>";
+              } else {
+                  echo "";
+              }
+              echo "</div></div>";
+              }
             }
         }
         echo "</div>
@@ -163,19 +171,23 @@
               <h1>$versao</h1>
               <h1>$tipo</h1>
               <input type=hidden name=cod value=$cod>
-              <button>Ver Opniões</button>
-              </form>
-              <form method=post action=PHP/procexcluir.php>
+              <button class=button-6>Ver Opniões</button>
+              </form>";
+
+              if($codigousu == "1"){
+              echo"<form method=post action=PHP/procexcluir.php>
               <input type=hidden name=cod value=$cod>
               <button>Excluir</button>
               </form>
               <form method=post action=PHP/proceditcar.php>
               <input type=hidden name=cod value=$cod>
               <button>Editar</button>
-              </form>
-          </div>";
-                    echo "</div>";
-                }
+              </form>";
+              } else {
+                  echo "";
+              }
+              echo "</div></div>";
+              }
             }
         }
         echo "</div>
@@ -214,19 +226,23 @@
               <h1>$versao</h1>
               <h1>$tipo</h1>
               <input type=hidden name=cod value=$cod>
-              <button>Ver Opniões</button>
-              </form>
-              <form method=post action=PHP/procexcluir.php>
+              <button class=button-6>Ver Opniões</button>
+              </form>";
+
+              if($codigousu == "1"){
+              echo"<form method=post action=PHP/procexcluir.php>
               <input type=hidden name=cod value=$cod>
               <button>Excluir</button>
               </form>
               <form method=post action=PHP/proceditcar.php>
               <input type=hidden name=cod value=$cod>
               <button>Editar</button>
-              </form>
-          </div>";
-                    echo "</div>";
-                }
+              </form>";
+              } else {
+                  echo "";
+              }
+              echo "</div></div>";
+              }
             }
         }
         echo "</div>
@@ -265,19 +281,23 @@
               <h1>$versao</h1>
               <h1>$tipo</h1>
               <input type=hidden name=cod value=$cod>
-              <button>Ver Opniões</button>
-              </form>
-              <form method=post action=PHP/procexcluir.php>
+              <button class=button-6>Ver Opniões</button>
+              </form>";
+
+              if($codigousu == "1"){
+              echo"<form method=post action=PHP/procexcluir.php>
               <input type=hidden name=cod value=$cod>
               <button>Excluir</button>
               </form>
               <form method=post action=PHP/proceditcar.php>
               <input type=hidden name=cod value=$cod>
               <button>Editar</button>
-              </form>
-          </div>";
-                    echo "</div>";
-                }
+              </form>";
+              } else {
+                  echo "";
+              }
+              echo "</div></div>";
+              }
             }
         }
         echo "</div>

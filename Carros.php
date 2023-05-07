@@ -27,6 +27,7 @@ include_once("PHP/conexao.php");
     $carro = "SELECT * FROM carros WHERE car_cod = $cod";
     $comando = mysqli_query($conn, $carro);
     while ($row = mysqli_fetch_array($comando)) {
+        $cod = $row['car_cod'];
         $marca = $row['car_marca'];
         $modelo = $row['car_modelo'];
         $anomod = $row['car_anomod'];
@@ -38,6 +39,43 @@ include_once("PHP/conexao.php");
         echo "<center><img src='data:image/jpeg;base64,$imagem'><br>
             <h1><font color=#004aad>$marca $modelo</font></h1>
         </center>";
+        echo "<div class=rowc>";
+        $opniaocarro = "SELECT * FROM opnioes WHERE opn_carro='$modelo'";
+        $comando = mysqli_query($conn, $opniaocarro);
+        while ($row = mysqli_fetch_array($comando)) {
+            $opiniao = $row['opn_opiniao'];
+            $usuario = $row['opn_pessoa'];
+
+            echo "
+            <div class=featured-boxc>
+                <div class=featured-imgc>
+                    <div class=ladoscar>
+                        <div class=usuesquerda>
+                            <h1>$usuario</h1>
+                        </div>
+                        <div class=opidireita>
+                            <div class=titulodireita>
+                                <h1>Opinião</h1>
+                            </div>
+                            <div class=opiniao>
+                                $opiniao
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ";
+        }
+        echo "</div>";
+
+        echo "<form action=PHP/opiniao.php method=post>";
+        foreach ($_SESSION['loginA'] as $codigo) {
+            $codigo = $codigo['cod'];
+            echo "<input type=hidden name=codigousu value=$codigo>";
+        }
+        echo "<input type=hidden name=codigocar value=$cod>";
+        echo "<button class=button-6>Cadastrar opinião</button>
+        </form>";
     }
     ?>
     <!--Rodapé-->

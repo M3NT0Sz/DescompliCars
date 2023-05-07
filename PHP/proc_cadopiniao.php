@@ -1,0 +1,26 @@
+<?php
+    session_start();
+    include_once("conexao.php");
+    $codusu = $_POST['codusu'];
+    $marca = $_POST['marca'];
+    $modelo = $_POST['modelo'];
+    $opiniao = $_POST['opiniao'];
+
+    $usuario = "SELECT * FROM usuarios WHERE usu_cod='$codusu'";
+    $comando = mysqli_query($conn, $usuario);
+    while ($row = mysqli_fetch_array($comando)) {
+        $nomeusu = $row['usu_nome'] . " " . $row['usu_sobrenome'];
+        $sql = "INSERT INTO opnioes (opn_pessoa, opn_opiniao, opn_carro, opn_marca) VALUES ('$nomeusu', '$opiniao', '$modelo', '$marca')";
+        $comando = mysqli_query($conn, $sql);
+
+    if(mysqli_insert_id($conn))
+    {
+        $_SESSION['msgC'] = "<p style='color:#004aad;'>Opinião cadastrado com sucesso</p>";
+        header("Location: ../perfil.php");
+    }
+    else
+    {
+        $_SESSION['msgC'] = "<p style='color:#004aad;'>Opinião não foi cadastrado com sucesso</p>";
+        header("Location: ../perfil.php");
+    }
+    }
