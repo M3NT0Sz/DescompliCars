@@ -10,9 +10,7 @@ $anoFab = filter_input(INPUT_POST, 'anofab', FILTER_SANITIZE_STRING);
 $versao = filter_input(INPUT_POST, 'versao', FILTER_SANITIZE_STRING);
 $tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_STRING);
 
-// Verificando se foi enviada uma imagem
 if(isset($_FILES['imagem'])) {
-    $imagem = addslashes(file_get_contents($_FILES['imagem']['tmp_name']));
     $sql = "UPDATE carros SET car_marca = '$marca', car_modelo = '$modelo', car_anomod = '$anoMod', car_anofab = '$anoFab', car_versao = '$versao', car_tipo = '$tipo', car_image = '$imagem' WHERE car_cod='$cod'";
 } else {
     $sql = "UPDATE carros SET car_marca = '$marca', car_modelo = '$modelo', car_anomod = '$anoMod', car_anofab = '$anoFab', car_versao = '$versao', car_tipo = '$tipo' WHERE car_cod='$cod'";

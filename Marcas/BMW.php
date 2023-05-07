@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../Imagens/DescomplicarsIcon.png" rel="icon">
-  <link href="../css/style.css" rel="stylesheet">
+  <link href="../CSS/style.css" rel="stylesheet">
   <link href="../CSS/carros.css" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <title>DescompliCars</title>
@@ -57,8 +57,9 @@
     $versao = $row['car_versao'];
     $tipo = $row['car_tipo'];
     $imagem = base64_encode($row['car_image']);
-    echo "<a href=Modelos/Familia.php><div class=featured-boxb>
+    echo "<div class=featured-boxb>
           <div class=featured-imgb>
+          <form action=../carros.php method=post>
               <img src='data:image/jpeg;base64,$imagem'>
               <h1>$marca</h1>
               <h1>$modelo</h1>
@@ -66,12 +67,19 @@
               <h1>$anofab</h1>
               <h1>$versao</h1>
               <h1>$tipo</h1>
+              <input type=hidden name=cod value=$cod>
+              <button>Ver Opniões</button>
+              </form>
+              <form method=post action=../PHP/procexcluir.php>
+              <input type=hidden name=cod value=$cod>
+              <button>Excluir</button>
+              </form>
               <form method=post action=../PHP/proceditcar.php>
               <input type=hidden name=cod value=$cod>
               <button>Editar</button>
               </form>
           </div>";
-    echo "</div></a>";
+    echo "</div>";
   }
   echo "</div>
     </div>
@@ -93,15 +101,21 @@
     $versao = $row['car_versao'];
     $tipo = $row['car_tipo'];
     $imagem = base64_encode($row['car_image']);
-    echo "<a href=Modelos/Familia.php><div class=featured-boxb>
-          <div class=featured-imgb>
-              <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$marca</h1>
-              <h1>$modelo</h1>
-              <h1>$anomod</h1>
-              <h1>$anofab</h1>
-              <h1>$versao</h1>
-              <h1>$tipo</h1>
+    echo "<div class=featured-boxb>
+    <div class=featured-imgb>
+    <form action=../carros.php method=post>
+        <img src='data:image/jpeg;base64,$imagem'>
+        <h1>$marca</h1>
+        <h1>$modelo</h1>
+        <h1>$anomod</h1>
+        <h1>$anofab</h1>
+        <h1>$versao</h1>
+        <h1>$tipo</h1>
+        <input type=hidden name=cod value=$cod>
+        <button>Ver Opniões</button>
+        </form>
+              <input type=hidden name=cod value=$cod>
+              </form>
               <form method=post action=../PHP/proceditcar.php>
               <input type=hidden name=cod value=$cod>
               <button>Editar</button>
@@ -129,15 +143,19 @@
     $versao = $row['car_versao'];
     $tipo = $row['car_tipo'];
     $imagem = base64_encode($row['car_image']);
-    echo "<a href=Modelos/Familia.php><div class=featured-boxb>
-          <div class=featured-imgb>
-              <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$marca</h1>
-              <h1>$modelo</h1>
-              <h1>$anomod</h1>
-              <h1>$anofab</h1>
-              <h1>$versao</h1>
-              <h1>$tipo</h1>
+    echo "<div class=featured-boxb>
+    <div class=featured-imgb>
+    <form action=../carros.php method=post>
+        <img src='data:image/jpeg;base64,$imagem'>
+        <h1>$marca</h1>
+        <h1>$modelo</h1>
+        <h1>$anomod</h1>
+        <h1>$anofab</h1>
+        <h1>$versao</h1>
+        <h1>$tipo</h1>
+        <input type=hidden name=cod value=$cod>
+        <button>Ver Opniões</button>
+        </form>
               <form method=post action=../PHP/proceditcar.php>
               <input type=hidden name=cod value=$cod>
               <button>Editar</button>
@@ -149,7 +167,7 @@
     </div>
     </div>";
 
-    echo "<div class=containerconcea>
+  echo "<div class=containerconcea>
     <div class=top-titlea>
       <h3>Eletricos</h3>
       <hr>";
@@ -165,15 +183,19 @@
     $versao = $row['car_versao'];
     $tipo = $row['car_tipo'];
     $imagem = base64_encode($row['car_image']);
-    echo "<a href=Modelos/Familia.php><div class=featured-boxb>
-          <div class=featured-imgb>
-              <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$marca</h1>
-              <h1>$modelo</h1>
-              <h1>$anomod</h1>
-              <h1>$anofab</h1>
-              <h1>$versao</h1>
-              <h1>$tipo</h1>
+    echo "<div class=featured-boxb>
+    <div class=featured-imgb>
+    <form action=../carros.php method=post>
+        <img src='data:image/jpeg;base64,$imagem'>
+        <h1>$marca</h1>
+        <h1>$modelo</h1>
+        <h1>$anomod</h1>
+        <h1>$anofab</h1>
+        <h1>$versao</h1>
+        <h1>$tipo</h1>
+        <input type=hidden name=cod value=$cod>
+        <button>Ver Opniões</button>
+        </form>
               <form method=post action=../PHP/proceditcar.php>
               <input type=hidden name=cod value=$cod>
               <button>Editar</button>

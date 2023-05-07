@@ -22,6 +22,6 @@
                 <i class=bx bxl-instagram-alt> <font family=Poppins, sans-serif>@DescompliCars_SP </font> </i>
                 <i class=bx bxl-facebook-circle> <font family=Poppins, sans-serif>DescompliCars </font> </i>
             </div>
-            <div class=sec style=padding-left:0%;> <img src=../Imagens/Descomplicars-removebg-preview.png width=100% height=auto></div>
+            <div class=sec style=padding-left:0%;display:flex;flex-direction:row;align-items:center;justify-content:center;text-align:center;><img src='../Imagens/Logo.png' width=100% height=100px><h2><font color=black>Descompli</font><font color=#004aad>Cars</font></div>
     </div>"
 ?>

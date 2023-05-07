@@ -2,6 +2,7 @@
     session_start();
     include_once("../PHP/conexao.php");
     $_SESSION['cima'] = "
+    <link href=https://fonts.cdnfonts.com/css/maven-pro rel=stylesheet>
     <div class=container style='margin-bottom:10vh;'>
         <div class=menu>
             <div class=imagemmenu>

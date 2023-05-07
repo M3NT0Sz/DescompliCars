@@ -1,3 +1,7 @@
+img {
+    mix-blend-mode: multiply;
+  }
+
 .rowb {
     display: flex;
     -ms-flex-wrap: wrap;

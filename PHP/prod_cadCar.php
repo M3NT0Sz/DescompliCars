@@ -25,4 +25,3 @@
         $_SESSION['msgC'] = "<p style='color:#004aad;;'>Carro não foi cadastrado com sucesso</p>";
         header("Location: ../perfil.php");
     }
-?>

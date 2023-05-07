@@ -38,8 +38,11 @@
                         <option value=Picapes>Picapes</option>
                         <option value=Eletricos>Eletricos</option>
                         <option value=Sedans>Sedans</option>
-                    </select>
-            Imagem <input type=file name=imagem accept=image/*><br>
+                    </select>";
+                    ?>
+            Imagem <input type="file" name="imagem" accept="image/*"><br>
+            <?php
+            echo "
             <button>Editar</button>
         </form>
         ";
