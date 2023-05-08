@@ -11,8 +11,6 @@
             <div class=navbar>
                 <ul class=tabelamenu>
                     <li class=linkmenu><a href=../Concessionarias.php>Concessionárias</a></li>
-                    <li class=linkmenu><a href=#>Noticias</a></li>
-                    <li class=linkmenu><a href=#>Opnioes</a></li>
                 </ul>
             </div>
             <div class=iconesmenu>

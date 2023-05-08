@@ -66,7 +66,7 @@ include_once("PHP/conexao.php");
                                 <h1>Opinião</h1>
                             </div>
                             <div class=opiniao>
-                                <textarea class=textoperfil disabled>$opiniao</textarea>
+                                <textarea class=textoperfil disabled readonly>$opiniao</textarea>
                             </div>
                         </div>
                     </div>

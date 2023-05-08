@@ -11,7 +11,7 @@
             </div>
             <div class=sec> 
                 <h1> Telefone </h1><br>
-                (51) 9185-1950 <br>
+                (18) 98802-7203 <br>
                 (51) 9185-8593 <br>
                 (51) 0800-918-185 <br>
                 ouvidoria@descomplicars.com.br
