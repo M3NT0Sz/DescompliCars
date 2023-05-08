@@ -71,22 +71,40 @@ include_once("PHP/conexao.php");
                                 </div>
                             </a>
                         </form>
-                        <a class="letrasusu" href="perfil.php">
-                            <div>
-                                Voltar
-                            </div>
-                        </a>
+                        <form style="width:100%;" action="comentarios.php" method="post">
+                            <a class="letrasusu" href="comentarios.php">
+                                <div>
+                                    Comentarios
+                                </div>
+                            </a>
+                        </form>
                         <a class="letrasusu" href=PHP/sair.php>
                             <form action="PHP/sair.php" method="post">
                                 Sair
                             </form>
                         </a>
+                        <?php
+                        //mostrando a msg de login e senha inválidos!
+                        if (isset($_SESSION['naoeditado'])) {
+                            echo $_SESSION['naoeditado'];
+                            unset($_SESSION['naoeditado']);
+                        }
+                        ?>
+                        <?php
+                        //mostrando a msg de login e senha inválidos!
+                        if (isset($_SESSION['msgC'])) {
+                            echo $_SESSION['msgC'];
+                            unset($_SESSION['msgC']);
+                        }
+                        ?>
+
                     </div>
                 </h2>
             </div>
         </div>
+        <div class="quadradoa">
         <?php
-        echo "<div class=containerconcea>
+        echo "
         <div class=top-titlea>
         <h3>Opiniões</h3>
         <hr>
@@ -144,8 +162,8 @@ include_once("PHP/conexao.php");
         echo "</div>";
         echo "</div>";
         echo "</div>";
-        echo "</div>";
         ?>
+        </div>
         <!--Rodapé-->
         <?php require "PHP/rodape.php";
         echo $_SESSION['rodape'];

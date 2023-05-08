@@ -28,7 +28,7 @@
         <div class="lado_di">
             <div class="coisas_di">
                 <div class="nomeusu">
-                <h2><?php
+                    <h2><?php
                         if (isset($_SESSION['login'])) {
                             foreach ($_SESSION['loginA'] as $codigo) {
                                 $codigo = $codigo['cod'];
@@ -56,11 +56,29 @@
                 </div>
                 <h2>
                     <div class="restousu">
-                        <a class="letrasusu" href="Perfil.php">
-                            <div>
-                                Voltar
-                            </div>
-                        </a>
+                        <div class="letrasusu">
+                            Informações
+                        </div>
+                        <form style="width:100%;" action="editarPerfil.php" method="post">
+                            <a class="letrasusu" href="editarPerfil.php">
+                                <div>
+                                    <?php
+                                    foreach ($_SESSION['loginA'] as $codigo) {
+                                        $codigo = $codigo['cod'];
+                                        echo "<input type=hidden name=codigo value=$codigo>";
+                                    }
+                                    ?>
+                                    Editar Perfil
+                                </div>
+                            </a>
+                        </form>
+                        <form style="width:100%;" action="comentarios.php" method="post">
+                            <a class="letrasusu" href="comentarios.php">
+                                <div>
+                                    Comentarios
+                                </div>
+                            </a>
+                        </form>
                         <a class="letrasusu" href=PHP/sair.php>
                             <form action="PHP/sair.php" method="post">
                                 Sair
@@ -85,7 +103,7 @@
                 </h2>
             </div>
         </div>
-        <div class="quadrado">
+        <div class="quadradoa">
             <div class="quadedit">
                 <h1 style="padding-bottom: 10px;">Editar</h1>
                 <form style="width: 100%;" action="PHP/editarProc.php" method="post">
@@ -119,7 +137,7 @@
                     <div class="quadlado">
                         <h3>Genero:<input type="text" name="genero" value="<?php echo $row_usuario['usu_genero'] ?>"></h3>
                     </div>
-                    <input type="hidden" name="cod" value="<?php echo $row_usuario['usu_cod']?>">
+                    <input type="hidden" name="cod" value="<?php echo $row_usuario['usu_cod'] ?>">
                     <div class="quadlado">
                         <button class="botao" type="submit">Editar</button>
                     </div>

@@ -458,3 +458,7 @@ hr {
     text-align: center;
     justify-content: center;
 }
+
+img {
+    mix-blend-mode: multiply;
+  }

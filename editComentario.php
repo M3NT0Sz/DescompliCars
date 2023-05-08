@@ -79,6 +79,7 @@
                 </h2>
             </div>
         </div>
+        <div class="containerconcea">
             <?php
             $codigoopn = $_POST['codigoopn'];
             $opiniao = "SELECT * FROM opnioes WHERE opn_cod=$codigoopn";
@@ -144,7 +145,7 @@
                 }
             }
             ?>
-
+    </div>
             <?php require "PHP/rodape.php";
             echo $_SESSION['rodape'];
             ?>

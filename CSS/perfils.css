@@ -59,7 +59,6 @@ a{
     align-content: center;
 }
   .quadradoa{
-    width: 100%;
     height: auto;
     display: flex;
     align-items: center;
@@ -159,4 +158,8 @@ a{
   border-radius: 30px;
   border-color: #004aad;
   border-style: solid;
+}
+
+.coisas_di{
+  width: 300px;
 }
