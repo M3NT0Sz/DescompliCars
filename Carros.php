@@ -23,6 +23,10 @@ include_once("PHP/conexao.php");
     ?>
     <!--Fecha MenuBar-->
     <?php
+    foreach ($_SESSION['loginA'] as $codigo) {
+        $codigousu = $codigo['cod'];
+    }
+
     $cod = $_POST['cod'];
     $carro = "SELECT * FROM carros WHERE car_cod = $cod";
     $comando = mysqli_query($conn, $carro);
@@ -30,10 +34,6 @@ include_once("PHP/conexao.php");
         $cod = $row['car_cod'];
         $marca = $row['car_marca'];
         $modelo = $row['car_modelo'];
-        $anomod = $row['car_anomod'];
-        $anofab = $row['car_anofab'];
-        $versao = $row['car_versao'];
-        $tipo = $row['car_tipo'];
         $imagem = base64_encode($row['car_image']);
 
         echo "<center><img src='data:image/jpeg;base64,$imagem'><br>
@@ -41,40 +41,46 @@ include_once("PHP/conexao.php");
         </center>";
         echo "<div class=rowc>";
         $opniaocarro = "SELECT * FROM opnioes WHERE opn_carro='$modelo'";
-        $comando = mysqli_query($conn, $opniaocarro);
-        while ($row = mysqli_fetch_array($comando)) {
+        $abobora = mysqli_query($conn, $opniaocarro);
+        while ($row = mysqli_fetch_array($abobora)) {
             $opiniao = $row['opn_opiniao'];
             $usuario = $row['opn_pessoa'];
+            $codigofoto = $row['opn_codusu'];
 
-            echo "
+            $imagemusu = "SELECT * FROM usuarios WHERE usu_cod='$codigofoto'";
+            $comando = mysqli_query($conn, $imagemusu);
+            while ($row = mysqli_fetch_array($comando)) {
+                $imagemusua = base64_encode($row['usu_image']);
+                echo "
             <div class=featured-boxc>
                 <div class=featured-imgc>
                     <div class=ladoscar>
-                        <div class=usuesquerda>
-                            <h1>$usuario</h1>
+                        <div class=usuesquerda>";
+                echo "<img class=perfil src='data:image/jpeg;base64,$imagemusua'>
+                        <div class=nomeperfil>
+                        <h1>$usuario</h1>
+                        </div>
                         </div>
                         <div class=opidireita>
                             <div class=titulodireita>
                                 <h1>Opinião</h1>
                             </div>
                             <div class=opiniao>
-                                $opiniao
+                                <textarea class=textoperfil disabled>$opiniao</textarea>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             ";
+            }
         }
         echo "</div>";
 
         echo "<form action=PHP/opiniao.php method=post>";
-        foreach ($_SESSION['loginA'] as $codigo) {
-            $codigo = $codigo['cod'];
-            echo "<input type=hidden name=codigousu value=$codigo>";
-        }
+        echo "<input type=hidden name=codigousu value=$codigousu>";
         echo "<input type=hidden name=codigocar value=$cod>";
-        echo "<button class=button-6>Cadastrar opinião</button>
+        echo "<center><button class=button-6>Cadastrar opinião</button></center>
         </form>";
     }
     ?>

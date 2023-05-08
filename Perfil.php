@@ -25,11 +25,29 @@
             <div class="coisas_di">
                 <div class="nomeusu">
                     <h2><?php
-                            if(isset($_SESSION['login'])){
-                                echo $_SESSION['login'];
-                            }else if(isset($_SESSION['edit'])){
-                                echo $_SESSION['edit'];
+                        if (isset($_SESSION['login'])) {
+                            foreach ($_SESSION['loginA'] as $codigo) {
+                                $codigo = $codigo['cod'];
                             }
+                            $imagem = "SELECT * FROM usuarios WHERE usu_cod=$codigo";
+                            $comando = mysqli_query($conn, $imagem);
+                            while ($row = mysqli_fetch_array($comando)) {
+                                $imagem = base64_encode($row['usu_image']);
+                                echo "<center><img class=perfil src='data:image/jpeg;base64,$imagem'><br></center>";
+                            }
+                            echo $_SESSION['login'];
+                        } else if (isset($_SESSION['edit'])) {
+                            foreach ($_SESSION['loginA'] as $codigo) {
+                                $codigo = $codigo['cod'];
+                            }
+                            $imagem = "SELECT * FROM usuarios WHERE usu_cod=$codigo";
+                            $comando = mysqli_query($conn, $imagem);
+                            while ($row = mysqli_fetch_array($comando)) {
+                                $imagem = base64_encode($row['usu_image']);
+                                echo "<center><img class=perfil src='data:image/jpeg;base64,$imagem'><br></center>";
+                            }
+                            echo $_SESSION['edit'];
+                        }
                         ?></h2>
                 </div>
                 <h2>
@@ -56,10 +74,10 @@
                             </form>
                         </a>
                         <?php
-                            if(isset($_SESSION['editado'])){
-                                echo $_SESSION['editado'];
-                                unset($_SESSION['editado']);
-                            }
+                        if (isset($_SESSION['editado'])) {
+                            echo $_SESSION['editado'];
+                            unset($_SESSION['editado']);
+                        }
                         ?>
                         <?php
                         //mostrando a msg de login e senha inválidos!

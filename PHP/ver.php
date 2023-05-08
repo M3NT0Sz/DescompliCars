@@ -5,8 +5,7 @@
 
 
 <?php 
-    if(isset($_SESSION['login'])){
-        
+    if(isset($_SESSION['login'])||isset($_SESSION['edit'])){
         header("location: ../Perfil.php");                        
     }
     else{

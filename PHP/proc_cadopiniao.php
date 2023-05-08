@@ -6,11 +6,11 @@
     $modelo = $_POST['modelo'];
     $opiniao = $_POST['opiniao'];
 
-    $usuario = "SELECT * FROM usuarios WHERE usu_cod='$codusu'";
+    $usuario = "SELECT usu_nome, usu_sobrenome, usu_image FROM usuarios WHERE usu_cod='$codusu'";
     $comando = mysqli_query($conn, $usuario);
     while ($row = mysqli_fetch_array($comando)) {
         $nomeusu = $row['usu_nome'] . " " . $row['usu_sobrenome'];
-        $sql = "INSERT INTO opnioes (opn_pessoa, opn_opiniao, opn_carro, opn_marca) VALUES ('$nomeusu', '$opiniao', '$modelo', '$marca')";
+        $sql = "INSERT INTO opnioes (opn_pessoa, opn_opiniao, opn_carro, opn_marca, opn_codusu) VALUES ('$nomeusu', '$opiniao', '$modelo', '$marca', '$codusu')";
         $comando = mysqli_query($conn, $sql);
 
     if(mysqli_insert_id($conn))

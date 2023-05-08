@@ -14,7 +14,9 @@
     $genero = filter_input(INPUT_POST, 'genero', FILTER_SANITIZE_STRING);
     $senha = md5(filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING));
 
-    $sql = "insert into usuarios (usu_email, usu_nome, usu_sobrenome, usu_tel, usu_dtnasc, usu_cpf, usu_endereco, usu_cidade, usu_estado, usu_genero, usu_senha) values ('$email', '$nome', '$sobrenome', '$telefone', '$dtnasc', '$cpf', '$endereco', '$cidade', '$estado', '$genero', '$senha')";
+    $imagem = addslashes(file_get_contents($_FILES['imagemperfil']['tmp_name']));
+
+    $sql = "insert into usuarios (usu_email, usu_nome, usu_sobrenome, usu_tel, usu_dtnasc, usu_cpf, usu_endereco, usu_cidade, usu_estado, usu_genero, usu_senha, usu_image) values ('$email', '$nome', '$sobrenome', '$telefone', '$dtnasc', '$cpf', '$endereco', '$cidade', '$estado', '$genero', '$senha', '$imagem')";
     $comando = mysqli_query($conn, $sql);
 
     if(mysqli_insert_id($conn))

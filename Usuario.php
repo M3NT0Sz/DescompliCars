@@ -59,7 +59,7 @@ include_once("PHP/conexao.php");
             </div>
             <div class="signup-link">Ainda não é um membro? <a href="">Cadastra-se Agora</a></div>
           </form>
-          <form action="PHP/cadastrar.php" method="post" class="signup">
+          <form action="PHP/cadastrar.php" method="post" class="signup" enctype="multipart/form-data">
             <div class="field">
               <input type="email" placeholder="E-mail" name="email" required>
                 <input type="text" placeholder="Nome" name="nome" required>
@@ -78,6 +78,9 @@ include_once("PHP/conexao.php");
             <div class="field">
               <input type="text" placeholder="Genero" name="genero" required>
               <input type="password" placeholder="Senha" name="senha" required>
+            </div>
+            <div class="field">
+            Insira sua foto<input type="file" name="imagemperfil" accept="image/*">
             </div>
             <div class="field btn">
               <div class="btn-layer"></div>

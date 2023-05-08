@@ -6,7 +6,7 @@
 
   .lado_di{
     display: flex;
-    width: 500px;
+    width: 750px;
     height: 750px;
     background-color: rgb(236, 237, 242);
     box-shadow: 2px 0px 2px 0px #004aad8c;
@@ -144,4 +144,12 @@ a{
   font-weight: 500;
   cursor: pointer;
   background: -webkit-linear-gradient(left, #005cd8, #004aad);
+}
+
+.perfil{
+  width: 100px;
+  height: 100px;
+  border-radius: 30px;
+  border-color: #004aad;
+  border-style: solid;
 }

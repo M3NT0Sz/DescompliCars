@@ -33,21 +33,19 @@
         $versao = $row['car_versao'];
         $tipo = $row['car_tipo'];
         $imagem = base64_encode($row['car_image']);
-        echo "<a href=Modelos/Familia.php><div class=featured-boxb>
+        echo "<div class=featured-boxb>
           <div class=featured-imgb>
-              <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$marca</h1>
-              <h1>$modelo</h1>
-              <h1>$anomod</h1>
-              <h1>$anofab</h1>
-              <h1>$versao</h1>
-              <h1>$tipo</h1>
-              <form method=post action=../PHP/proceditcar.php>
-              <input type=hidden name=cod value=$cod>
-              <button>Editar</button>
-              </form>
+          <form action=../carros.php method=post>
+          <img src='data:image/jpeg;base64,$imagem'>
+          <h1>$modelo</h1>
+          <h1>$anomod</h1>
+          <h1>$anofab</h1>
+          <h1>$versao</h1>
+          <input type=hidden name=cod value=$cod>
+          <button class=button-6>Ver Opniões</button>
+          </form>
           </div>";
-        echo "</div></a>";
+        echo "</div>";
     }
     echo "</div>
     </div>

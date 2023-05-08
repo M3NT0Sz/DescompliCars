@@ -101,6 +101,7 @@
                     <div class="quadlado">
                         <h3>Genero:<input type="text" name="genero" value="<?php echo $row_usuario['usu_genero'] ?>"></h3>
                     </div>
+                    <input type="hidden" name="cod" value="<?php echo $row_usuario['usu_cod']?>">
                     <div class="quadlado">
                         <button class="botao" type="submit">Editar</button>
                     </div>

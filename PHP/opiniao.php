@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,14 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <?php
     session_start();
     include_once("conexao.php");
     $codcar = $_POST['codigocar'];
     $codusu = $_POST['codigousu'];
-
-    $carro = "SELECT * FROM carros WHERE car_cod=$codcar";
+    $carro = "SELECT * FROM carros WHERE car_cod='$codcar'";
     $comando = mysqli_query($conn, $carro);
     while ($row = mysqli_fetch_array($comando)) {
         $marca = $row['car_marca'];
@@ -32,5 +33,5 @@
     }
     ?>
 </body>
-</html>
 
+</html>
