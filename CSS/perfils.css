@@ -6,8 +6,7 @@
 
   .lado_di{
     display: flex;
-    width: 750px;
-    height: 750px;
+    width: 300px;
     background-color: rgb(236, 237, 242);
     box-shadow: 2px 0px 2px 0px #004aad8c;
     color: #004aad;
@@ -58,6 +57,14 @@ a{
     display: flex;
     align-items: center;
     align-content: center;
+}
+  .quadradoa{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
 }
 
 .quad{

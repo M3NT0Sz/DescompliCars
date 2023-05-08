@@ -68,6 +68,13 @@
                                 </div>
                             </a>
                         </form>
+                        <form style="width:100%;" action="comentarios.php" method="post">
+                            <a class="letrasusu" href="comentarios.php">
+                                <div>
+                                    Comentarios
+                                </div>
+                            </a>
+                        </form>
                         <a class="letrasusu" href=PHP/sair.php>
                             <form action="PHP/sair.php" method="post">
                                 Sair
@@ -91,21 +98,23 @@
                 </h2>
             </div>
         </div>
-        <div class="quadrado">
-            <a href="CadastroCar.php">
-                <div class="quad">
-                    <img src="Imagens/Pergunta/Supra.png">
-                    <h3>Vai colocar sua opinião sobre algum carro?</h3>
-                </div>
-            </a>
-        </div>
-        <div class="quadrado">
-            <a href="CadastroMarca.php">
-                <div class="quad">
-                    <img src="Imagens/Pergunta/Supra.png">
-                    <h3>Cadastrar Marcas</h3>
-                </div>
-            </a>
+        <div class="quadradoa">
+            <div class="quadrado">
+                <a href="CadastroCar.php">
+                    <div class="quad">
+                        <img src="Imagens/Pergunta/Supra.png">
+                        <h3>Vai colocar sua opinião sobre algum carro?</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="quadrado">
+                <a href="CadastroMarca.php">
+                    <div class="quad">
+                        <img src="Imagens/Pergunta/Supra.png">
+                        <h3>Cadastrar Marcas</h3>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
     <?php require "PHP/rodape.php";
