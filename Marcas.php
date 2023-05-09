@@ -19,8 +19,12 @@
     ?>
     <!--Fecha MenuBar-->
     <?php
-    foreach ($_SESSION['loginA'] as $codigo) {
-        $codigousu = $codigo['cod'];
+    if (isset($_SESSION['login'])) {
+        foreach ($_SESSION['loginA'] as $codigo) {
+            $codigousu = $codigo['cod'];
+        }
+    }else{
+
     }
     $cod = $_POST['cod'];
     $marcas = "SELECT * FROM marcas WHERE mar_cod = $cod";
@@ -63,9 +67,9 @@
               <input type=hidden name=cod value=$cod>
               <button class=button-6>Ver Opniões</button>
               </form>";
-
-                if($codigousu == "1"){
-                echo"<form method=post action=PHP/procexcluir.php>
+              if (isset($_SESSION['login'])) {
+                    if ($codigousu == "1") {
+                        echo "<form method=post action=PHP/procexcluir.php>
                 <input type=hidden name=cod value=$cod>
                 <button>Excluir</button>
                 </form>
@@ -73,10 +77,10 @@
                 <input type=hidden name=cod value=$cod>
                 <button>Editar</button>
                 </form>";
-                } else {
-                    echo "";
-                }
-                echo "</div></div>";
+                    } }else {
+                        echo "";
+                    }
+                    echo "</div></div>";
                 }
             }
         }
@@ -118,9 +122,9 @@
               <input type=hidden name=cod value=$cod>
               <button class=button-6>Ver Opniões</button>
               </form>";
-
-              if($codigousu == "1"){
-              echo"<form method=post action=PHP/procexcluir.php>
+              if (isset($_SESSION['login'])) {
+                    if ($codigousu == "1") {
+                        echo "<form method=post action=PHP/procexcluir.php>
               <input type=hidden name=cod value=$cod>
               <button>Excluir</button>
               </form>
@@ -128,11 +132,11 @@
               <input type=hidden name=cod value=$cod>
               <button>Editar</button>
               </form>";
-              } else {
-                  echo "";
-              }
-              echo "</div></div>";
-              }
+                    }} else {
+                        echo "";
+                    }
+                    echo "</div></div>";
+                }
             }
         }
         echo "</div>
@@ -173,9 +177,9 @@
               <input type=hidden name=cod value=$cod>
               <button class=button-6>Ver Opniões</button>
               </form>";
-
-              if($codigousu == "1"){
-              echo"<form method=post action=PHP/procexcluir.php>
+              if (isset($_SESSION['login'])) {
+                    if ($codigousu == "1") {
+                        echo "<form method=post action=PHP/procexcluir.php>
               <input type=hidden name=cod value=$cod>
               <button>Excluir</button>
               </form>
@@ -183,11 +187,11 @@
               <input type=hidden name=cod value=$cod>
               <button>Editar</button>
               </form>";
-              } else {
-                  echo "";
-              }
-              echo "</div></div>";
-              }
+                    }} else {
+                        echo "";
+                    }
+                    echo "</div></div>";
+                }
             }
         }
         echo "</div>
@@ -228,9 +232,9 @@
               <input type=hidden name=cod value=$cod>
               <button class=button-6>Ver Opniões</button>
               </form>";
-
-              if($codigousu == "1"){
-              echo"<form method=post action=PHP/procexcluir.php>
+              if (isset($_SESSION['login'])) {
+                    if ($codigousu == "1") {
+                        echo "<form method=post action=PHP/procexcluir.php>
               <input type=hidden name=cod value=$cod>
               <button>Excluir</button>
               </form>
@@ -238,11 +242,11 @@
               <input type=hidden name=cod value=$cod>
               <button>Editar</button>
               </form>";
-              } else {
-                  echo "";
-              }
-              echo "</div></div>";
-              }
+                    }} else {
+                        echo "";
+                    }
+                    echo "</div></div>";
+                }
             }
         }
         echo "</div>
@@ -283,9 +287,9 @@
               <input type=hidden name=cod value=$cod>
               <button class=button-6>Ver Opniões</button>
               </form>";
-
-              if($codigousu == "1"){
-              echo"<form method=post action=PHP/procexcluir.php>
+              if (isset($_SESSION['login'])) {
+                    if ($codigousu == "1") {
+                        echo "<form method=post action=PHP/procexcluir.php>
               <input type=hidden name=cod value=$cod>
               <button>Excluir</button>
               </form>
@@ -293,11 +297,11 @@
               <input type=hidden name=cod value=$cod>
               <button>Editar</button>
               </form>";
-              } else {
-                  echo "";
-              }
-              echo "</div></div>";
-              }
+                    }} else {
+                        echo "";
+                    }
+                    echo "</div></div>";
+                }
             }
         }
         echo "</div>

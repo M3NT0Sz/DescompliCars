@@ -123,18 +123,22 @@
                                         <button class=button-6>Editar Comentario</button>
                                         </form>
                                         
-                                    <script>
-                                        function excluir() {
-                                            if (confirm(Tem certeza que deseja excluir sua conta?)) {
-                                                const input = document.getElementsByClassName(id);
-                                                event.preventDefault();
-                                                window.location.href = PHP/excluir.php?codigo= + input[0].value
-                                            } else {
+                                    <input type=hidden class=id name=codigo value=$codigousu>";
+            ?>
+                    <script>
+                        function excluir() {
+                            if (confirm("Tem certeza que deseja excluir sua conta?")) {
+                                const input = document.getElementsByClassName("id");
+                                event.preventDefault();
+                                window.location.href = "PHP/excluircoment.php?codigo=" + input[0].value
+                            } else {
 
-                                            }
-                                        }
-                                    </script>
-                                    <button class=button-6 type=submit onclick=excluir()>Excluir</button>
+                            }
+                        }
+                    </script>
+            <?php
+
+                    echo "<button type=button class=button-6 type=submit onclick='excluir()'>Excluir</button>
                                     </div>
                                     </div>
                                 </div>
@@ -145,10 +149,10 @@
                 }
             }
             ?>
-    </div>
-            <?php require "PHP/rodape.php";
-            echo $_SESSION['rodape'];
-            ?>
+        </div>
+        <?php require "PHP/rodape.php";
+        echo $_SESSION['rodape'];
+        ?>
 </body>
 
 </html>

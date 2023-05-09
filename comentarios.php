@@ -123,6 +123,7 @@ include_once("PHP/conexao.php");
             $carro = $row['opn_carro'];
             $marca = $row['opn_marca'];
             $codigofoto = $row['opn_codusu'];
+            $avaliacao = $row['opn_avaliacao'];
 
             $imagemusu = "SELECT * FROM usuarios WHERE usu_cod=$codigofoto";
             $comando = mysqli_query($conn, $imagemusu);
@@ -134,13 +135,88 @@ include_once("PHP/conexao.php");
                 <div class=featured-imgc>
                     <div class=ladoscar>
                         <div class=usuesquerda>";
-                echo "<img class=perfil src='data:image/jpeg;base64,$imagemusua'>
-                        <div class=nomeperfil>
+                echo "<div class=nomeperfil>
                         <div style=display:flex;flex-direction:column;>
-                        <h1>$usuario</h1>
                         <h1>$marca $carro</h1>
-                        </div>
-                        </div>
+                        <div class=imagemmaluca style=display:flex;justify-content:center;align-items:center;flex-direction:row;>";
+
+                        if ($avaliacao == "1") {
+                            echo "<a href=javascript:void(0) onclick=Avaliar(1)>
+                                    <img src=Imagens/star1.png id=s1></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(2)>
+                                    <img src=Imagens/star0.png id=s2></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(3)>
+                                    <img src=Imagens/star0.png id=s3></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(4)>
+                                    <img src=Imagens/star0.png id=s4></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(5)>
+                                    <img src=Imagens/star0.png id=s5></a>";
+                        } else if ($avaliacao == "2") {
+                            echo "<a href=javascript:void(0) onclick=Avaliar(1)>
+                                    <img src=Imagens/star1.png id=s1></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(2)>
+                                    <img src=Imagens/star1.png id=s2></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(3)>
+                                    <img src=Imagens/star0.png id=s3></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(4)>
+                                    <img src=Imagens/star0.png id=s4></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(5)>
+                                    <img src=Imagens/star0.png id=s5></a>";
+                        } else if ($avaliacao == "3") {
+                            echo "<a href=javascript:void(0) onclick=Avaliar(1)>
+                                    <img src=Imagens/star1.png id=s1></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(2)>
+                                    <img src=Imagens/star1.png id=s2></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(3)>
+                                    <img src=Imagens/star1.png id=s3></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(4)>
+                                    <img src=Imagens/star0.png id=s4></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(5)>
+                                    <img src=Imagens/star0.png id=s5></a>";
+                        } else if ($avaliacao == "4") {
+                            echo "<a href=javascript:void(0) onclick=Avaliar(1)>
+                                    <img src=Imagens/star1.png id=s1></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(2)>
+                                    <img src=Imagens/star1.png id=s2></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(3)>
+                                    <img src=Imagens/star1.png id=s3></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(4)>
+                                    <img src=Imagens/star1.png id=s4></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(5)>
+                                    <img src=Imagens/star0.png id=s5></a>";
+                        } else if ($avaliacao == "5") {
+                            echo "<a href=javascript:void(0) onclick=Avaliar(1)>
+                                    <img src=Imagens/star1.png id=s1></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(2)>
+                                    <img src=Imagens/star1.png id=s2></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(3)>
+                                    <img src=Imagens/star1.png id=s3></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(4)>
+                                    <img src=Imagens/star1.png id=s4></a>
+                            
+                                    <a href=javascript:void(0) onclick=Avaliar(5)>
+                                    <img src=Imagens/star1.png id=s5></a>";
+                        }
+                        echo "</div></div></div>
                         </div>
                         <div class=opidireita>
                             <div class=titulodireita>

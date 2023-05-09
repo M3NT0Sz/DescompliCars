@@ -189,6 +189,16 @@ img {
   flex-direction: column;
 }
 
+.usuesquerda .imagemmaluca img{
+  width: 25px;
+  height: 25px;
+}
+
+.usuesquerda .perfil img{
+  width: 70px;
+  height: 70px;
+}
+
 .usuesquerda h1{
   display: flex;
   justify-content: center;
@@ -261,4 +271,9 @@ img {
   align-items: center;
   justify-content: center;
   margin-left: 15px;
+}
+
+.estrelas img{
+  width: 100px;
+  height: 100px;
 }
