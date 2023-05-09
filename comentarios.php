@@ -102,17 +102,32 @@ include_once("PHP/conexao.php");
                 </h2>
             </div>
         </div>
-        <div class="quadradoa">
         <?php
+        error_reporting(0);
+        foreach ($_SESSION['loginA'] as $codigo) {
+            $cod = $codigo['cod'];
+        }
+        $opinioes = "SELECT * FROM opnioes WHERE opn_codusu = '$cod'";
+        $abobrinha = mysqli_query($conn, $opinioes);
+        while ($row = mysqli_fetch_array($abobrinha)) {
+            $codigousu[] = $row['opn_codusu'];
+        }
+            if($codigousu == 1 || $codigousu == 0){
+        ?>
+        <div class="quadradoa" style="height: 650px;">
+        <?php
+        }else{
+            ?>
+        <div class="quadradoa" style="height: auto;">
+            <?php
+        }
         echo "
         <div class=top-titlea>
         <h3>Opiniões</h3>
         <hr>
         <div class=rowc>";
 
-        foreach ($_SESSION['loginA'] as $codigo) {
-            $cod = $codigo['cod'];
-        }
+        
 
         $opinioes = "SELECT * FROM opnioes WHERE opn_codusu = '$cod'";
         $abobrinha = mysqli_query($conn, $opinioes);
@@ -125,11 +140,6 @@ include_once("PHP/conexao.php");
             $codigofoto = $row['opn_codusu'];
             $avaliacao = $row['opn_avaliacao'];
 
-            $imagemusu = "SELECT * FROM usuarios WHERE usu_cod=$codigofoto";
-            $comando = mysqli_query($conn, $imagemusu);
-            while ($row = mysqli_fetch_array($comando)) {
-                $imagemusua = base64_encode($row['usu_image']);
-
                 echo "
             <div class=featured-boxd>
                 <div class=featured-imgc>
@@ -141,80 +151,61 @@ include_once("PHP/conexao.php");
                         <div class=imagemmaluca style=display:flex;justify-content:center;align-items:center;flex-direction:row;>";
 
                         if ($avaliacao == "1") {
-                            echo "<a href=javascript:void(0) onclick=Avaliar(1)>
-                                    <img src=Imagens/star1.png id=s1></a>
+                            echo "
+                                    <img src=Imagens/star1.png id=s1>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(2)>
-                                    <img src=Imagens/star0.png id=s2></a>
+                                    <img src=Imagens/star0.png id=s2>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(3)>
-                                    <img src=Imagens/star0.png id=s3></a>
+                                    <img src=Imagens/star0.png id=s3>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(4)>
-                                    <img src=Imagens/star0.png id=s4></a>
+                                    <img src=Imagens/star0.png id=s4>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(5)>
-                                    <img src=Imagens/star0.png id=s5></a>";
+                                    <img src=Imagens/star0.png id=s5>";
                         } else if ($avaliacao == "2") {
-                            echo "<a href=javascript:void(0) onclick=Avaliar(1)>
-                                    <img src=Imagens/star1.png id=s1></a>
+                            echo "
+                                    <img src=Imagens/star1.png id=s1>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(2)>
-                                    <img src=Imagens/star1.png id=s2></a>
+                                    <img src=Imagens/star1.png id=s2>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(3)>
-                                    <img src=Imagens/star0.png id=s3></a>
+                                    <img src=Imagens/star0.png id=s3>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(4)>
-                                    <img src=Imagens/star0.png id=s4></a>
+                                    <img src=Imagens/star0.png id=s4>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(5)>
-                                    <img src=Imagens/star0.png id=s5></a>";
+                                    <img src=Imagens/star0.png id=s5>";
                         } else if ($avaliacao == "3") {
-                            echo "<a href=javascript:void(0) onclick=Avaliar(1)>
-                                    <img src=Imagens/star1.png id=s1></a>
+                            echo "
+                                    <img src=Imagens/star1.png id=s1>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(2)>
-                                    <img src=Imagens/star1.png id=s2></a>
+                                    <img src=Imagens/star1.png id=s2>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(3)>
-                                    <img src=Imagens/star1.png id=s3></a>
+                                    <img src=Imagens/star1.png id=s3>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(4)>
-                                    <img src=Imagens/star0.png id=s4></a>
+                                    <img src=Imagens/star0.png id=s4>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(5)>
-                                    <img src=Imagens/star0.png id=s5></a>";
+                                    <img src=Imagens/star0.png id=s5>";
                         } else if ($avaliacao == "4") {
-                            echo "<a href=javascript:void(0) onclick=Avaliar(1)>
-                                    <img src=Imagens/star1.png id=s1></a>
+                            echo "
+                                    <img src=Imagens/star1.png id=s1>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(2)>
-                                    <img src=Imagens/star1.png id=s2></a>
+                                    
+                                    <img src=Imagens/star1.png id=s2>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(3)>
-                                    <img src=Imagens/star1.png id=s3></a>
+                                    <img src=Imagens/star1.png id=s3>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(4)>
-                                    <img src=Imagens/star1.png id=s4></a>
+                                    <img src=Imagens/star1.png id=s4>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(5)>
-                                    <img src=Imagens/star0.png id=s5></a>";
+                                    <img src=Imagens/star0.png id=s5>";
                         } else if ($avaliacao == "5") {
-                            echo "<a href=javascript:void(0) onclick=Avaliar(1)>
-                                    <img src=Imagens/star1.png id=s1></a>
+                            echo "
+                                    <img src=Imagens/star1.png id=s1>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(2)>
-                                    <img src=Imagens/star1.png id=s2></a>
+                                    <img src=Imagens/star1.png id=s2>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(3)>
-                                    <img src=Imagens/star1.png id=s3></a>
+                                    <img src=Imagens/star1.png id=s3>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(4)>
-                                    <img src=Imagens/star1.png id=s4></a>
+                                    <img src=Imagens/star1.png id=s4>
                             
-                                    <a href=javascript:void(0) onclick=Avaliar(5)>
-                                    <img src=Imagens/star1.png id=s5></a>";
+                                    <img src=Imagens/star1.png id=s5>";
                         }
                         echo "</div></div></div>
                         </div>
@@ -233,7 +224,6 @@ include_once("PHP/conexao.php");
                     </div>
                 </div>";
                 echo "</div>";
-            }
         }
         echo "</div>";
         echo "</div>";
