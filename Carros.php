@@ -23,17 +23,17 @@ include_once("PHP/conexao.php");
     ?>
     <!--Fecha MenuBar-->
     <?php
+    error_reporting(0);
     if (isset($_SESSION['login'])) {
         foreach ($_SESSION['loginA'] as $codigo) {
             $codigousu = $codigo['cod'];
         }
     }
-    error_reporting(0);
-    if(isset($_SESSION['codigocarro'])){
+    if (isset($_SESSION['codigocarro'])) {
         $cod = $_SESSION['codigocarro'];
         unset($_SESSION['codigocarro']);
-    }else{
-    $cod = $_POST['cod'];
+    } else {
+        $cod = $_POST['cod'];
     }
     $carro = "SELECT * FROM carros WHERE car_cod = $cod";
     $comando = mysqli_query($conn, $carro);
@@ -44,17 +44,17 @@ include_once("PHP/conexao.php");
         while ($row = mysqli_fetch_array($abobora)) {
             $avalia[] = $row['opn_avaliacao'];
         }
-        if($avalia != ""){
+        if ($avalia != "") {
             $soma = 0;
             foreach ($avalia as $avalias) {
                 $soma = $soma + $avalias;
             }
             $media = $soma / count($avalia);
             $media = substr($media, 0, 1);
-        }else{
+        } else {
             $media = 0;
         }
-}
+    }
 
     $carro = "SELECT * FROM carros WHERE car_cod = $cod";
     $comando = mysqli_query($conn, $carro);
@@ -62,13 +62,21 @@ include_once("PHP/conexao.php");
         $cod = $row['car_cod'];
         $marca = $row['car_marca'];
         $modelo = $row['car_modelo'];
+        $contagem = $row['car_contagem'];
+
+        $soma = 1 + $contagem;
+        $contagens = "UPDATE carros SET car_contagem = '$soma' WHERE car_cod = '$cod'";
+        $comando = mysqli_query($conn, $contagens);
+        if (mysqli_affected_rows($conn)) {
+        } else {
+        }
         $imagem = base64_encode($row['car_image']);
 
         echo "<center><img src='data:image/jpeg;base64,$imagem'><br>
             <h1><font color=#004aad>$marca $modelo</font></h1>
             <div class=estrelas>";
-            if ($media == "1") {
-                echo "
+        if ($media == "1") {
+            echo "
                         <img src=Imagens/star1.png id=s1>
                 
                         <img src=Imagens/star0.png id=s2>
@@ -78,8 +86,8 @@ include_once("PHP/conexao.php");
                         <img src=Imagens/star0.png id=s4>
                 
                         <img src=Imagens/star0.png id=s5>";
-            } else if ($media == "2") {
-                echo "
+        } else if ($media == "2") {
+            echo "
                         <img src=Imagens/star1.png id=s1>
                 
                         <img src=Imagens/star1.png id=s2>
@@ -89,8 +97,8 @@ include_once("PHP/conexao.php");
                         <img src=Imagens/star0.png id=s4>
                 
                         <img src=Imagens/star0.png id=s5>";
-            } else if ($media == "3") {
-                echo "
+        } else if ($media == "3") {
+            echo "
                         <img src=Imagens/star1.png id=s1>
                 
                         <img src=Imagens/star1.png id=s2>
@@ -100,8 +108,8 @@ include_once("PHP/conexao.php");
                         <img src=Imagens/star0.png id=s4>
                 
                         <img src=Imagens/star0.png id=s5>";
-            } else if ($media == "4") {
-                echo "
+        } else if ($media == "4") {
+            echo "
                         <img src=Imagens/star1.png id=s1>
                 
                         <img src=Imagens/star1.png id=s2>
@@ -111,8 +119,8 @@ include_once("PHP/conexao.php");
                         <img src=Imagens/star1.png id=s4>
                 
                         <img src=Imagens/star0.png id=s5>";
-            } else if ($media == "5") {
-                echo "
+        } else if ($media == "5") {
+            echo "
                         <img src=Imagens/star1.png id=s1>
                 
                         <img src=Imagens/star1.png id=s2>
@@ -122,7 +130,7 @@ include_once("PHP/conexao.php");
                         <img src=Imagens/star1.png id=s4>
                 
                         <img src=Imagens/star1.png id=s5>";
-            }
+        }
         echo "</div></center>";
         echo "<div class=rowc>";
 

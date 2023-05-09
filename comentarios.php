@@ -28,28 +28,21 @@ include_once("PHP/conexao.php");
             <div class="coisas_di">
                 <div class="nomeusu">
                     <h2><?php
-                        if (isset($_SESSION['login'])) {
-                            foreach ($_SESSION['loginA'] as $codigo) {
-                                $codigo = $codigo['cod'];
-                            }
-                            $imagem = "SELECT * FROM usuarios WHERE usu_cod=$codigo";
-                            $comando = mysqli_query($conn, $imagem);
-                            while ($row = mysqli_fetch_array($comando)) {
+                        foreach ($_SESSION['loginA'] as $codigo) {
+                            $codigo = $codigo['cod'];
+                        }
+                        $imagem = "SELECT * FROM usuarios WHERE usu_cod=$codigo";
+                        $comando = mysqli_query($conn, $imagem);
+                        while ($row = mysqli_fetch_array($comando)) {
+                            if (isset($_SESSION['login'])) {
                                 $imagem = base64_encode($row['usu_image']);
                                 echo "<center><img class=perfil src='data:image/jpeg;base64,$imagem'><br></center>";
-                            }
-                            echo $_SESSION['login'];
-                        } else if (isset($_SESSION['edit'])) {
-                            foreach ($_SESSION['loginA'] as $codigo) {
-                                $codigo = $codigo['cod'];
-                            }
-                            $imagem = "SELECT * FROM usuarios WHERE usu_cod=$codigo";
-                            $comando = mysqli_query($conn, $imagem);
-                            while ($row = mysqli_fetch_array($comando)) {
+                                echo $_SESSION['login'];
+                            } else if (isset($_SESSION['edit'])) {
                                 $imagem = base64_encode($row['usu_image']);
                                 echo "<center><img class=perfil src='data:image/jpeg;base64,$imagem'><br></center>";
+                                echo $_SESSION['edit'];
                             }
-                            echo $_SESSION['edit'];
                         }
                         ?></h2>
                 </div>
@@ -62,10 +55,7 @@ include_once("PHP/conexao.php");
                             <a class="letrasusu" href="editarPerfil.php">
                                 <div>
                                     <?php
-                                    foreach ($_SESSION['loginA'] as $codigo) {
-                                        $codigo = $codigo['cod'];
                                         echo "<input type=hidden name=codigo value=$codigo>";
-                                    }
                                     ?>
                                     Editar Perfil
                                 </div>
@@ -83,62 +73,41 @@ include_once("PHP/conexao.php");
                                 Sair
                             </form>
                         </a>
-                        <?php
-                        //mostrando a msg de login e senha inválidos!
-                        if (isset($_SESSION['naoeditado'])) {
-                            echo $_SESSION['naoeditado'];
-                            unset($_SESSION['naoeditado']);
-                        }
-                        ?>
-                        <?php
-                        //mostrando a msg de login e senha inválidos!
-                        if (isset($_SESSION['msgC'])) {
-                            echo $_SESSION['msgC'];
-                            unset($_SESSION['msgC']);
-                        }
-                        ?>
-
                     </div>
                 </h2>
             </div>
         </div>
         <?php
         error_reporting(0);
-        foreach ($_SESSION['loginA'] as $codigo) {
-            $cod = $codigo['cod'];
-        }
-        $opinioes = "SELECT * FROM opnioes WHERE opn_codusu = '$cod'";
+        $opinioes = "SELECT * FROM opnioes WHERE opn_codusu = '$codigo'";
         $abobrinha = mysqli_query($conn, $opinioes);
         while ($row = mysqli_fetch_array($abobrinha)) {
             $codigousu[] = $row['opn_codusu'];
         }
-            if($codigousu == 1 || $codigousu == 0){
+        if ($codigousu == 1 || $codigousu == 0) {
         ?>
-        <div class="quadradoa" style="height: 650px;">
-        <?php
-        }else{
-            ?>
-        <div class="quadradoa" style="height: auto;">
+            <div class="quadradoa" style="height: 650px;">
             <?php
-        }
-        echo "
+        } else {
+            ?>
+                <div class="quadradoa" style="height: auto;">
+                <?php
+            }
+            echo "
         <div class=top-titlea>
         <h3>Opiniões</h3>
         <hr>
         <div class=rowc>";
 
-        
 
-        $opinioes = "SELECT * FROM opnioes WHERE opn_codusu = '$cod'";
-        $abobrinha = mysqli_query($conn, $opinioes);
-        while ($row = mysqli_fetch_array($abobrinha)) {
-            $codigoopn = $row['opn_cod'];
-            $usuario = $row['opn_pessoa'];
-            $opiniao = $row['opn_opiniao'];
-            $carro = $row['opn_carro'];
-            $marca = $row['opn_marca'];
-            $codigofoto = $row['opn_codusu'];
-            $avaliacao = $row['opn_avaliacao'];
+
+            $opinioes = "SELECT * FROM opnioes WHERE opn_codusu = '$codigo'";
+            $abobrinha = mysqli_query($conn, $opinioes);
+            while ($row = mysqli_fetch_array($abobrinha)) {
+                $codigoopn = $row['opn_cod'];
+                $opiniao = $row['opn_opiniao'];
+                $carro = $row['opn_carro'];
+                $marca = $row['opn_marca'];
 
                 echo "
             <div class=featured-boxd>
@@ -149,65 +118,7 @@ include_once("PHP/conexao.php");
                         <div style=display:flex;flex-direction:column;>
                         <h1>$marca $carro</h1>
                         <div class=imagemmaluca style=display:flex;justify-content:center;align-items:center;flex-direction:row;>";
-
-                        if ($avaliacao == "1") {
-                            echo "
-                                    <img src=Imagens/star1.png id=s1>
-                            
-                                    <img src=Imagens/star0.png id=s2>
-                            
-                                    <img src=Imagens/star0.png id=s3>
-                            
-                                    <img src=Imagens/star0.png id=s4>
-                            
-                                    <img src=Imagens/star0.png id=s5>";
-                        } else if ($avaliacao == "2") {
-                            echo "
-                                    <img src=Imagens/star1.png id=s1>
-                            
-                                    <img src=Imagens/star1.png id=s2>
-                            
-                                    <img src=Imagens/star0.png id=s3>
-                            
-                                    <img src=Imagens/star0.png id=s4>
-                            
-                                    <img src=Imagens/star0.png id=s5>";
-                        } else if ($avaliacao == "3") {
-                            echo "
-                                    <img src=Imagens/star1.png id=s1>
-                            
-                                    <img src=Imagens/star1.png id=s2>
-                            
-                                    <img src=Imagens/star1.png id=s3>
-                            
-                                    <img src=Imagens/star0.png id=s4>
-                            
-                                    <img src=Imagens/star0.png id=s5>";
-                        } else if ($avaliacao == "4") {
-                            echo "
-                                    <img src=Imagens/star1.png id=s1>
-                            
-                                    
-                                    <img src=Imagens/star1.png id=s2>
-                            
-                                    <img src=Imagens/star1.png id=s3>
-                            
-                                    <img src=Imagens/star1.png id=s4>
-                            
-                                    <img src=Imagens/star0.png id=s5>";
-                        } else if ($avaliacao == "5") {
-                            echo "
-                                    <img src=Imagens/star1.png id=s1>
-                            
-                                    <img src=Imagens/star1.png id=s2>
-                            
-                                    <img src=Imagens/star1.png id=s3>
-                            
-                                    <img src=Imagens/star1.png id=s4>
-                            
-                                    <img src=Imagens/star1.png id=s5>";
-                        }
-                        echo "</div></div></div>
+                echo "</div></div></div>
                         </div>
                         <div class=opidireita>
                             <div class=titulodireita>
@@ -224,16 +135,16 @@ include_once("PHP/conexao.php");
                     </div>
                 </div>";
                 echo "</div>";
-        }
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-        ?>
-        </div>
-        <!--Rodapé-->
-        <?php require "PHP/rodape.php";
-        echo $_SESSION['rodape'];
-        ?>
+            }
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+                ?>
+                </div>
+                <!--Rodapé-->
+                <?php require "PHP/rodape.php";
+                echo $_SESSION['rodape'];
+                ?>
 </body>
 
 </html>

@@ -32,6 +32,7 @@
                             $imagem = "SELECT * FROM usuarios WHERE usu_cod=$codigo";
                             $comando = mysqli_query($conn, $imagem);
                             while ($row = mysqli_fetch_array($comando)) {
+                                $codigousu = $row['usu_cod'];
                                 $imagem = base64_encode($row['usu_image']);
                                 echo "<center><img class=perfil src='data:image/jpeg;base64,$imagem'><br></center>";
                             }
@@ -98,24 +99,38 @@
                 </h2>
             </div>
         </div>
-        <div class="quadradoa">
-            <div class="quadrado">
-                <a href="CadastroCar.php">
-                    <div class="quad">
-                        <img src="Imagens/Pergunta/Supra.png">
-                        <h3>Vai colocar sua opinião sobre algum carro?</h3>
+        <?php
+        if (isset($_SESSION['login'])) {
+            if ($codigousu == "1") {
+        ?>
+                <div class="quadradoa">
+                    <div class="quadrado">
+                        <a href="CadastroCar.php">
+                            <div class="quad">
+                                <img src="Imagens/Pergunta/Supra.png">
+                                <h3>Vai colocar sua opinião sobre algum carro?</h3>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="quadrado">
-                <a href="CadastroMarca.php">
-                    <div class="quad">
-                        <img src="Imagens/Pergunta/Supra.png">
-                        <h3>Cadastrar Marcas</h3>
+                    <div class="quadrado">
+                        <a href="CadastroMarca.php">
+                            <div class="quad">
+                                <img src="Imagens/Pergunta/Supra.png">
+                                <h3>Cadastrar Marcas</h3>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-        </div>
+                </div>
+            <?php
+            } else {
+            ?>
+                <div class="quadradoa" style="height: 650px;">
+                </div>
+        <?php
+
+            }
+        }
+        ?>
     </div>
     <?php require "PHP/rodape.php";
     echo $_SESSION['rodape'];

@@ -284,3 +284,46 @@ img {
   width: 100px;
   height: 100px;
 }
+
+.quadradoa {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.quadedit {
+  width: 350px;
+  height: auto;
+  display: flex;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 55%);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  margin-left: 25px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  transition: width 1s, height 1s, transform 1s;
+}
+
+.quadlado {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.algumtext {
+  width: 300px;
+  height: 300px;
+}
