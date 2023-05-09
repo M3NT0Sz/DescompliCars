@@ -136,7 +136,7 @@ include_once("PHP/conexao.php");
             <div class="featured-imgb">
               <center><img class=perfil src=data:image/jpeg;base64,'.$imagem.'><br>
               <h1>'.$marca . " " . $modelo.'</h1>
-              <input type=hidden name=cod value=$cod>
+              <input type=hidden name=cod value='.$cod.'>
               <button class=button-6>Ver Opniões</button>
             </div>
               
