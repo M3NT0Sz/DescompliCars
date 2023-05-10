@@ -26,7 +26,7 @@
     }else{
 
     }
-    $cod = $_POST['cod'];
+    $codigo = $_POST['cod'];
     $marcas = "SELECT * FROM marcas WHERE mar_cod = $cod";
     $comando = mysqli_query($conn, $marcas);
     while ($row = mysqli_fetch_array($comando)) {
@@ -113,17 +113,15 @@
             <div class=featured-imgb>
             <form action=carros.php method=post>
               <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$marca</h1>
               <h1>$modelo</h1>
               <h1>$anomod</h1>
               <h1>$anofab</h1>
               <h1>$versao</h1>
-              <h1>$tipo</h1>
               <input type=hidden name=cod value=$cod>
               <button class=button-6>Ver Opniões</button>
               </form>";
               if (isset($_SESSION['login'])) {
-                    if ($codigousu == "1") {
+                    if ($codigousu == "1"||$codigousu == "2") {
                         echo "<form method=post action=PHP/procexcluir.php>
               <input type=hidden name=cod value=$cod>
               <button>Excluir</button>
@@ -168,12 +166,10 @@
             <div class=featured-imgb>
             <form action=carros.php method=post>
               <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$marca</h1>
               <h1>$modelo</h1>
               <h1>$anomod</h1>
               <h1>$anofab</h1>
               <h1>$versao</h1>
-              <h1>$tipo</h1>
               <input type=hidden name=cod value=$cod>
               <button class=button-6>Ver Opniões</button>
               </form>";
@@ -223,12 +219,10 @@
             <div class=featured-imgb>
             <form action=carros.php method=post>
               <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$marca</h1>
               <h1>$modelo</h1>
               <h1>$anomod</h1>
               <h1>$anofab</h1>
               <h1>$versao</h1>
-              <h1>$tipo</h1>
               <input type=hidden name=cod value=$cod>
               <button class=button-6>Ver Opniões</button>
               </form>";
@@ -278,12 +272,10 @@
             <div class=featured-imgb>
             <form action=carros.php method=post>
               <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$marca</h1>
               <h1>$modelo</h1>
               <h1>$anomod</h1>
               <h1>$anofab</h1>
               <h1>$versao</h1>
-              <h1>$tipo</h1>
               <input type=hidden name=cod value=$cod>
               <button class=button-6>Ver Opniões</button>
               </form>";

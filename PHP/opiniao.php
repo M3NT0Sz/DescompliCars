@@ -30,12 +30,12 @@
                 $modelo = $row['car_modelo'];
                 echo "<form style=width:100%; action=proc_cadopiniao.php method=post>
                 <div class=quadlado>
-                <h3>Marca:<input type=text name=marca value='$marca'>
+                <h3>Marca:<input type=text name=marca value='$marca' readonly>
                 </div>
                 <div class=quadlado>
-        <input type=hidden name=codcar value='$codcar'></h3>
-        <input type=hidden name=codusu value='$codusu'>
-        <h3>Modelo:<input type=text name=modelo value='$modelo'></h3>
+        <input type=hidden name=codcar value='$codcar' readonly></h3>
+        <input type=hidden name=codusu value='$codusu' readonly>
+        <h3>Modelo:<input type=text name=modelo value='$modelo' readonly></h3>
         </div>
         <center><h3>Opnião</center>
         <div class=quadlado>
@@ -57,7 +57,7 @@
         <a href=javascript:void(0) onclick=Avaliar(5)>
         <img src=../Imagens/star0.png id=s5></a>
         </div>
-        <input type=hidden name=avaliacao id=rating value=0>
+        <input type=hidden name=avaliacao id=rating required>
         <div class=quadlado>
         <button class=button-6>Cadastrar Opinião</button>
         </div>

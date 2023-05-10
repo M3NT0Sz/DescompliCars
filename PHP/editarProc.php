@@ -19,7 +19,7 @@ $comando = mysqli_query($conn, $sql);
 if(mysqli_affected_rows($conn)){
     $_SESSION['editado'] = "Usuario editado com sucesso";
     unset($_SESSION['login']);
-    $_SESSION['edit'] = $nome. " " .$sobrenome;    
+    $_SESSION['login'] = $nome. " " .$sobrenome;    
     header("location:../Perfil.php");
 }else{
     $_SESSION['naoeditado'] = "Usuario não editado";

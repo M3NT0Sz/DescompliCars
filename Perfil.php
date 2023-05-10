@@ -101,7 +101,7 @@
         </div>
         <?php
         if (isset($_SESSION['login'])) {
-            if ($codigousu == "1") {
+            if ($codigousu == "1" || $codigousu == "2") {
         ?>
                 <div class="quadradoa">
                     <div class="quadrado">

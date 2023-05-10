@@ -138,9 +138,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 0;
+    left: 0;
     vertical-align: middle;
     margin-left: 20px;
+    position: fixed;
+    z-index: 1;
 }
 
 .imagemmenu img {
@@ -164,6 +166,7 @@ body {
     align-items: center;
     justify-content: center;
     align-content: center;
+    position: fixed;
 }
 
 .tabelamenu {
@@ -195,7 +198,8 @@ body {
 .iconesmenu {
     display: flex;
     align-items: center;
-    position: relative;
+    position: fixed;
+    right: 0;
 }
 
 .iconesmenu i {
@@ -420,6 +424,7 @@ hr {
     justify-content: center;
     align-content: center;
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 55%);
+    bottom: 0;
 }
 
 .sec {

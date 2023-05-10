@@ -23,7 +23,6 @@ include_once("PHP/conexao.php");
     ?>
     <!--Fecha MenuBar-->
     <?php
-    error_reporting(0);
     if (isset($_SESSION['login'])) {
         foreach ($_SESSION['loginA'] as $codigo) {
             $codigousu = $codigo['cod'];
@@ -57,8 +56,8 @@ include_once("PHP/conexao.php");
     }
 
     $carro = "SELECT * FROM carros WHERE car_cod = $cod";
-    $comando = mysqli_query($conn, $carro);
-    while ($row = mysqli_fetch_array($comando)) {
+    $carros = mysqli_query($conn, $carro);
+    while ($row = mysqli_fetch_array($carros)) {
         $cod = $row['car_cod'];
         $marca = $row['car_marca'];
         $modelo = $row['car_modelo'];
@@ -137,6 +136,7 @@ include_once("PHP/conexao.php");
         $opniaocarro = "SELECT * FROM opnioes WHERE opn_carro='$modelo'";
         $abobora = mysqli_query($conn, $opniaocarro);
         while ($row = mysqli_fetch_array($abobora)) {
+            $codigoopn = $row['opn_cod'];
             $opiniao = $row['opn_opiniao'];
             $usuario = $row['opn_pessoa'];
             $codigofoto = $row['opn_codusu'];
@@ -213,9 +213,28 @@ include_once("PHP/conexao.php");
                             <img src=Imagens/star1.png id=s4>
                     
                             <img src=Imagens/star1.png id=s5>";
+                } else if ($avaliacao == "0") {
+                    echo "
+                            <img src=Imagens/star0.png id=s1>
+                    
+                            <img src=Imagens/star0.png id=s2>
+                    
+                            <img src=Imagens/star0.png id=s3>
+                    
+                            <img src=Imagens/star0.png id=s4>
+                    
+                            <img src=Imagens/star0.png id=s5>";
                 }
+
+                echo "</div>";
+                if ($codigousu == 1 || $codigousu == 2) {
+                    echo "<form method=post action=PHP/deletarcomentario.php>";
+                    echo "<input type=hidden name=codcomentario value=$codigoopn>";
+                    echo "<button>Excluir</button>";
+                    echo "</form>";
+                }
+
                 echo "</div>
-                        </div>
                         <div class=opidireita>
                             <div class=titulodireita>
                                 <h1>Opinião</h1>
@@ -236,12 +255,18 @@ include_once("PHP/conexao.php");
         echo "<form action=PHP/verificarlog.php method=post>";
         if (isset($_SESSION['login'])) {
             echo "<input type=hidden name=codigousu value=$codigousu>";
-        } else {
         }
         echo "<input type=hidden name=codigocar value=$cod>";
         echo "<center><button class=button-6>Cadastrar opinião</button></center>";
-        echo "<center><a href=index.php><button type=button class=button-6>Voltar</button></center></a>
-        </form>";
+        $marcas = "SELECT * FROM marcas WHERE mar_nome = '$marca'";
+        $comando = mysqli_query($conn, $marcas);
+        while ($row = mysqli_fetch_array($comando)) {
+            $codigocarros = $row['mar_cod'];
+            echo "<form action=marcas.php method=post>";
+            echo "<center><input type=hidden name=cod value='$codigocarros'><button type=button class=button-6>Voltar</button></center>";
+            echo "</form>";
+        }
+        echo "</form>";
     }
     ?>
     <!--Rodapé-->
