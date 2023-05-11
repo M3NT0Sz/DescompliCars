@@ -12,6 +12,27 @@ include_once("PHP/conexao.php");
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.cpf').mask('000.000.000-00');
+      $('.date').mask('00/00/0000');
+      $('.phone').mask('(00)00000-0000');
+
+      $('.cpf').on('input', function() {
+        $(this).mask('000.000.000-00');
+      });
+
+      $('.date').on('input', function() {
+        $(this).mask('00/00/0000');
+      });
+
+      $('.phone').on('input', function() {
+        $(this).mask('(00)00000-0000');
+      });
+    });
+  </script>
   <title>DescompliCars</title>
 </head>
 
@@ -66,9 +87,9 @@ include_once("PHP/conexao.php");
               <input type="text" placeholder="Sobrenome" name="sobrenome" required>
             </div>
             <div class="field">
-              <input type="tel" maxlength="11" placeholder="Telefone" name="tel" required>
-              <input type="text" name="data" data-inputmask="'mask': '99/99/9999'" placeholder="dd/mm/aaaa" required>
-              <input type="text" maxlength="11" placeholder="CPF" name="cpf" required>
+              <input type="text" class="phone" placeholder="Telefone" name="tel" required>
+              <input type="date" min="1900-01-01" max="2023-01-01" name="datanasc" required>
+              <input type="text" class="cpf" placeholder="CPF" name="cpf" required>
             </div>
             <div class="field">
               <input type="text" placeholder="Endereco" name="endereco" required>
@@ -79,6 +100,7 @@ include_once("PHP/conexao.php");
               <h3 style="display: flex; align-items: center; justify-content: center;">Genero:</h3><select name="genero">
                 <option value="Feminino">Feminino</option>
                 <option value="Masculino">Masculino</option>
+                <option value="Outros">Outros</option>
               </select>
               <input type="password" placeholder="Senha" name="senha" required>
             </div>
@@ -99,7 +121,6 @@ include_once("PHP/conexao.php");
   echo $_SESSION['rodape'];
   ?>
   <!--Rodapé Fechar-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/jquery.inputmask.min.js"></script>
   <script>
     const loginText = document.querySelector(".title-text .login");
     const loginForm = document.querySelector("form.login");
@@ -117,6 +138,11 @@ include_once("PHP/conexao.php");
     signupLink.onclick = (() => {
       signupBtn.click();
       return false;
+
+      $(document).ready(function() {
+        $('.date').mask('00/00/0000');
+        $('.phone').mask('(00) 00000-0000');
+      });
     });
   </script>
 </body>

@@ -14,15 +14,31 @@ $cid = filter_input(INPUT_POST, 'cidade', FILTER_SANITIZE_STRING);
 $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
 $genero = filter_input(INPUT_POST, 'genero', FILTER_SANITIZE_STRING);
 
-$sql = "UPDATE usuarios SET usu_nome = '$nome', usu_sobrenome = '$sobrenome', usu_email = '$email', usu_dtnasc = '$dtnasc', usu_cpf = '$cpf', usu_endereco = '$endereco', usu_cidade = '$cid', usu_estado = '$estado', usu_genero = '$genero' WHERE usu_cod = '$cod'"; 
-$comando = mysqli_query($conn, $sql);
-if(mysqli_affected_rows($conn)){
-    $_SESSION['editado'] = "Usuario editado com sucesso";
-    unset($_SESSION['login']);
-    $_SESSION['login'] = $nome. " " .$sobrenome;    
-    header("location:../Perfil.php");
-}else{
-    $_SESSION['naoeditado'] = "Usuario não editado";
-    header("location:../editarPerfil.php");
+$imagem = $_FILES['imagemperfil']['tmp_name'];
+
+if (empty($imagem)) {
+    $sql = "UPDATE usuarios SET usu_nome = '$nome', usu_sobrenome = '$sobrenome', usu_email = '$email', usu_dtnasc = '$dtnasc', usu_cpf = '$cpf', usu_endereco = '$endereco', usu_cidade = '$cid', usu_estado = '$estado', usu_genero = '$genero' WHERE usu_cod = '$cod'";
+    $comando = mysqli_query($conn, $sql);
+    if (mysqli_affected_rows($conn)) {
+        $_SESSION['editado'] = "Usuario editado com sucesso";
+        unset($_SESSION['login']);
+        $_SESSION['login'] = $nome . " " . $sobrenome;
+        header("location:../Perfil.php");
+    } else {
+        $_SESSION['naoeditado'] = "Usuario não editado";
+        header("location:../editarPerfil.php");
+    }
+} else {
+    $imagem = addslashes(file_get_contents($_FILES['imagemperfil']['tmp_name']));
+    $sql = "UPDATE usuarios SET usu_nome = '$nome', usu_sobrenome = '$sobrenome', usu_email = '$email', usu_dtnasc = '$dtnasc', usu_cpf = '$cpf', usu_endereco = '$endereco', usu_cidade = '$cid', usu_estado = '$estado', usu_genero = '$genero', usu_image = '$imagem' WHERE usu_cod = '$cod'";
+    $comando = mysqli_query($conn, $sql);
+    if (mysqli_affected_rows($conn)) {
+        $_SESSION['editado'] = "Usuario editado com sucesso";
+        unset($_SESSION['login']);
+        $_SESSION['login'] = $nome . " " . $sobrenome;
+        header("location:../Perfil.php");
+    } else {
+        $_SESSION['naoeditado'] = "Usuario não editado";
+        header("location:../editarPerfil.php");
+    }
 }
-?>

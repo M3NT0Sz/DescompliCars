@@ -22,16 +22,16 @@
         $result = mysqli_query($conn, $sql);
         $row_usuario = mysqli_fetch_array($result);
     }
-    function Mask($mask,$str){
+    function Mask($mask, $str)
+    {
 
-        $str = str_replace(" ","",$str);
-    
-        for($i=0;$i<strlen($str);$i++){
-            $mask[strpos($mask,"#")] = $str[$i];
+        $str = str_replace(" ", "", $str);
+
+        for ($i = 0; $i < strlen($str); $i++) {
+            $mask[strpos($mask, "#")] = $str[$i];
         }
-    
+
         return $mask;
-    
     }
     ?>
 
@@ -117,7 +117,7 @@
         <div class="quadradoa">
             <div class="quadedit">
                 <h1 style="padding-bottom: 10px;">Editar</h1>
-                <form style="width: 100%;" action="PHP/editarProc.php" method="post">
+                <form style="width: 100%;" action="PHP/editarProc.php" method="post" enctype="multipart/form-data">
                     <div class="quadlado">
                         <h3>Nome:<input type="text" name="nome" value="<?php echo $row_usuario['usu_nome'] ?>"></h3>
                     </div>
@@ -128,7 +128,7 @@
                         <h3>Email:<input type="text" name="email" value="<?php echo $row_usuario['usu_email'] ?>"></h3>
                     </div>
                     <div class="quadlado">
-                        <h3>Telefone:<input  type="text" name="tel" maxlength="14" value="<?php echo $row_usuario['usu_tel'] ?>"></h3>
+                        <h3>Telefone:<input type="text" name="tel" maxlength="14" value="<?php echo $row_usuario['usu_tel'] ?>"></h3>
                     </div>
                     <div class="quadlado">
                         <h3>Data de Nascimento:<input type="date" name="dtnasc" value="<?php echo $row_usuario['usu_dtnasc'] ?>"></h3>
@@ -147,16 +147,25 @@
                     </div>
                     <div class="quadlado">
                         <h3>Genero: <select name="genero">
-                            <?php
-                                if($row_usuario['usu_genero'] == "Masculino"){
+                                <?php
+                                if ($row_usuario['usu_genero'] == "Masculino") {
                                     echo "<option value='Masculino'>Masculino</option>";
                                     echo "<option value='Feminino'>Feminino</option>";
-                                } else {
+                                    echo "<option value='Outros'>Outros</option>";
+                                } else if($row_usuario['usu_genero'] == "Feminino"){
+                                    echo "<option value='Feminino'>Feminino</option>";
+                                    echo "<option value='Masculino'>Masculino</option>";
+                                    echo "<option value='Outros'>Outros</option>";
+                                } else{
+                                    echo "<option value='Outros'>Outros</option>";
                                     echo "<option value='Feminino'>Feminino</option>";
                                     echo "<option value='Masculino'>Masculino</option>";
                                 }
-                            ?>                            
-                        </select></h3>
+                                ?>
+                            </select></h3>
+                    </div>
+                    <div class="quadlado">
+                        <h3>Insira sua foto<input type="file" name="imagemperfil" accept="image/*"></h3>
                     </div>
                     <input type="hidden" name="cod" value="<?php echo $row_usuario['usu_cod'] ?>">
                     <div class="quadlado">
