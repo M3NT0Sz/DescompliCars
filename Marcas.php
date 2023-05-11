@@ -23,11 +23,9 @@
         foreach ($_SESSION['loginA'] as $codigo) {
             $codigousu = $codigo['cod'];
         }
-    }else{
-
     }
     $codigo = $_POST['cod'];
-    $marcas = "SELECT * FROM marcas WHERE mar_cod = $cod";
+    $marcas = "SELECT * FROM marcas WHERE mar_cod = $codigo";
     $comando = mysqli_query($conn, $marcas);
     while ($row = mysqli_fetch_array($comando)) {
         $marca = $row['mar_nome'];

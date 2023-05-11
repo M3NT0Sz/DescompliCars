@@ -22,6 +22,17 @@
         $result = mysqli_query($conn, $sql);
         $row_usuario = mysqli_fetch_array($result);
     }
+    function Mask($mask,$str){
+
+        $str = str_replace(" ","",$str);
+    
+        for($i=0;$i<strlen($str);$i++){
+            $mask[strpos($mask,"#")] = $str[$i];
+        }
+    
+        return $mask;
+    
+    }
     ?>
 
     <div class="lados">
@@ -117,13 +128,13 @@
                         <h3>Email:<input type="text" name="email" value="<?php echo $row_usuario['usu_email'] ?>"></h3>
                     </div>
                     <div class="quadlado">
-                        <h3>Telefone:<input type="text" name="tel" value="<?php echo $row_usuario['usu_tel'] ?>"></h3>
+                        <h3>Telefone:<input  type="text" name="tel" maxlength="14" value="<?php echo $row_usuario['usu_tel'] ?>"></h3>
                     </div>
                     <div class="quadlado">
                         <h3>Data de Nascimento:<input type="date" name="dtnasc" value="<?php echo $row_usuario['usu_dtnasc'] ?>"></h3>
                     </div>
                     <div class="quadlado">
-                        <h3>CPF:<input type="text" name="cpf" value="<?php echo $row_usuario['usu_cpf'] ?>"></h3>
+                        <h3>CPF:<input type="text" name="cpf" maxlength="14" value="<?php echo $row_usuario['usu_cpf'] ?>"></h3>
                     </div>
                     <div class="quadlado">
                         <h3>Endereço:<input type="text" name="endereco" value="<?php echo $row_usuario['usu_endereco'] ?>"></h3>
@@ -132,10 +143,20 @@
                         <h3>Cidade:<input type="text" name="cidade" value="<?php echo $row_usuario['usu_cidade'] ?>"></h3>
                     </div>
                     <div class="quadlado">
-                        <h3>Estado:<input type="text" name="estado" value="<?php echo $row_usuario['usu_estado'] ?>"></h3>
+                        <h3>Estado:<input type="text" maxlength="2" name="estado" value="<?php echo $row_usuario['usu_estado'] ?>"></h3>
                     </div>
                     <div class="quadlado">
-                        <h3>Genero:<input type="text" name="genero" value="<?php echo $row_usuario['usu_genero'] ?>"></h3>
+                        <h3>Genero: <select name="genero">
+                            <?php
+                                if($row_usuario['usu_genero'] == "Masculino"){
+                                    echo "<option value='Masculino'>Masculino</option>";
+                                    echo "<option value='Feminino'>Feminino</option>";
+                                } else {
+                                    echo "<option value='Feminino'>Feminino</option>";
+                                    echo "<option value='Masculino'>Masculino</option>";
+                                }
+                            ?>                            
+                        </select></h3>
                     </div>
                     <input type="hidden" name="cod" value="<?php echo $row_usuario['usu_cod'] ?>">
                     <div class="quadlado">

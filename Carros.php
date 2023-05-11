@@ -23,6 +23,7 @@ include_once("PHP/conexao.php");
     ?>
     <!--Fecha MenuBar-->
     <?php
+    error_reporting(0);
     if (isset($_SESSION['login'])) {
         foreach ($_SESSION['loginA'] as $codigo) {
             $codigousu = $codigo['cod'];
@@ -153,9 +154,11 @@ include_once("PHP/conexao.php");
                     <div class=ladoscar>
                         <div class=usuesquerda>";
                 echo "<img class=perfil src='data:image/jpeg;base64,$imagemusua'>
-                        <div class=nomeperfil>
-                        <h1>$usuario</h1>
-                        </div>
+                        <div class=nomeperfil>";
+
+
+                echo "<h1>$usuario</h1>";
+                echo "</div>
                         <div class=imagemmaluca style=display:flex;flex-direction:row;>";
 
                 if ($avaliacao == "1") {
@@ -225,8 +228,13 @@ include_once("PHP/conexao.php");
                     
                             <img src=Imagens/star0.png id=s5>";
                 }
-
                 echo "</div>";
+                echo "<center>";
+                echo "<form action=Perfilusu.php method=post>";
+                echo "<input type=hidden name=cod value='$codigofoto'>";
+                echo "<button class=button-6>Ver perfil</button>";
+                echo "</form>";
+                echo "</center>";
                 if ($codigousu == 1 || $codigousu == 2) {
                     echo "<form method=post action=PHP/deletarcomentario.php>";
                     echo "<input type=hidden name=codcomentario value=$codigoopn>";
@@ -258,15 +266,15 @@ include_once("PHP/conexao.php");
         }
         echo "<input type=hidden name=codigocar value=$cod>";
         echo "<center><button class=button-6>Cadastrar opinião</button></center>";
+        echo "</form>";
         $marcas = "SELECT * FROM marcas WHERE mar_nome = '$marca'";
         $comando = mysqli_query($conn, $marcas);
         while ($row = mysqli_fetch_array($comando)) {
             $codigocarros = $row['mar_cod'];
             echo "<form action=marcas.php method=post>";
-            echo "<center><input type=hidden name=cod value='$codigocarros'><button type=button class=button-6>Voltar</button></center>";
+            echo "<center><input type=hidden name=cod value='$codigocarros'><button type=submit class=button-6>Voltar</button></center>";
             echo "</form>";
         }
-        echo "</form>";
     }
     ?>
     <!--Rodapé-->

@@ -62,25 +62,28 @@ include_once("PHP/conexao.php");
           <form action="PHP/cadastrar.php" method="post" class="signup" enctype="multipart/form-data">
             <div class="field">
               <input type="email" placeholder="E-mail" name="email" required>
-                <input type="text" placeholder="Nome" name="nome" required>
-                <input type="text" placeholder="Sobrenome" name="sobrenome" required>
+              <input type="text" placeholder="Nome" name="nome" required>
+              <input type="text" placeholder="Sobrenome" name="sobrenome" required>
             </div>
-              <div class="field">
-              <input type="tel" placeholder="Telefone" name="tel" required>
-              <input type="date" placeholder="Data de Nascimento" name="datanasc" required>
-              <input type="text" placeholder="CPF" name="cpf" required>
-              </div>
+            <div class="field">
+              <input type="tel" maxlength="11" placeholder="Telefone" name="tel" required>
+              <input type="text" name="data" data-inputmask="'mask': '99/99/9999'" placeholder="dd/mm/aaaa" required>
+              <input type="text" maxlength="11" placeholder="CPF" name="cpf" required>
+            </div>
             <div class="field">
               <input type="text" placeholder="Endereco" name="endereco" required>
               <input type="text" placeholder="Cidade" name="cidade" required>
               <input type="text" placeholder="Estado" name="estado" required>
             </div>
             <div class="field">
-              <input type="text" placeholder="Genero" name="genero" required>
+              <h3 style="display: flex; align-items: center; justify-content: center;">Genero:</h3><select name="genero">
+                <option value="Feminino">Feminino</option>
+                <option value="Masculino">Masculino</option>
+              </select>
               <input type="password" placeholder="Senha" name="senha" required>
             </div>
             <div class="field">
-            Insira sua foto<input type="file" name="imagemperfil" accept="image/*">
+              Insira sua foto<input type="file" name="imagemperfil" accept="image/*">
             </div>
             <div class="field btn">
               <div class="btn-layer"></div>
@@ -96,7 +99,7 @@ include_once("PHP/conexao.php");
   echo $_SESSION['rodape'];
   ?>
   <!--Rodapé Fechar-->
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/jquery.inputmask.min.js"></script>
   <script>
     const loginText = document.querySelector(".title-text .login");
     const loginForm = document.querySelector("form.login");

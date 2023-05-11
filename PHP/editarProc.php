@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once("conexao.php");
+
 $cod = filter_input(INPUT_POST, 'cod', FILTER_SANITIZE_STRING);
 $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
 $sobrenome = filter_input(INPUT_POST, 'sobrenome', FILTER_SANITIZE_STRING);
@@ -13,8 +14,7 @@ $cid = filter_input(INPUT_POST, 'cidade', FILTER_SANITIZE_STRING);
 $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
 $genero = filter_input(INPUT_POST, 'genero', FILTER_SANITIZE_STRING);
 
-
-$sql = "UPDATE usuarios SET usu_nome = '$nome', usu_sobrenome = '$sobrenome', usu_email = '$email', usu_dtnasc = '$dataN', usu_cpf = '$cpf', usu_endereco = '$endereco', usu_cidade = '$cid', usu_estado = '$estado', usu_genero = '$genero' WHERE usu_cod = '$cod'"; 
+$sql = "UPDATE usuarios SET usu_nome = '$nome', usu_sobrenome = '$sobrenome', usu_email = '$email', usu_dtnasc = '$dtnasc', usu_cpf = '$cpf', usu_endereco = '$endereco', usu_cidade = '$cid', usu_estado = '$estado', usu_genero = '$genero' WHERE usu_cod = '$cod'"; 
 $comando = mysqli_query($conn, $sql);
 if(mysqli_affected_rows($conn)){
     $_SESSION['editado'] = "Usuario editado com sucesso";

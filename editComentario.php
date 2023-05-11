@@ -201,7 +201,7 @@
                                         </div>
                                         <form action=PHP/proc_editcomen.php method=post>
                                         <div class=opiniao>
-                                            <textarea name='opiniao' class=textoperfil>$opnioes</textarea>
+                                            <textarea name='opiniao' maxlength=1000 class=textoperfil>$opnioes</textarea>
                                         </div>
                                         <input type=hidden name=avaliacao id=rating value=$avaliacao>
                                         <input type=hidden class=id name=codigo value=$codigousu>
