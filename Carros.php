@@ -252,19 +252,19 @@ include_once("PHP/conexao.php");
                             </div>
                             <center>
                             <div class=opiniao style=margin-bottom:10px;display:flex;align-items:center;justify-content:center;>
-                                <h3>$opiniao</h3>
+                                <h6>$opiniao</h6>
                             </div>
                             <div class=titulodireita>
                                 <h1>Prós</h1>
                             </div>
                             <div class=opiniao style=margin-bottom:10px;>
-                                <h3>$pros</h3>
+                                <h6>$pros</h6>
                             </div>
                             <div class=titulodireita>
                                 <h1>Contra</h1>
                             </div>
                             <div class=opiniao style=margin-bottom:10px;>
-                                <h3>$contra</h3>
+                                <h6>$contra</h6>
                             </div>
                             </center>
                         </div>
