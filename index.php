@@ -127,7 +127,6 @@ include_once("PHP/conexao.php");
         $cod = $row['car_cod'];
         $marca = $row['car_marca'];
         $modelo = $row['car_modelo'];
-        $versao = $row['car_versao'];
         $tipo = $row['car_tipo'];
         $imagem = base64_encode($row['car_image']);
         $contagem = $row['car_contagem'];

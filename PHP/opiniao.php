@@ -19,7 +19,7 @@
     <!--Fecha MenuBar-->
     <div class="quadradoa">
         <div class="quadedit">
-            <h1 style="padding-bottom: 10px;">Cadastrar Opinião</h1>
+            <h1 style="padding-bottom: 10px;color:#004aad;">Cadastrar Opinião</h1>
             <?php
             $codcar = $_SESSION['codigocar'];
             $codusu = $_SESSION['codigousu'];
@@ -37,9 +37,22 @@
         <input type=hidden name=codusu value='$codusu' readonly>
         <h3>Modelo:<input type=text name=modelo value='$modelo' readonly></h3>
         </div>
+        <div class=quadlado>
+        <h3>Ano do Modelo:<input type=number min=1900 max=2024 name=anomodelo></h3>
+        </div>
         <center><h3>Opnião</center>
         <div class=quadlado>
-        <textarea type=text class='tamanhoinput algumtext' name=opiniao maxlength=1000></textarea>
+        <textarea type=text class='tamanhoinput algumtext' name=opiniao maxlength=400></textarea>
+        </div></h3>
+
+        <center><h3>Prós</center>
+        <div class=quadlado>
+        <textarea type=text class='tamanhoinput algumtext' name=pros maxlength=400></textarea>
+        </div></h3>
+
+        <center><h3>Contra</center>
+        <div class=quadlado>
+        <textarea type=text class='tamanhoinput algumtext' name=contra maxlength=400></textarea>
         </div></h3>
         <div class=quadlado>
         <a href=javascript:void(0) onclick=Avaliar(1)>

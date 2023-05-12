@@ -55,7 +55,7 @@ include_once("PHP/conexao.php");
                             <a class="letrasusu" href="editarPerfil.php">
                                 <div>
                                     <?php
-                                        echo "<input type=hidden name=codigo value=$codigo>";
+                                    echo "<input type=hidden name=codigo value=$codigo>";
                                     ?>
                                     Editar Perfil
                                 </div>
@@ -84,11 +84,11 @@ include_once("PHP/conexao.php");
         while ($row = mysqli_fetch_array($abobrinha)) {
             $codigousu[] = $row['opn_codusu'];
         }
-        if ($codigousu==0 || sizeof($codigousu) <= 2) {
+        if ($codigousu == 0 || sizeof($codigousu) <= 2) {
         ?>
             <div class="quadradoa" style="height: 650px;">
             <?php
-        } else if(sizeof($codigousu) >= 3){
+        } else if (sizeof($codigousu) >= 3) {
             ?>
                 <div class="quadradoa" style="height: auto;">
                 <?php
@@ -108,6 +108,9 @@ include_once("PHP/conexao.php");
                 $opiniao = $row['opn_opiniao'];
                 $carro = $row['opn_carro'];
                 $marca = $row['opn_marca'];
+                $anomod = $row['opn_anomod'];
+                $pros = $row['opn_pros'];
+                $contra = $row['opn_contra'];
 
                 echo "
             <div class=featured-boxd>
@@ -116,8 +119,17 @@ include_once("PHP/conexao.php");
                         <div class=usuesquerda>";
                 echo "<div class=nomeperfil>
                         <div style=display:flex;flex-direction:column;>
-                        <h1>$marca $carro</h1>
-                        <div class=imagemmaluca style=display:flex;justify-content:center;align-items:center;flex-direction:row;>";
+                        <h1>$marca $carro</h1>";
+                $codigocarro = "SELECT * FROM carros WHERE car_modelo = '$carro'";
+                $codiguin = mysqli_query($conn, $codigocarro);
+                while ($row = mysqli_fetch_array($codiguin)) {
+                    $codigos = $row['car_cod'];
+                    echo "<form method=post action=Carros.php>
+                        <input type=hidden name=cod value=$codigos>
+                        <button class=button-6>Ver carro</button>
+                        </form>";
+                }
+                echo "<div class=imagemmaluca style=display:flex;justify-content:center;align-items:center;flex-direction:row;>";
                 echo "</div></div></div>
                         </div>
                         <div class=opidireita>
@@ -125,12 +137,25 @@ include_once("PHP/conexao.php");
                                 <h1>Opinião</h1>
                             </div>
                             <form action=editComentario.php method=post>
+                            <input type=hidden name=codigoopn value=$codigoopn>
                             <div class=opiniao>
-                                <textarea class=textoperfil disabled readonly>$opiniao</textarea>
-                                <input type=hidden name=codigoopn value=$codigoopn>
+                                <textarea class=textoperfil disabled readonly>".$opiniao."</textarea>
                             </div>
-                            <button class=button-6>Editar Comentario</button>
-                            </form>
+                            <div class=titulodireita>
+                                <h1>Prós</h1>
+                            </div>
+                            <div class=opiniao>
+                                <textarea class=textoperfil disabled readonly>".$pros."</textarea>
+                            </div>
+                            <div class=titulodireita>
+                                <h1>Contra</h1>
+                            </div>
+                            <div class=opiniao>
+                                <textarea class=textoperfil disabled readonly>".$contra."</textarea>
+                                <button class=button-6>Editar Comentario</button>
+                                </form>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>";

@@ -40,6 +40,9 @@
             $carro = $row['opn_carro'];
             $marca = $row['opn_marca'];
             $avaliacao = $row['opn_avaliacao'];
+            $anomod = $row['opn_anomod'];
+            $pros = $row['opn_pros'];
+            $contra = $row['opn_contra'];
 
             echo "
             <div class=featured-boxd>
@@ -119,13 +122,40 @@
                             <img src=Imagens/star0.png id=s5>";
                 }
                 echo "</div>";
+
+                $codigocarro = "SELECT * FROM carros WHERE car_modelo = '$carro'";
+                $codiguin = mysqli_query($conn, $codigocarro);
+                while ($row = mysqli_fetch_array($codiguin)) {
+                    $codigos = $row['car_cod'];
+                    echo "<form method=post action=Carros.php>
+                        <input type=hidden name=cod value=$codigos>
+                        <button class=button-6>Ver carro</button>
+                        </form>";
+                }
+
             echo "</div></div>
                         </div>
                         <div class=opidireita>
                             <div class=titulodireita>
                                 <h1>Opinião</h1>
                             </div>
-                            <textarea class=textoperfil disabled readonly>$opiniao</textarea>
+                            <center>
+                            <div class=opiniao style=margin-bottom:10px;display:flex;align-items:center;justify-content:center;>
+                                <h4>$opiniao</h4>
+                            </div>
+                            <div class=titulodireita>
+                                <h1>Prós</h1>
+                            </div>
+                            <div class=opiniao style=margin-bottom:10px;>
+                                <h4>$pros</h4>
+                            </div>
+                            <div class=titulodireita>
+                                <h1>Contra</h1>
+                            </div>
+                            <div class=opiniao style=margin-bottom:10px;>
+                                <h4>$contra</h4>
+                            </div>
+                            </center>
                         </div>
                     </div>
                 </div>";

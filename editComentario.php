@@ -91,6 +91,9 @@
                 $carro = $row['opn_carro'];
                 $marca = $row['opn_marca'];
                 $avaliacao = $row['opn_avaliacao'];
+                $anomod = $row['opn_anomod'];
+                $pros = $row['opn_pros'];
+                $contra = $row['opn_contra'];
 
                 echo "
                         <div class=featured-boxd>
@@ -201,7 +204,19 @@
                                         </div>
                                         <form action=PHP/proc_editcomen.php method=post>
                                         <div class=opiniao>
-                                            <textarea name='opiniao' maxlength=1000 class=textoperfil>$opnioes</textarea>
+                                            <textarea name='opiniao' maxlength=400 class=textoperfil>$opnioes</textarea>
+                                        </div>
+                                        <div class=titulodireita>
+                                            <h1>Prós</h1>
+                                        </div>
+                                        <div class=opiniao>
+                                            <textarea name='pros' maxlength=400 class=textoperfil>$pros</textarea>
+                                        </div>
+                                        <div class=titulodireita>
+                                            <h1>Contra</h1>
+                                        </div>
+                                        <div class=opiniao>
+                                            <textarea name='contra' maxlength=400 class=textoperfil>$contra</textarea>
                                         </div>
                                         <input type=hidden name=avaliacao id=rating value=$avaliacao>
                                         <input type=hidden class=id name=codigo value=$codigousu>

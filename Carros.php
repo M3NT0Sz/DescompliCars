@@ -142,6 +142,9 @@ include_once("PHP/conexao.php");
             $usuario = $row['opn_pessoa'];
             $codigofoto = $row['opn_codusu'];
             $avaliacao = $row['opn_avaliacao'];
+            $anomod = $row['opn_anomod'];
+            $pros = $row['opn_pros'];
+            $contra = $row['opn_contra'];
             $avalia[] = $row['opn_avaliacao'];
             $imagemusu = "SELECT * FROM usuarios WHERE usu_cod='$codigofoto'";
             $comando = mysqli_query($conn, $imagemusu);
@@ -247,9 +250,23 @@ include_once("PHP/conexao.php");
                             <div class=titulodireita>
                                 <h1>Opinião</h1>
                             </div>
-                            <div class=opiniao>
-                                <textarea class=textoperfil disabled readonly>$opiniao</textarea>
+                            <center>
+                            <div class=opiniao style=margin-bottom:10px;display:flex;align-items:center;justify-content:center;>
+                                <h3>$opiniao</h3>
                             </div>
+                            <div class=titulodireita>
+                                <h1>Prós</h1>
+                            </div>
+                            <div class=opiniao style=margin-bottom:10px;>
+                                <h3>$pros</h3>
+                            </div>
+                            <div class=titulodireita>
+                                <h1>Contra</h1>
+                            </div>
+                            <div class=opiniao style=margin-bottom:10px;>
+                                <h3>$contra</h3>
+                            </div>
+                            </center>
                         </div>
                     </div>
                 </div>

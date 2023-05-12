@@ -15,7 +15,7 @@ $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
 $genero = filter_input(INPUT_POST, 'genero', FILTER_SANITIZE_STRING);
 
 $imagem = $_FILES['imagemperfil']['tmp_name'];
-
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 if (empty($imagem)) {
     $sql = "UPDATE usuarios SET usu_nome = '$nome', usu_sobrenome = '$sobrenome', usu_email = '$email', usu_dtnasc = '$dtnasc', usu_cpf = '$cpf', usu_endereco = '$endereco', usu_cidade = '$cid', usu_estado = '$estado', usu_genero = '$genero' WHERE usu_cod = '$cod'";
     $comando = mysqli_query($conn, $sql);
@@ -41,4 +41,7 @@ if (empty($imagem)) {
         $_SESSION['naoeditado'] = "Usuario não editado";
         header("location:../editarPerfil.php");
     }
+}}else{
+    $_SESSION['naoeditado'] = "Email Invalido";
+    header("Location: ../editarPerfil.php");
 }

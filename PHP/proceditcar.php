@@ -18,9 +18,6 @@
     while ($row = mysqli_fetch_array($comando)) {
         $marca = $row['car_marca'];
         $modelo = $row['car_modelo'];
-        $anomod = $row['car_anomod'];
-        $anofab = $row['car_anofab'];
-        $versao = $row['car_versao'];
         $tipo = $row['car_tipo'];
         $imagem = base64_encode($row['car_image']);
         echo "
@@ -28,9 +25,6 @@
             <input type=hidden name=cod value='$cod'><br>
             Marca <input type=text name=marca value='$marca'><br>
             Modelo <input type=text name=modelo value='$modelo'><br>
-            Ano Modelo <input type=text name=anomod value='$anomod'><br>
-            Ano Fabricação <input type=text name=anofab value='$anofab'><br>
-            Versao <input type=text name=versao value='$versao'><br>
             <h2>Tipo</h2><select name=tipo>
                         <option value=$tipo>$tipo</option>
                         <option value=SUVs>SUVs</option>
@@ -44,6 +38,7 @@
             <?php
             echo "
             <button>Editar</button>
+            <a href='../index.php'><button type=button>voltar</button></a>
         </form>
         ";
     }

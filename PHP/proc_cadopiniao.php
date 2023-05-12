@@ -7,12 +7,15 @@
     $modelo = $_POST['modelo'];
     $opiniao = $_POST['opiniao'];
     $avaliacao = $_POST['avaliacao'];
+    $anomod = $_POST['anomodelo'];
+    $pros = $_POST['pros'];
+    $contra = $_POST['contra'];
 
     $usuario = "SELECT usu_nome, usu_sobrenome, usu_image FROM usuarios WHERE usu_cod='$codusu'";
     $comando = mysqli_query($conn, $usuario);
     while ($row = mysqli_fetch_array($comando)) {
         $nomeusu = $row['usu_nome'] . " " . $row['usu_sobrenome'];
-        $sql = "INSERT INTO opnioes (opn_pessoa, opn_opiniao, opn_carro, opn_marca, opn_codusu, opn_avaliacao) VALUES ('$nomeusu', '$opiniao', '$modelo', '$marca', '$codusu', '$avaliacao')";
+        $sql = "INSERT INTO opnioes (opn_pessoa, opn_opiniao, opn_carro, opn_marca, opn_codusu, opn_avaliacao, opn_anomod, opn_pros, opn_contra) VALUES ('$nomeusu', '$opiniao', '$modelo', '$marca', '$codusu', '$avaliacao', '$anomod', '$pros', '$contra')";
         $comando = mysqli_query($conn, $sql);
 
     if(mysqli_insert_id($conn))

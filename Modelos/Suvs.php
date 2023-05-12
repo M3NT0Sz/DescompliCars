@@ -28,19 +28,13 @@
         $cod = $row['car_cod'];
         $marca = $row['car_marca'];
         $modelo = $row['car_modelo'];
-        $anomod = $row['car_anomod'];
-        $anofab = $row['car_anofab'];
-        $versao = $row['car_versao'];
         $tipo = $row['car_tipo'];
         $imagem = base64_encode($row['car_image']);
         echo "<div class=featured-boxb>
           <div class=featured-imgb>
           <form action=../carros.php method=post>
               <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$modelo</h1>
-              <h1>$anomod</h1>
-              <h1>$anofab</h1>
-              <h1>$versao</h1>
+              <h1>".$marca." ".$modelo."</h1>
               <input type=hidden name=cod value=$cod>
               <button class=button-6>Ver Opniões</button>
               </form>

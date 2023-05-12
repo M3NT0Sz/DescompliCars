@@ -4,7 +4,9 @@
     $codigoopn = $_POST['codigo'];
     $opiniao = $_POST['opiniao'];
     $avaliacao = $_POST['avaliacao'];
-    $sql = "UPDATE opnioes SET opn_opiniao = '$opiniao', opn_avaliacao = '$avaliacao' WHERE opn_cod = '$codigoopn'";
+    $pros = $_POST['pros'];
+    $contra = $_POST['contra'];
+    $sql = "UPDATE opnioes SET opn_opiniao = '$opiniao', opn_pros = '$pros', opn_contra = '$contra', opn_avaliacao = '$avaliacao' WHERE opn_cod = '$codigoopn'";
     $comando = mysqli_query($conn, $sql);
     if(mysqli_affected_rows($conn)){
         $_SESSION['msgC'] = "Comentario editado com sucesso";
