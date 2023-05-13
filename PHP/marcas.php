@@ -23,7 +23,8 @@ if ($imagemusu != "") {
             </div>
             <div class=navbar>
                 <ul class=tabelamenu>
-                    <li class=linkmenu><a href=../Concessionarias.php>Concessionárias</a></li>
+                    <li class=linkmenu><a href=../Concessionarias.php>Marcas</a></li>
+                    <li class=linkmenu><a href=../TodosCarros.php>Carros</a></li>
                 </ul>
             </div>
             <div class=iconesmenu>

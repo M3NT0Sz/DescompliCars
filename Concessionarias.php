@@ -21,7 +21,7 @@
 
     <div class="containerconce">
         <div class="top-title">
-            <h3>Concessionárias</h3>
+            <h3>Marcas</h3>
             <hr>
             <?php
             $marcas = "SELECT * FROM marcas ORDER BY mar_nome";
