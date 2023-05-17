@@ -28,6 +28,11 @@ img {
   justify-content: center;
   margin-left: 15px;
   transition: width 1s, height 1s, transform 1s;
+  border-color: #004aad;
+}
+
+.featured-boxb:hover{
+  cursor: pointer;
 }
 
 .featured-imgb {

@@ -84,7 +84,7 @@ include_once("PHP/conexao.php");
         while ($row = mysqli_fetch_array($abobrinha)) {
             $codigousu[] = $row['opn_codusu'];
         }
-        if ($codigousu == 0 || sizeof($codigousu) <= 2) {
+        if ($codigousu == 0 || sizeof($codigousu) <= 1) {
         ?>
             <div class="quadradoa" style="height: 650px;">
             <?php
