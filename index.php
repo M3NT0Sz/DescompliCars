@@ -131,17 +131,15 @@ include_once("PHP/conexao.php");
         $imagem = base64_encode($row['car_image']);
         $contagem = $row['car_contagem'];
             echo '<form action=carros.php method=post>
-            <div class="featured-boxb">
+            <button class="featured-boxb">
             <div class="featured-imgb">
               <center><img class=perfil src=data:image/jpeg;base64,'.$imagem.'><br>
-              <h1>'.$marca . " " . $modelo.'</h1>
+              <h1><font color=#004aad size=5>'.$marca . " " . $modelo.'</font></h1>
               <input type=hidden name=cod value='.$cod.'>
-              <button class=button-6>Ver Opniões</button>
             </div>
               
-          </div>
-          </form>';
-        
+          </button>
+          </form>';        
       }
       echo "</div>";
       ?>

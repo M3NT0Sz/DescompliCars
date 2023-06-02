@@ -46,8 +46,8 @@ img {
 }
 
 .featured-imgb img {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: 150px;
 }
 
 .featured-boxb h1 {

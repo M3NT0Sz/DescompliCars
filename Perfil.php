@@ -76,6 +76,19 @@
                                 </div>
                             </a>
                         </form>
+                        <?php
+                            if($codigo == 1){
+                        ?>
+                        <form action="usutudo.php" style="width:100%;" method="post">
+                            <a class="letrasusu" href="usutudo.php">
+                                <div>
+                                    Ver Usuarios
+                                </div>
+                            </a>
+                        </form>
+                        <?php
+                            }else{}
+                        ?>
                         <a class="letrasusu" href=PHP/sair.php>
                             <form action="PHP/sair.php" method="post">
                                 Sair
