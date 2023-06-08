@@ -11,7 +11,7 @@ include_once("PHP/conexao.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="Imagens/DescomplicarsIcon.png" rel="icon">
   <link href="CSS/style.css" rel="stylesheet">
-    <link href="CSS/carros.css" rel="stylesheet">
+  <link href="CSS/carros.css" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <title>DescompliCars</title>
 </head>
@@ -107,8 +107,8 @@ include_once("PHP/conexao.php");
         <a href="Modelos/Familia.php">
           <div class="featured-boxa">
             <div class="featured-imga">
-              <img src="Carros/Familia.png">
-              <h1>Familia</h1>
+              <img src="Carros/Esportivos.png">
+              <h1>Esportivos</h1>
             </div>
           </div>
         </a>

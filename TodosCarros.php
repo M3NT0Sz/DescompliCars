@@ -61,26 +61,25 @@
             <button class=featured-boxb>
             <div class=featured-imgb>
               <img src='data:image/jpeg;base64,$imagem'>
-              <center>
               <center><font color=#004aad size=5><h1>$marca $modelo</h1></font></center>
               <input type=hidden name=cod value=$cod>
-              </center>
+              </button>
               </form>";
             if (isset($_SESSION['login'])) {
                 if ($codigousu == "1") {
-                    echo "<form method=post action=PHP/procexcluir.php>
-                <input type=hidden name=cod value=$cod>
-                <button>Excluir</button>
-                </form>
-                <form method=post action=PHP/proceditcar.php>
-                <input type=hidden name=cod value=$cod>
-                <button>Editar</button>
-                </form></div>";
+                    echo "<center><form method=post action=PHP/procexcluir.php>
+                        <input type=hidden name=cod value=$cod>
+                        <button>Excluir</button>
+                        </form>
+                        <form method=post action=PHP/proceditcar.php>
+                        <input type=hidden name=cod value=$cod>
+                        <button>Editar</button>
+                        </form></center>";
                 }
             } else {
-                echo "</div>";
+                echo "";
             }
-            echo "</div></button>";
+            echo "</div>";
         }
         echo "</div>
     </div>
@@ -122,11 +121,12 @@
                         <form method=post action=PHP/proceditcar.php>
                         <input type=hidden name=cod value=$cod>
                         <button>Editar</button>
-                        </form></div>";
+                        </form>";
                         }
                     } else {
-                        echo "</div>";
+                        echo "";
                     }
+                    echo "</div>";
                 }
             }
         }
@@ -170,11 +170,12 @@
                     <form method=post action=PHP/proceditcar.php>
                     <input type=hidden name=cod value=$cod>
                     <button>Editar</button>
-                    </form></div>";
+                    </form>";
                         }
                     } else {
-                        echo "</div>";
+                        echo "";
                     }
+                    echo "</div>";
                 }
             }
         }
@@ -218,11 +219,12 @@
                         <form method=post action=PHP/proceditcar.php>
                         <input type=hidden name=cod value=$cod>
                         <button>Editar</button>
-                        </form></div>";
+                        </form>";
                         }
                     } else {
-                        echo "</div>";
+                        echo "";
                     }
+                    echo "</div>";
                 }
             }
         }
@@ -266,11 +268,12 @@
                     <form method=post action=PHP/proceditcar.php>
                     <input type=hidden name=cod value=$cod>
                     <button>Editar</button>
-                    </form></div>";
+                    </form>";
                         }
                     } else {
-                        echo "</div>";
+                        echo "";
                     }
+                    echo "</div>";
                 }
             }
         }
@@ -314,11 +317,12 @@
                 <form method=post action=PHP/proceditcar.php>
                 <input type=hidden name=cod value=$cod>
                 <button>Editar</button>
-                </form></div>";
+                </form>";
                         }
                     } else {
-                        echo "</div>";
+                        echo "";
                     }
+                    echo "</div>";
                 }
             }
         }
@@ -362,11 +366,12 @@
                 <form method=post action=PHP/proceditcar.php>
                 <input type=hidden name=cod value=$cod>
                 <button>Editar</button>
-                </form></div>";
+                </form>";
                         }
                     } else {
-                        echo "</div>";
+                        echo "";
                     }
+                    echo "</div>";
                 }
             }
         }

@@ -61,8 +61,8 @@ img {
 }
 
 .featured-boxb:hover {
-  width: 350px;
-  height: 400px;
+  width: 320px;
+  height: 370px;
   transform: rotateY('90');
 }
 
