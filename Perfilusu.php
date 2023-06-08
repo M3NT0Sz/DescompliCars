@@ -141,19 +141,19 @@
                             </div>
                             <center>
                             <div class=opiniao style=margin-bottom:10px;display:flex;align-items:center;justify-content:center;>
-                                <h6>$opiniao</h6>
+                                <h5>$opiniao</h5>
                             </div>
                             <div class=titulodireita>
                                 <h1>Prós</h1>
                             </div>
                             <div class=opiniao style=margin-bottom:10px;>
-                                <h6>$pros</h6>
+                                <h5>$pros</h5>
                             </div>
                             <div class=titulodireita>
                                 <h1>Contra</h1>
                             </div>
                             <div class=opiniao style=margin-bottom:10px;>
-                                <h6>$contra</h6>
+                                <h5>$contra</h5>
                             </div>
                             </center>
                         </div>

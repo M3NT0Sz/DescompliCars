@@ -1,12 +1,13 @@
 .lados{
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
   }
 
   .lado_di{
     display: flex;
     width: 300px;
+    height: auto;
     background-color: rgb(236, 237, 242);
     box-shadow: 2px 0px 2px 0px #004aad8c;
     color: #004aad;
@@ -16,7 +17,7 @@
   .nomeusu{
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 250px;
     box-shadow: 0px 2px 0px 0px #004aad8c;
     border-radius: 10px;
     align-items: center;
@@ -30,6 +31,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 20px;
   }
   
 .letrasusu{
@@ -63,7 +65,7 @@ a{
     display: flex;
     align-items: center;
     align-content: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .quad{
@@ -168,9 +170,9 @@ a{
 .button-6 {
   align-items: center;
   background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid #004aad;
   border-radius: .25rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-shadow: #004aad 0 1px 3px 0;
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
@@ -189,13 +191,13 @@ a{
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: 100%;
+  width: 150px;
 }
 
 .button-6:hover,
 .button-6:focus {
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  border-color: #004aad;
+  box-shadow: #004aad 0 4px 12px;
   color: rgba(0, 0, 0, 0.65);
 }
 
@@ -205,8 +207,8 @@ a{
 
 .button-6:active {
   background-color: #F0F0F1;
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  border-color: #004aad;
+  box-shadow: #004aad 0 2px 4px;
   color: rgba(0, 0, 0, 0.65);
   transform: translateY(0);
 }

@@ -42,17 +42,17 @@
         </div>
         <center><h3>Opnião</center>
         <div class=quadlado>
-        <textarea type=text class='tamanhoinput algumtext' name=opiniao maxlength=400></textarea>
+        <textarea type=text class='tamanhoinput algumtext' name=opiniao maxlength=200></textarea>
         </div></h3>
 
         <center><h3>Prós</center>
         <div class=quadlado>
-        <textarea type=text class='tamanhoinput algumtext' name=pros maxlength=400></textarea>
+        <textarea type=text class='tamanhoinput algumtext' name=pros maxlength=200></textarea>
         </div></h3>
 
         <center><h3>Contra</center>
         <div class=quadlado>
-        <textarea type=text class='tamanhoinput algumtext' name=contra maxlength=400></textarea>
+        <textarea type=text class='tamanhoinput algumtext' name=contra maxlength=200></textarea>
         </div></h3>
         <div class=quadlado>
         <a href=javascript:void(0) onclick=Avaliar(1)>

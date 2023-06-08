@@ -56,14 +56,14 @@
             $modelo = $row['car_modelo'];
             $tipo = $row['car_tipo'];
             $imagem = base64_encode($row['car_image']);
-            echo "<div class=featured-boxb>
+            echo "<div style='display:flex;flex-direction:column;'>
+            <form action=carros.php method=post> 
+            <button class=featured-boxb>
             <div class=featured-imgb>
-            <form action=carros.php method=post>
               <img src='data:image/jpeg;base64,$imagem'>
               <center>
-              <h1>" . $marca . " " . $modelo . "</h1>
+              <center><font color=#004aad size=5><h1>$marca $modelo</h1></font></center>
               <input type=hidden name=cod value=$cod>
-              <button class=button-6>Ver Opniões</button>
               </center>
               </form>";
             if (isset($_SESSION['login'])) {
@@ -75,12 +75,12 @@
                 <form method=post action=PHP/proceditcar.php>
                 <input type=hidden name=cod value=$cod>
                 <button>Editar</button>
-                </form>";
+                </form></div>";
                 }
             } else {
-                echo "";
+                echo "</div>";
             }
-            echo "</div></div>";
+            echo "</div></button>";
         }
         echo "</div>
     </div>
@@ -104,29 +104,29 @@
                     $modelo = $row['car_modelo'];
                     $tipo = $row['car_tipo'];
                     $imagem = base64_encode($row['car_image']);
-                    echo "<div class=featured-boxb>
-            <div class=featured-imgb>
+                    echo "<div style='display:flex;flex-direction:column;'> 
             <form action=carros.php method=post>
+                    <button class=featured-boxb>
+            <div class=featured-imgb>
               <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$modelo</h1>
+              <center><font color=#004aad size=5><h1>$marca $modelo</h1></font></center>
               <input type=hidden name=cod value=$cod>
-              <button class=button-6>Ver Opniões</button>
               </form>";
+                    echo "</div></button>";
                     if (isset($_SESSION['login'])) {
                         if ($codigousu == "1") {
                             echo "<form method=post action=PHP/procexcluir.php>
-                <input type=hidden name=cod value=$cod>
-                <button>Excluir</button>
-                </form>
-                <form method=post action=PHP/proceditcar.php>
-                <input type=hidden name=cod value=$cod>
-                <button>Editar</button>
-                </form>";
+                        <input type=hidden name=cod value=$cod>
+                        <button>Excluir</button>
+                        </form>
+                        <form method=post action=PHP/proceditcar.php>
+                        <input type=hidden name=cod value=$cod>
+                        <button>Editar</button>
+                        </form></div>";
                         }
                     } else {
-                        echo "";
+                        echo "</div>";
                     }
-                    echo "</div></div>";
                 }
             }
         }
@@ -140,11 +140,11 @@
             $tipo = $row['car_tipo'];
             if ($tipo == "Picapes") {
                 echo "<div class=containerconcea>
-        <div class=top-titlea>
-        <h3>Picapes</h3>
-        <hr>";
+    <div class=top-titlea>
+    <h3>Picapes</h3>
+    <hr>";
                 echo "<div class=rowb>";
-                $carros = "SELECT * FROM carros WHERE car_tipo='Picapes'";
+                $carros = "SELECT * FROM carros WHERE car_tipo='Picapes' ORDER BY car_contagem desc LIMIT 4";
                 $comando = mysqli_query($conn, $carros);
                 while ($row = mysqli_fetch_array($comando)) {
                     $cod = $row['car_cod'];
@@ -152,83 +152,35 @@
                     $modelo = $row['car_modelo'];
                     $tipo = $row['car_tipo'];
                     $imagem = base64_encode($row['car_image']);
-                    echo "<div class=featured-boxb>
-            <div class=featured-imgb>
-            <form action=carros.php method=post>
-              <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$modelo</h1>
-              <input type=hidden name=cod value=$cod>
-              <button class=button-6>Ver Opniões</button>
-              </form>";
-                    if (isset($_SESSION['login'])) {
-                        if ($codigousu == "1" || $codigousu == "2") {
-                            echo "<form method=post action=PHP/procexcluir.php>
-              <input type=hidden name=cod value=$cod>
-              <button>Excluir</button>
-              </form>
-              <form method=post action=PHP/proceditcar.php>
-              <input type=hidden name=cod value=$cod>
-              <button>Editar</button>
-              </form>";
-                        }
-                    } else {
-                        echo "";
-                    }
-                    echo "</div></div>";
-                }
-            }
-        }
-        echo "</div>
-    </div>
-    </div>";
-
-        $teste = "SELECT * FROM carros";
-        $comando = mysqli_query($conn, $teste);
-        while ($row = mysqli_fetch_array($comando)) {
-            $tipo = $row['car_tipo'];
-            if ($tipo == "SUVs") {
-                echo "<div class=containerconcea>
-        <div class=top-titlea>
-        <h3>SUVs</h3>
-        <hr>";
-                echo "<div class=rowb>";
-                $carros = "SELECT * FROM carros WHERE car_tipo='SUVs' ORDER BY car_contagem desc LIMIT 4";
-                $comando = mysqli_query($conn, $carros);
-                while ($row = mysqli_fetch_array($comando)) {
-                    $cod = $row['car_cod'];
-                    $marca = $row['car_marca'];
-                    $modelo = $row['car_modelo'];
-                    $tipo = $row['car_tipo'];
-                    $imagem = base64_encode($row['car_image']);
-                    echo "<div class=featured-boxb>
-            <div class=featured-imgb>
-            <form action=carros.php method=post>
-              <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$modelo</h1>
-              <input type=hidden name=cod value=$cod>
-              <button class=button-6>Ver Opniões</button>
-              </form>";
+                    echo "<div style='display:flex;flex-direction:column;'> 
+        <form action=carros.php method=post>
+                <button class=featured-boxb>
+        <div class=featured-imgb>
+          <img src='data:image/jpeg;base64,$imagem'>
+          <center><font color=#004aad size=5><h1>$marca $modelo</h1></font></center>
+          <input type=hidden name=cod value=$cod>
+          </form>";
+                    echo "</div></button>";
                     if (isset($_SESSION['login'])) {
                         if ($codigousu == "1") {
                             echo "<form method=post action=PHP/procexcluir.php>
-              <input type=hidden name=cod value=$cod>
-              <button>Excluir</button>
-              </form>
-              <form method=post action=PHP/proceditcar.php>
-              <input type=hidden name=cod value=$cod>
-              <button>Editar</button>
-              </form>";
+                    <input type=hidden name=cod value=$cod>
+                    <button>Excluir</button>
+                    </form>
+                    <form method=post action=PHP/proceditcar.php>
+                    <input type=hidden name=cod value=$cod>
+                    <button>Editar</button>
+                    </form></div>";
                         }
                     } else {
-                        echo "";
+                        echo "</div>";
                     }
-                    echo "</div></div>";
                 }
             }
         }
         echo "</div>
-    </div>
-    </div>";
+        </div>
+        </div>";
 
         $teste = "SELECT * FROM carros";
         $comando = mysqli_query($conn, $teste);
@@ -248,29 +200,29 @@
                     $modelo = $row['car_modelo'];
                     $tipo = $row['car_tipo'];
                     $imagem = base64_encode($row['car_image']);
-                    echo "<div class=featured-boxb>
-            <div class=featured-imgb>
+                    echo "<div style='display:flex;flex-direction:column;'> 
             <form action=carros.php method=post>
+                    <button class=featured-boxb>
+            <div class=featured-imgb>
               <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$modelo</h1>
+              <center><font color=#004aad size=5><h1>$marca $modelo</h1></font></center>
               <input type=hidden name=cod value=$cod>
-              <button class=button-6>Ver Opniões</button>
               </form>";
+                    echo "</div></button>";
                     if (isset($_SESSION['login'])) {
                         if ($codigousu == "1") {
                             echo "<form method=post action=PHP/procexcluir.php>
-              <input type=hidden name=cod value=$cod>
-              <button>Excluir</button>
-              </form>
-              <form method=post action=PHP/proceditcar.php>
-              <input type=hidden name=cod value=$cod>
-              <button>Editar</button>
-              </form>";
+                        <input type=hidden name=cod value=$cod>
+                        <button>Excluir</button>
+                        </form>
+                        <form method=post action=PHP/proceditcar.php>
+                        <input type=hidden name=cod value=$cod>
+                        <button>Editar</button>
+                        </form></div>";
                         }
                     } else {
-                        echo "";
+                        echo "</div>";
                     }
-                    echo "</div></div>";
                 }
             }
         }
@@ -282,11 +234,107 @@
         $comando = mysqli_query($conn, $teste);
         while ($row = mysqli_fetch_array($comando)) {
             $tipo = $row['car_tipo'];
+            if ($tipo == "SUVs") {
+                echo "<div class=containerconcea>
+    <div class=top-titlea>
+    <h3>SUVs</h3>
+    <hr>";
+                echo "<div class=rowb>";
+                $carros = "SELECT * FROM carros WHERE car_tipo='SUVs' ORDER BY car_contagem desc LIMIT 4";
+                $comando = mysqli_query($conn, $carros);
+                while ($row = mysqli_fetch_array($comando)) {
+                    $cod = $row['car_cod'];
+                    $marca = $row['car_marca'];
+                    $modelo = $row['car_modelo'];
+                    $tipo = $row['car_tipo'];
+                    $imagem = base64_encode($row['car_image']);
+                    echo "<div style='display:flex;flex-direction:column;'> 
+        <form action=carros.php method=post>
+                <button class=featured-boxb>
+        <div class=featured-imgb>
+          <img src='data:image/jpeg;base64,$imagem'>
+          <center><font color=#004aad size=5><h1>$marca $modelo</h1></font></center>
+          <input type=hidden name=cod value=$cod>
+          </form>";
+                    echo "</div></button>";
+                    if (isset($_SESSION['login'])) {
+                        if ($codigousu == "1") {
+                            echo "<form method=post action=PHP/procexcluir.php>
+                    <input type=hidden name=cod value=$cod>
+                    <button>Excluir</button>
+                    </form>
+                    <form method=post action=PHP/proceditcar.php>
+                    <input type=hidden name=cod value=$cod>
+                    <button>Editar</button>
+                    </form></div>";
+                        }
+                    } else {
+                        echo "</div>";
+                    }
+                }
+            }
+        }
+        echo "</div>
+</div>
+</div>";
+
+        $teste = "SELECT * FROM carros";
+        $comando = mysqli_query($conn, $teste);
+        while ($row = mysqli_fetch_array($comando)) {
+            $tipo = $row['car_tipo'];
+            if ($tipo == "Esportivos") {
+                echo "<div class=containerconcea>
+<div class=top-titlea>
+<h3>Esportivos</h3>
+<hr>";
+                echo "<div class=rowb>";
+                $carros = "SELECT * FROM carros WHERE car_tipo='Esportivos' ORDER BY car_contagem desc LIMIT 4";
+                $comando = mysqli_query($conn, $carros);
+                while ($row = mysqli_fetch_array($comando)) {
+                    $cod = $row['car_cod'];
+                    $marca = $row['car_marca'];
+                    $modelo = $row['car_modelo'];
+                    $tipo = $row['car_tipo'];
+                    $imagem = base64_encode($row['car_image']);
+                    echo "<div style='display:flex;flex-direction:column;'>
+    <form action=carros.php method=post> 
+            <button class=featured-boxb>
+    <div class=featured-imgb>
+      <img src='data:image/jpeg;base64,$imagem'>
+      <center><font color=#004aad size=5><h1>$marca $modelo</h1></font></center>
+      <input type=hidden name=cod value=$cod>
+      </form>";
+                    echo "</div></button>";
+                    if (isset($_SESSION['login'])) {
+                        if ($codigousu == "1") {
+                            echo "<form method=post action=PHP/procexcluir.php>
+                <input type=hidden name=cod value=$cod>
+                <button>Excluir</button>
+                </form>
+                <form method=post action=PHP/proceditcar.php>
+                <input type=hidden name=cod value=$cod>
+                <button>Editar</button>
+                </form></div>";
+                        }
+                    } else {
+                        echo "</div>";
+                    }
+                }
+            }
+        }
+        echo "</div>
+</div>
+</div>";
+
+        $teste = "SELECT * FROM carros";
+        $comando = mysqli_query($conn, $teste);
+        while ($row = mysqli_fetch_array($comando)) {
+            $tipo = $row['car_tipo'];
             if ($tipo == "Eletricos") {
                 echo "<div class=containerconcea>
-        <div class=top-titlea>
-        <h3>Eletricos</h3>
-        <hr>";
+<div class=top-titlea>
+<h3>Eletricos</h3>
+<hr>";
                 echo "<div class=rowb>";
                 $carros = "SELECT * FROM carros WHERE car_tipo='Eletricos' ORDER BY car_contagem desc LIMIT 4";
                 $comando = mysqli_query($conn, $carros);
@@ -296,36 +344,35 @@
                     $modelo = $row['car_modelo'];
                     $tipo = $row['car_tipo'];
                     $imagem = base64_encode($row['car_image']);
-                    echo "<div class=featured-boxb>
-            <div class=featured-imgb>
-            <form action=carros.php method=post>
-              <img src='data:image/jpeg;base64,$imagem'>
-              <h1>$modelo</h1>
-              <input type=hidden name=cod value=$cod>
-              <button class=button-6>Ver Opniões</button>
-              </form>";
+                    echo "<div style='display:flex;flex-direction:column;'> 
+    <form action=carros.php method=post>
+            <button class=featured-boxb>
+    <div class=featured-imgb>
+      <img src='data:image/jpeg;base64,$imagem'>
+      <center><font color=#004aad size=5><h1>$marca $modelo</h1></font></center>
+      <input type=hidden name=cod value=$cod>
+      </form>";
+                    echo "</div></button>";
                     if (isset($_SESSION['login'])) {
                         if ($codigousu == "1") {
                             echo "<form method=post action=PHP/procexcluir.php>
-              <input type=hidden name=cod value=$cod>
-              <button>Excluir</button>
-              </form>
-              <form method=post action=PHP/proceditcar.php>
-              <input type=hidden name=cod value=$cod>
-              <button>Editar</button>
-              </form>";
+                <input type=hidden name=cod value=$cod>
+                <button>Excluir</button>
+                </form>
+                <form method=post action=PHP/proceditcar.php>
+                <input type=hidden name=cod value=$cod>
+                <button>Editar</button>
+                </form></div>";
                         }
                     } else {
-                        echo "";
+                        echo "</div>";
                     }
-                    echo "</div></div>";
                 }
             }
         }
-
         echo "</div>
-    </div>
-    </div>";
+</div>
+</div>";
     }
     ?>
 

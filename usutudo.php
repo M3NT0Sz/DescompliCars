@@ -77,17 +77,18 @@
                             </a>
                         </form>
                         <?php
-                            if($codigo == 1){
+                        if ($codigo == 1) {
                         ?>
-                        <form action="usutudo.php" style="width:100%;">
-                            <a class="letrasusu" href="">
-                                <div>
-                                    Ver Usuarios
-                                </div>
-                            </a>
-                        </form>
+                            <form action="usutudo.php" style="width:100%;">
+                                <a class="letrasusu" href="">
+                                    <div>
+                                        Ver Usuarios
+                                    </div>
+                                </a>
+                            </form>
                         <?php
-                            }else{}
+                        } else {
+                        }
                         ?>
                         <a class="letrasusu" href=PHP/sair.php>
                             <form action="PHP/sair.php" method="post">
@@ -113,37 +114,47 @@
             </div>
         </div>
         <div style="width:100%; display:flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-        <?php
-        $sql = "SELECT * FROM usuarios WHERE usu_cod >= 3 ORDER BY usu_cod";
-        $resultado = mysqli_query($conn, $sql);
-        while($obj = mysqli_fetch_array($resultado)){
-            $cod = $obj[0];
-            $email = $obj[1];
-            $nome = $obj[2];
-            $sobrenome = $obj[3];
-            $tel = $obj[5];
-            $dtnasc = $obj[6];
-            $cpf = $obj[7];
-            $endereco = $obj[8];
-            $cidade = $obj[9];
-            $estado = $obj[10];
-            $genero = $obj[11];
-            echo "<br>Nome: $nome";
-            echo "<br>Sobrenome: $sobrenome";
-            echo "<br>Telefone: $tel";
-            echo "<br>Data de Nascimento: $dtnasc";
-            echo "<br>CPF:$cpf";
-            echo "<br>Endereco:$endereco";
-            echo "<br>Cidade:$cidade";
-            echo "<br>Estado:$estado";
-            echo "<br>Genero:$genero";
-            echo "<form method='post' action='PHP/excluirusu.php'>";
-            echo "<input type='hidden' name='cod' value='$cod'>";
-            echo "<button>Excluir</button>";
-            echo "</form>";
-            echo "<hr>";
-        }
-        ?>
+        <div class=top-titlea>
+        <h3>Usuarios</h3>
+        <hr>
+        </div>
+            <?php
+            $sql = "SELECT * FROM usuarios WHERE usu_cod >= 3 ORDER BY usu_cod";
+            $resultado = mysqli_query($conn, $sql);
+            while ($obj = mysqli_fetch_array($resultado)) {
+                $cod = $obj[0];
+                $email = $obj[1];
+                $nome = $obj[2];
+                $sobrenome = $obj[3];
+                $tel = $obj[5];
+                $dtnasc = $obj[6];
+                $cpf = $obj[7];
+                $endereco = $obj[8];
+                $cidade = $obj[9];
+                $estado = $obj[10];
+                $genero = $obj[11];
+            ?>
+                <div style="width: 300px; height: auto; background-color: white; border-radius: 20px; margin-bottom: 10px;">
+                    <?php
+                    echo "<br>Nome: $nome";
+                    echo "<br>Sobrenome: $sobrenome";
+                    echo "<br>Telefone: $tel";
+                    echo "<br>Data de Nascimento: $dtnasc";
+                    echo "<br>CPF:$cpf";
+                    echo "<br>Endereco:$endereco";
+                    echo "<br>Cidade:$cidade";
+                    echo "<br>Estado:$estado";
+                    echo "<br>Genero:$genero";
+                    echo "<form method='post' action='PHP/excluirusu.php'>";
+                    echo "<input type='hidden' name='cod' value='$cod'>";
+                    echo "<button class='button-6'>Excluir</button>";
+                    echo "</form>";
+                    echo "<hr>";
+                    ?>
+                </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
     <?php require "PHP/rodape.php";

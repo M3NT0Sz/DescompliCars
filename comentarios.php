@@ -139,19 +139,19 @@ include_once("PHP/conexao.php");
                             <form action=editComentario.php method=post>
                             <input type=hidden name=codigoopn value=$codigoopn>
                             <div class=opiniao>
-                                <textarea class=textoperfil disabled readonly>".$opiniao."</textarea>
+                                <h5>".$opiniao."</h5>
                             </div>
                             <div class=titulodireita>
                                 <h1>Prós</h1>
                             </div>
                             <div class=opiniao>
-                                <textarea class=textoperfil disabled readonly>".$pros."</textarea>
+                                <h5>".$pros."</h5>
                             </div>
                             <div class=titulodireita>
                                 <h1>Contra</h1>
                             </div>
                             <div class=opiniao>
-                                <textarea class=textoperfil disabled readonly>".$contra."</textarea>
+                                <h5>".$contra."</h5>
                                 <button class=button-6>Editar Comentario</button>
                                 </form>
                             </div>
