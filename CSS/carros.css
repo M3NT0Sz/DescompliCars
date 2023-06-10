@@ -336,3 +336,43 @@ img {
   width: 300px;
   height: 100px;
 }
+
+.esquerdalad{
+  background-color: white;
+  width: 400px;
+  height: auto;
+  box-shadow: 0 0 10px 0 #004aad;
+}
+
+.esquerdalad > .texto > h1, .esquerdalad > .opcionais > h1, .esquerdalad > .cambio > h1, .esquerdalad > .combustivel > h1, .esquerdalad > .categoria > h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 20px;
+  color: #004aad;
+}
+
+.esquerdalad > .opcionais > h3, .esquerdalad > .cambio > h3, .esquerdalad > .combustivel > h3, .esquerdalad > .categoria > h3{
+  padding-left: 20px;
+}
+
+.botaolad{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ladoscar{
+  width: 100%;
+  height: 100%;
+}
+
+.direitalad{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

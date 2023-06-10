@@ -131,7 +131,7 @@ body {
     position: fixed;
     top: 0;
     color: black;
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 7%);
+    box-shadow: 0 0 4px 0 #004aad;
 }
 
 .imagemmenu {
@@ -423,7 +423,7 @@ hr {
     align-items: center;
     justify-content: center;
     align-content: center;
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 55%);
+    box-shadow: 0 0 5px 0 #004aad;
     bottom: 0;
 }
 
