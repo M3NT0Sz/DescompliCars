@@ -138,6 +138,7 @@ img {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  flex-direction: column;
   width: 100%;
   align-items: center;
   justify-content: center;

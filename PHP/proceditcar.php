@@ -38,8 +38,8 @@
 
             <h1>Opcionais</h1>
                 <hr>
-                <h3><input type="checkbox" name="a" id="Airbag" onclick="outros()">Airbag</h3>
-                <h3><input type="checkbox" name="a" id="Alarme">Alarme</h3>
+                <h3><input type="checkbox" id="AirBag" onclick="outros()">Airbag</h3>
+                <h3><input type="checkbox" id="Alarme" onclick="outros()">Alarme</h3>
                 <h3><input type="checkbox" name="a" id="Ar-condicionado">Ar-condicionado</h3>
                 <h3><input type="checkbox" name="a" id="Ar Quente">Ar Quente</h3>
                 <h3><input type="checkbox" name="a" id="Banco com regulagem de altura">Banco com regulagem de altura</h3>
@@ -137,9 +137,10 @@
     ?>
     <script>
         function outros(){
-            var AirBag = document.querySelector("#AirBag")
-            if(AirBag.checked == true){
-                document.getElementById('Tudo').value = AirBag.value;
+            if(document.getElementById("AirBag").checked = false){
+                document.getElementById('Tudo').value = "";
+            }else if(document.getElementById("AirBag").checked = true){
+                document.getElementById('Tudo').value = document.getElementById('Tudo').value + ", AirBag";
             }
         }
     </script>

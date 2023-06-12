@@ -132,6 +132,14 @@
                                 <h3>Cadastrar Marcas</h3>
                             </div>
                         </a>
+                    </div><br>
+                    <div class="quadrado">
+                        <a href="CadastroEspi.php">
+                            <div class="quad">
+                                <img src="Imagens/Pergunta/Supra.png">
+                                <h3>Cadastrar especificacoes</h3>
+                            </div>
+                        </a>
                     </div>
                 </div>
             <?php
