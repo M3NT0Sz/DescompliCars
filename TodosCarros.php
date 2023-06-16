@@ -37,93 +37,50 @@
             <div class="opcionais">
                 <h1>Opcionais</h1>
                 <hr>
-                <h3><input type="checkbox" name="">Airbag</h3>
-                <h3><input type="checkbox" name="">Alarme</h3>
-                <h3><input type="checkbox" name="">Ar-condicionado</h3>
-                <h3><input type="checkbox" name="">Ar Quente</h3>
-                <h3><input type="checkbox" name="">Banco com regulagem de altura</h3>
-                <h3><input type="checkbox" name="">Banco dianteiros com aquecimento</h3>
-                <h3><input type="checkbox" name="">Bancos em couro</h3>
-                <h3><input type="checkbox" name="">Capota Maritima</h3>
-                <h3><input type="checkbox" name="">CD e MP3 player</h3>
-                <h3><input type="checkbox" name="">CD player</h3>
-                <h3><input type="checkbox" name="">Computador de bordo</h3>
-                <h3><input type="checkbox" name="">Controle automatico de velocidade</h3>
-                <h3><input type="checkbox" name="">Controle de tração</h3>
-                <h3><input type="checkbox" name="">Desembaçador traseiro</h3>
-                <h3><input type="checkbox" name="">Direção hidraulica</h3>
-                <h3><input type="checkbox" name="">Disqueteira</h3>
-                <h3><input type="checkbox" name="">DVD Player</h3>
-                <h3><input type="checkbox" name="">Encosta de cabeça traseiro</h3>
-                <h3><input type="checkbox" name="">Farol de xenonio</h3>
-                <h3><input type="checkbox" name="">Freio ABS</h3>
-                <h3><input type="checkbox" name="">GPS</h3>
-                <h3><input type="checkbox" name="">Limpador traseiro</h3>
-                <h3><input type="checkbox" name="">Protetor de caçamba</h3>
-                <h3><input type="checkbox" name="">Rádio</h3>
-                <h3><input type="checkbox" name="">Rádio e toca fitas</h3>
-                <h3><input type="checkbox" name="">Retrovisor fotocromico</h3>
-                <h3><input type="checkbox" name="">Retrovisor elétricos</h3>
-                <h3><input type="checkbox" name="">Rodas de liga leve</h3>
-                <h3><input type="checkbox" name="">Sensor de chuva</h3>
-                <h3><input type="checkbox" name="">Sensor de estacionamento</h3>
-                <h3><input type="checkbox" name="">Teto solar</h3>
-                <h3><input type="checkbox" name="">Tração 4x4</h3>
-                <h3><input type="checkbox" name="">Travas elétricas</h3>
-                <h3><input type="checkbox" name="">Vidros elétricos</h3>
-                <h3><input type="checkbox" name="">Volante com regulagem de altura</h3>
+                <?php
+                    $opcionais = "SELECT * FROM especificacoes WHERE esp_tipo LIKE '%Opcionais%'";
+                    $comando = mysqli_query($conn, $opcionais);
+                    while ($row = mysqli_fetch_array($comando)) {
+                        $esp = $row['esp_especificacoes'];
+                        echo "<h3><input type=checkbox id='$esp'>$esp</h3>";
+                    }
+                ?>
             </div>
             <div class="cambio">
                 <h1>Cambio</h1>
                 <hr>
-                <h3><input type="checkbox" name="">Automático</h3>
-                <h3><input type="checkbox" name="">Automática sequencial</h3>
-                <h3><input type="checkbox" name="">Automatizada</h3>
-                <h3><input type="checkbox" name="">Automatizada dct</h3>
-                <h3><input type="checkbox" name="">CVT</h3>
-                <h3><input type="checkbox" name="">Manual</h3>
-                <h3><input type="checkbox" name="">Semi-Automática</h3>
+                <?php
+                    $Cambio = "SELECT * FROM especificacoes WHERE esp_tipo LIKE '%Cambio%'";
+                    $comando = mysqli_query($conn, $Cambio);
+                    while ($row = mysqli_fetch_array($comando)) {
+                        $esp = $row['esp_especificacoes'];
+                        echo "<h3><input type=checkbox id='$esp'>$esp</h3>";
+                    }
+                ?>
             </div>
             <div class="combustivel">
                 <h1>Combustivel</h1>
                 <hr>
-                <h3><input type="checkbox" name="">Álcool</h3>
-                <h3><input type="checkbox" name="">Álcool e Gás Natural</h3>
-                <h3><input type="checkbox" name="">Diesel</h3>
-                <h3><input type="checkbox" name="">Gás Natural</h3>
-                <h3><input type="checkbox" name="">Gasolina</h3>
-                <h3><input type="checkbox" name="">Gasolina e Álcool</h3>
-                <h3><input type="checkbox" name="">Gasolina e Elétrico</h3>
-                <h3><input type="checkbox" name="">Gasolina e Gás Natural</h3>
-                <h3><input type="checkbox" name="">Gasolina, Álcool e Gás Natural</h3>
-                <h3><input type="checkbox" name="">Gasolina, Álcool, Gás Natural e Benzina</h3>
+                <?php
+                    $Combustivel = "SELECT * FROM especificacoes WHERE esp_tipo LIKE '%Combustivel%'";
+                    $comando = mysqli_query($conn, $Combustivel);
+                    while ($row = mysqli_fetch_array($comando)) {
+                        $esp = $row['esp_especificacoes'];
+                        echo "<h3><input type=checkbox id='$esp'>$esp</h3>";
+                    }
+                ?>
             </div>
             <div class="categoria">
                 <h1>Categorias</h1>
                 <hr>
-                <h3><input type="checkbox" name="">Carros 1.0</h3>
-                <h3><input type="checkbox" name="">Carros a Diesel</h3>
-                <h3><input type="checkbox" name="">Carros Antigos</h3>
-                <h3><input type="checkbox" name="">Carros Automaticos</h3>
-                <h3><input type="checkbox" name="">Carros Clássicos</h3>
-                <h3><input type="checkbox" name="">Carros com 2 Portas</h3>
-                <h3><input type="checkbox" name="">Carros de 7 Lugares</h3>
-                <h3><input type="checkbox" name="">Carros de Luxo</h3>
-                <h3><input type="checkbox" name="">Carros Economicos</h3>
-                <h3><input type="checkbox" name="">Carros Elétricos</h3>
-                <h3><input type="checkbox" name="">Carros Esportivos</h3>
-                <h3><input type="checkbox" name="">Carros Grandes</h3>
-                <h3><input type="checkbox" name="">Carros Hibridos</h3>
-                <h3><input type="checkbox" name="">Carros Importados</h3>
-                <h3><input type="checkbox" name="">Carros para Aplicativos</h3>
-                <h3><input type="checkbox" name="">Carros para Familia</h3>
-                <h3><input type="checkbox" name="">Carros para PCD</h3>
-                <h3><input type="checkbox" name="">Carros Pequenos</h3>
-                <h3><input type="checkbox" name="">Carros Populares</h3>
-                <h3><input type="checkbox" name="">Hatchers</h3>
-                <h3><input type="checkbox" name="">Picapes</h3>
-                <h3><input type="checkbox" name="">Sedans</h3>
-                <h3><input type="checkbox" name="">SUVs</h3>
+                <?php
+                    $Categorias = "SELECT * FROM especificacoes WHERE esp_tipo LIKE '%Categorias%'";
+                    $comando = mysqli_query($conn, $Categorias);
+                    while ($row = mysqli_fetch_array($comando)) {
+                        $esp = $row['esp_especificacoes'];
+                        echo "<h3><input type=checkbox id='$esp'>$esp</h3>";
+                    }
+                ?>
             </div>
             <div class="botaolad">
                 <button class="button-6">Buscar</button>
