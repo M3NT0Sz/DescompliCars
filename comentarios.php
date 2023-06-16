@@ -47,10 +47,20 @@ include_once("PHP/conexao.php");
                         ?></h2>
                 </div>
                 <h2>
-                    <div class="restousu">
-                        <div class="letrasusu">
-                            Informações
-                        </div>
+                <div class="restousu">
+                    <form style="width:100%;" action="carrosVistos.php" method="post">
+                            <a class="letrasusu" href="carrosVistos.php">
+                                <div>
+                                    <?php
+                                    foreach ($_SESSION['loginA'] as $codigo) {
+                                        $codigo = $codigo['cod'];
+                                        echo "<input type=hidden name=codigo value=$codigo>";
+                                    }
+                                    ?>
+                                    Carros Vistos
+                                </div>
+                            </a>
+                        </form>
                         <form style="width:100%;" action="editarPerfil.php" method="post">
                             <a class="letrasusu" href="editarPerfil.php">
                                 <div>

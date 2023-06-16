@@ -32,15 +32,15 @@
                 $marca = $row['mar_nome'];
                 $imagem = base64_encode($row['mar_image']);
                 echo "
-                <div class=featured-box>
-                <div class=featured-img>
                 <form method=post action=Marcas.php>
+                <button class=featured-box>
+                <div class=featured-img>
                     <img src='data:image/jpeg;base64,$imagem' style=padding:10px;>
                     <input type=hidden name=cod value=$cod>
-                    <button class=button-6>Ver Carros</button>
+                    <h1>$marca</h1>
+                </div>
+                </button>
                 </form>
-                </div>
-                </div>
                 ";
             }
             ?>

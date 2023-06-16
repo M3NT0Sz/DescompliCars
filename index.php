@@ -130,34 +130,34 @@ include_once("PHP/conexao.php");
         $tipo = $row['car_tipo'];
         $imagem = base64_encode($row['car_image']);
         $contagem = $row['car_contagem'];
-            echo '<form action=carros.php method=post>
+        echo '<form action=carros.php method=post>
             <button class="featured-boxb">
             <div class="featured-imgb">
-              <center><img class=perfil src=data:image/jpeg;base64,'.$imagem.'><br>
-              <h1><font color=#004aad size=5>'.$marca . " " . $modelo.'</font></h1>
-              <input type=hidden name=cod value='.$cod.'>
+              <center><img class=perfil src=data:image/jpeg;base64,' . $imagem . '><br>
+              <h1><font color=#004aad size=5>' . $marca . " " . $modelo . '</font></h1>
+              <input type=hidden name=cod value=' . $cod . '>
             </div>
               
           </button>
-          </form>';        
+          </form>';
       }
       echo "</div>";
       ?>
     </div>
   </div>
 
-    <!--Rodapé-->
-    <?php require "PHP/rodape.php";
-    echo $_SESSION['rodape'];
-    ?>
-    <!--Rodapé Fechar-->
-    <script src="Java/script.js"></script>
-    <script src="Java/app.js"></script>
-    <script>
-      setInterval(() => {
-        plusSlides(1)
-      }, 5000);
-    </script>
+  <!--Rodapé-->
+  <?php require "PHP/rodape.php";
+  echo $_SESSION['rodape'];
+  ?>
+  <!--Rodapé Fechar-->
+  <script src="Java/script.js"></script>
+  <script src="Java/app.js"></script>
+  <script>
+    setInterval(() => {
+      plusSlides(1)
+    }, 5000);
+  </script>
 
 </body>
 
