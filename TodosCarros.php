@@ -107,44 +107,54 @@
             <?php
             $tudo = $_POST['Tudo'];
             if ($tudo != "") {
-                echo "<div class=containerconcea>";
-                echo "<div class=rowb>";
-                $procurar = "SELECT * FROM carros WHERE car_outros LIKE '%$tudo%'";
-                $comando = mysqli_query($conn, $procurar);
-                while ($row = mysqli_fetch_array($comando)) {
-                    $cod = $row['car_cod'];
-                    $marca = $row['car_marca'];
-                    $modelo = $row['car_modelo'];
-                    $tipo = $row['car_tipo'];
-                    $imagem = base64_encode($row['car_image']);
-                    echo "<div style='display:flex;flex-direction:column;'>
-                    <form action=carros.php method=post> 
-                    <button class=featured-boxb>
-                    <div class=featured-imgb>
-                    <img src='data:image/jpeg;base64,$imagem'>
-                    <center><font color=#004aad size=5><h1>$marca $modelo</h1></font></center>
-                    <input type=hidden name=cod value=$cod>
-                    </button>
-                    </form>";
-                    if (isset($_SESSION['login'])) {
-                        if ($codigousu == "1" || $codigousu == "2") {
-                            echo "<center><form method=post action=PHP/procexcluir.php>
-                        <input type=hidden name=cod value=$cod>
-                        <button>Excluir</button>
-                        </form>
-                        <form method=post action=PHP/proceditcar.php>
-                        <input type=hidden name=cod value=$cod>
-                        <button>Editar</button>
-                        </form></center>";
+                $carrosExibidos = array();
+                $tudo = explode(",", $tudo);
+                echo "<div class=containerconcea style=flex-direction:row;display:flex;>";
+                echo "<div class=rowb style=flex-direction:row;display:flex;>";
+                foreach ($tudo as $tudo) {
+                    $procurar = "SELECT * FROM carros WHERE car_outros LIKE '%$tudo%'";
+                    $comando = mysqli_query($conn, $procurar);
+                    while ($row = mysqli_fetch_array($comando)) {
+                        $cod = $row['car_cod'];
+                        $marca = $row['car_marca'];
+                        $modelo = $row['car_modelo'];
+                        $tipo = $row['car_tipo'];
+                        $outro = $row['car_outros'];
+                        $imagem = base64_encode($row['car_image']);
+                        if (in_array($cod, $carrosExibidos)) {
+                            continue; // Ir para a próxima iteração do loop sem exibir o carro novamente
                         }
-                    } else {
-                        echo "";
-                    }
-                    echo "</div>";
-                }
-                echo "</div>";
-                echo "<br><center style=margin-bottom:20px;><a href='index.php'><button class=button-6>Voltar</button></a></center>";
+                        $carrosExibidos[] = $cod;
 
+                        echo "<div style='display:flex;flex-direction:column;'>
+                        <form action=carros.php method=post> 
+                        <button class=featured-boxb>
+                        <div class=featured-imgb>
+                        <img src='data:image/jpeg;base64,$imagem'>
+                        <center><font color=#004aad size=5><h1>$marca $modelo</h1></font></center>
+                        <input type=hidden name=cod value=$cod>
+                        </button>
+                        </form>";
+                        if (isset($_SESSION['login'])) {
+                            if ($codigousu == "1" || $codigousu == "2") {
+                                echo "<center><form method=post action=PHP/procexcluir.php>
+                                <input type=hidden name=cod value=$cod>
+                                <button>Excluir</button>
+                                </form>
+                                <form method=post action=PHP/proceditcar.php>
+                                <input type=hidden name=cod value=$cod>
+                                <button>Editar</button>
+                                </form></center>";
+                            }
+                        } else {
+                            echo "";
+                        }
+                    }
+                    
+                }  
+                echo "<br><center style=margin-bottom:20px;><a href='index.php'><button class=button-6>Voltar</button></a></center>";
+                echo "</div>";              
+                echo "</div>";           
                 echo "</div>
                 </div>";
             } else {
