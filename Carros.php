@@ -63,7 +63,14 @@ include_once("PHP/conexao.php");
         $marca = $row['car_marca'];
         $modelo = $row['car_modelo'];
         $contagem = $row['car_contagem'];
-
+        $vistover = "SELECT * FROM car_visto WHERE carv_perfilcod = '$codigousu' AND carv_carcod = '$cod'";
+        $comando = mysqli_query($conn, $vistover);
+        if(mysqli_affected_rows($conn)){}else{
+            $visto = "INSERT INTO car_visto (carv_carcod, carv_perfilcod) values ('$cod', '$codigousu')";
+            $comando = mysqli_query($conn, $visto);
+            if(mysqli_affected_rows($conn)){}else{}
+        }
+        
         $soma = 1 + $contagem;
         $contagens = "UPDATE carros SET car_contagem = '$soma' WHERE car_cod = '$cod'";
         $comando = mysqli_query($conn, $contagens);
