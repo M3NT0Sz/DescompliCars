@@ -53,8 +53,8 @@
                 </div>
                 <h2>
                     <div class="restousu">
-                    <form style="width:100%;" action="carrosVistos.php" method="post">
-                            <a class="letrasusu" href="carrosVistos.php">
+                    <form style="width:100%;" action="Perfil.php" method="post">
+                            <a class="letrasusu" href="Perfil.php">
                                 <div>
                                     <?php
                                     foreach ($_SESSION['loginA'] as $codigo) {
@@ -87,10 +87,10 @@
                             </a>
                         </form>
                         <?php
-                        if ($codigo == 1) {
+                        if ($codigo == 1 || $codigo == 2) {
                         ?>
-                            <form action="usutudo.php" style="width:100%;">
-                                <a class="letrasusu" href="">
+                            <form action="usutudo.php" style="width:100%;" method="post">
+                                <a class="letrasusu" href="usutudo.php">
                                     <div>
                                         Ver Usuarios
                                     </div>

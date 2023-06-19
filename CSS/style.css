@@ -388,8 +388,8 @@ hr {
 }
 
 .featured-boxa:hover {
-    width: 200px;
-    height: 250px;
+    width: 165px;
+    height: 215px;
     transform: rotateY('90');
 }
 

@@ -33,7 +33,7 @@
                 $imagem = base64_encode($row['mar_image']);
                 echo "
                 <form method=post action=Marcas.php>
-                <button style='border-color:#004aad' class=featured-box>
+                <button style='border-color:#004aad;cursor:pointer;' class=featured-box>
                 <div class=featured-img>
                     <img src='data:image/jpeg;base64,$imagem' style=padding:10px;>
                     <input type=hidden name=cod value=$cod>

@@ -48,8 +48,8 @@ include_once("PHP/conexao.php");
                 </div>
                 <h2>
                 <div class="restousu">
-                    <form style="width:100%;" action="carrosVistos.php" method="post">
-                            <a class="letrasusu" href="carrosVistos.php">
+                <form style="width:100%;" action="Perfil.php" method="post">
+                            <a class="letrasusu" href="Perfil.php">
                                 <div>
                                     <?php
                                     foreach ($_SESSION['loginA'] as $codigo) {
@@ -65,7 +65,10 @@ include_once("PHP/conexao.php");
                             <a class="letrasusu" href="editarPerfil.php">
                                 <div>
                                     <?php
-                                    echo "<input type=hidden name=codigo value=$codigo>";
+                                    foreach ($_SESSION['loginA'] as $codigo) {
+                                        $codigo = $codigo['cod'];
+                                        echo "<input type=hidden name=codigo value=$codigo>";
+                                    }
                                     ?>
                                     Editar Perfil
                                 </div>
@@ -78,11 +81,38 @@ include_once("PHP/conexao.php");
                                 </div>
                             </a>
                         </form>
+                        <?php
+                        if ($codigo == 1 || $codigo == 2) {
+                        ?>
+                            <form action="usutudo.php" style="width:100%;" method="post">
+                                <a class="letrasusu" href="usutudo.php">
+                                    <div>
+                                        Ver Usuarios
+                                    </div>
+                                </a>
+                            </form>
+                        <?php
+                        } else {
+                        }
+                        ?>
                         <a class="letrasusu" href=PHP/sair.php>
                             <form action="PHP/sair.php" method="post">
                                 Sair
                             </form>
                         </a>
+                        <?php
+                        if (isset($_SESSION['editado'])) {
+                            echo $_SESSION['editado'];
+                            unset($_SESSION['editado']);
+                        }
+                        ?>
+                        <?php
+                        //mostrando a msg de login e senha inválidos!
+                        if (isset($_SESSION['msgC'])) {
+                            echo $_SESSION['msgC'];
+                            unset($_SESSION['msgC']);
+                        }
+                        ?>
                     </div>
                 </h2>
             </div>

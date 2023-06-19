@@ -64,7 +64,6 @@ include_once("PHP/conexao.php");
             <div class="field">
               <input type="password" placeholder="Senha" name="senha" required>
             </div>
-            <div class="pass-link"><a href="#">Esqueceu a senha?</a></div>
             <div style="text-align:center; margin-top:10px; margin-bottom:10px;">
               <?php
               //mostrando a msg de login e senha inválidos!

@@ -5,13 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Carros</title>
+    <link href="Imagens/DescomplicarsIcon.png" rel="icon">
+    <link href="../CSS/style.css" rel="stylesheet">
+    <link href="../CSS/carros.css" rel="stylesheet">
+    <link href="../CSS/usuarios.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <title>DescompliCars</title>
 </head>
 
 <body>
+    <!--MenuBar-->
+    <?php require "marcas.php";
+    echo $_SESSION['cima'];
+    ?>
+    <!--Fecha MenuBar-->
+    <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
     <?php
-    session_start();
-    include_once("conexao.php");
     $cod = $_POST['cod'];
     $editcar = "SELECT * FROM carros WHERE car_cod=$cod";
     $comando = mysqli_query($conn, $editcar);
@@ -23,30 +33,28 @@
         echo "
         <form method=post action=editcar.php>
             <input type=hidden name=cod value='$cod'><br>
-            Marca <input type=text name=marca value='$marca'><br>
-            Modelo <input type=text name=modelo value='$modelo'><br>
-            <h2>Tipo</h2><select name=tipo>
+            <h1>Marca <input style='font-size:20px;' type=text name=marca value='$marca'></h1><br>
+            <h1>Modelo <input style='font-size:20px;' type=text name=modelo value='$modelo'></h1><br>
+            <h1>Tipo<select name=tipo style='font-size:20px;'>
                         <option value=$tipo>$tipo</option>
                         <option value=SUVs>SUVs</option>
                         <option value=Hatchers>Hatchers</option>
                         <option value=Picapes>Picapes</option>
                         <option value=Eletricos>Eletricos</option>
                         <option value=Sedans>Sedans</option>
-                    </select>";
+                    </select></h1>";
     ?>
-
-        <h1>Opcionais</h1>
+        <h1 style="margin-top: 20px;">Opcionais</h1>
         <hr>
         <?php
         $opcionais = "SELECT * FROM especificacoes WHERE esp_tipo LIKE '%Opcionais%'";
         $comando = mysqli_query($conn, $opcionais);
         while ($row = mysqli_fetch_array($comando)) {
             $esp = $row['esp_especificacoes'];
-            echo "<h3><input type=checkbox id='$esp' value='$esp' onchange='addTexto()'>$esp</h3>";
+            echo "<h3><input style='font-size:20px;' type=checkbox id='$esp' value='$esp' onchange='addTexto()'>$esp</h3>";
         }
         ?>
-        </div>
-        <div class="cambio">
+        <div class="cambio" style="margin-top: 20px;">
             <h1>Cambio</h1>
             <hr>
             <?php
@@ -54,11 +62,11 @@
             $comando = mysqli_query($conn, $Cambio);
             while ($row = mysqli_fetch_array($comando)) {
                 $esp = $row['esp_especificacoes'];
-                echo "<h3><input type=checkbox id='$esp' value='$esp' onchange='addTexto()'>$esp</h3>";
+                echo "<h3><input style='font-size:30px;' type=checkbox id='$esp' value='$esp' onchange='addTexto()'>$esp</h3>";
             }
             ?>
         </div>
-        <div class="combustivel">
+        <div class="combustivel" style="margin-top: 20px;">
             <h1>Combustivel</h1>
             <hr>
             <?php
@@ -66,11 +74,11 @@
             $comando = mysqli_query($conn, $Combustivel);
             while ($row = mysqli_fetch_array($comando)) {
                 $esp = $row['esp_especificacoes'];
-                echo "<h3><input type=checkbox id='$esp' value='$esp' onchange='addTexto()'>$esp</h3>";
+                echo "<h3><input style='font-size:30px;' type=checkbox id='$esp' value='$esp' onchange='addTexto()'>$esp</h3>";
             }
             ?>
         </div>
-        <div class="categoria">
+        <div class="categoria" style="margin-top: 20px;">
             <h1>Categorias</h1>
             <hr>
             <?php
@@ -78,33 +86,40 @@
             $comando = mysqli_query($conn, $Categorias);
             while ($row = mysqli_fetch_array($comando)) {
                 $esp = $row['esp_especificacoes'];
-                echo "<h3><input type=checkbox id='$esp' value='$esp' onchange='addTexto()'>$esp</h3>";
+                echo "<h3><input style='font-size:30px;' type=checkbox id='$esp' value='$esp' onchange='addTexto()'>$esp</h3>";
             }
             ?>
-            <input type="text" name="Tudo" id="Tudo">
+            <input type="hidden" name="Tudo" id="Tudo">
         <?php
         echo "
-            <button>Editar</button>
-            <a href='../index.php'><button type=button>voltar</button></a>
+            <button class=button-6>Editar</button>
+            <a href='../index.php'><button type=button class=button-6 style='margin-bottom:20px;margin-top:20px;'>Voltar</button></a>
         </form>
         ";
-    }
+        }
         ?>
+        </div>
+        </div>
+        <!--Rodapé-->
+        <?php require "rodape2.php";
+        echo $_SESSION['rodape'];
+        ?>
+        <!--Rodapé Fechar-->
 
         <script>
             function addTexto() {
-            var Tudo = document.getElementById("Tudo")
-            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            var selecionados = [];
+                var Tudo = document.getElementById("Tudo")
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                var selecionados = [];
 
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked) {
-                    selecionados.push(checkboxes[i].value);
+                for (var i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i].checked) {
+                        selecionados.push(checkboxes[i].value);
+                    }
                 }
+                selecionados = selecionados.sort();
+                Tudo.value = selecionados
             }
-            selecionados = selecionados.sort();
-            Tudo.value = selecionados
-        }
         </script>
 </body>
 

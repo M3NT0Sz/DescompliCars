@@ -96,11 +96,11 @@ include_once("PHP/conexao.php");
             </div>
           </div>
         </a>
-        <a href="Modelos/Economicos.php">
+        <a href="Modelos/Familia.php">
           <div class="featured-boxa">
             <div class="featured-imga">
-              <img src="Carros/Economicos.png">
-              <h1>Economicos</h1>
+              <img src="Carros/Familia.png">
+              <h1>Familia</h1>
             </div>
           </div>
         </a>

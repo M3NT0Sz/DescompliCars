@@ -21,9 +21,9 @@
     <?php
     echo "<div class=containerconcea>
     <div class=top-titlea>
-      <h3>Esportivos</h3>
+      <h3>Familia</h3>
       <hr>";
-    $car = "SELECT * FROM carros WHERE car_tipo like 'Esportivos'";
+    $car = "SELECT * FROM carros WHERE car_outros like '%Familia%'";
     $comando = mysqli_query($conn, $car);
     echo "<div class=rowb>";
     while ($row = mysqli_fetch_array($comando)) {

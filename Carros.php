@@ -298,7 +298,7 @@ include_once("PHP/conexao.php");
         while ($row = mysqli_fetch_array($comando)) {
             $codigocarros = $row['mar_cod'];
             echo "<form action=marcas.php method=post>";
-            echo "<center><input type=hidden name=cod value='$codigocarros'><button type=submit class=button-6>Voltar</button></center>";
+            echo "<center><input type=hidden name=cod value='$codigocarros'><button type=submit style='margin-bottom:20px;' class=button-6>Voltar</button></center>";
             echo "</form>";
         }
     }

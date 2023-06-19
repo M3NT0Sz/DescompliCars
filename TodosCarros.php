@@ -110,7 +110,7 @@
                 $carrosExibidos = array();
                 $tudo = explode(",", $tudo);
                 echo "<div class=containerconcea style=flex-direction:row;display:flex;>";
-                echo "<div class=rowb style=flex-direction:column;display:flex;>";
+                echo "<div class=rowb style=flex-direction:row;display:flex;>";
                 $procurar = "SELECT * FROM carros WHERE 1 = 1";
                 foreach ($tudo as $valor) {
                     $procurar .= " AND car_outros LIKE '%$valor%' = 1";
@@ -128,8 +128,7 @@
                     }
                     $carrosExibidos[] = $cod;
 
-                    echo "<div style='display:flex;flex-direction:row;'>
-                    <div style='display:flex;flex-direction:column'>
+                    echo "<div style='display:flex;flex-direction:column;'>
                     <form action=carros.php method=post>
                         <button class=featured-boxb>
                         <div class=featured-imgb>
