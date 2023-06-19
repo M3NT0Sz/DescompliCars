@@ -128,8 +128,8 @@
                     }
                     $carrosExibidos[] = $cod;
 
-                    echo "<div style='display:flex;flex-direction:column;'>
-                        <form action=carros.php method=post> 
+                    echo "<div style='display:flex;flex-direction:row;'>
+                    <form action=carros.php method=post>
                         <button class=featured-boxb>
                         <div class=featured-imgb>
                         <img src='data:image/jpeg;base64,$imagem'>
