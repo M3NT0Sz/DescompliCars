@@ -91,7 +91,7 @@
         </div>
         <div class="direitalad">
             <center>
-                <div style="background-color: transparent;" class="wrapper">
+                <div style="background-color: transparent; box-shadow: 0 0 10px 0 #004aad;" class="wrapper">
                     <div class="form-container">
                         <div class="form-inner">
                             <form class="form" action="#" method="post">
