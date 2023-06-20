@@ -86,9 +86,9 @@ include_once("PHP/conexao.php");
               <input type="text" placeholder="Sobrenome" name="sobrenome" required>
             </div>
             <div class="field">
-              <input type="text" class="phone" placeholder="Telefone" name="tel" required>
+              <input type="text" class="phone" minlength="14" maxlength="14" placeholder="Telefone" name="tel" required>
               <input type="date" min="1900-01-01" max="2023-01-01" name="datanasc" required>
-              <input type="text" class="cpf" placeholder="CPF" name="cpf" required>
+              <input type="text" class="cpf" minlength="14" maxlength="14" placeholder="CPF" name="cpf" required>
             </div>
             <div class="field">
               <input type="text" placeholder="Endereco" name="endereco" required>
