@@ -16,6 +16,8 @@ $senha = md5(filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING));
 $imagem = 0;
 $imagem = $_FILES['imagemperfil']['tmp_name'];
 
+
+
 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if (empty($imagem)) {
         $imagem = addslashes(file_get_contents('../Imagens/perfil.png'));
@@ -30,19 +32,25 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             header("Location: ../Usuario.php");
         }
     } else {
-        $imagem = addslashes(file_get_contents($_FILES['imagemperfil']['tmp_name']));
-        $sql = "insert into usuarios (usu_email, usu_nome, usu_sobrenome, usu_tel, usu_dtnasc, usu_cpf, usu_endereco, usu_cidade, usu_estado, usu_genero, usu_senha, usu_image) values ('$email', '$nome', '$sobrenome', '$telefone', '$dtnasc', '$cpf', '$endereco', '$cidade', '$estado', '$genero', '$senha', '$imagem')";
-        $comando = mysqli_query($conn, $sql);
+        $imageInfo = getimagesize($imagem);
+        if ($imageInfo !== false) {
+            $imagem = addslashes(file_get_contents($_FILES['imagemperfil']['tmp_name']));
+            $sql = "insert into usuarios (usu_email, usu_nome, usu_sobrenome, usu_tel, usu_dtnasc, usu_cpf, usu_endereco, usu_cidade, usu_estado, usu_genero, usu_senha, usu_image) values ('$email', '$nome', '$sobrenome', '$telefone', '$dtnasc', '$cpf', '$endereco', '$cidade', '$estado', '$genero', '$senha', '$imagem')";
+            $comando = mysqli_query($conn, $sql);
 
-        if (mysqli_insert_id($conn)) {
-            $_SESSION['msg'] = "<p style='color:green;'>Usuario cadastrado com sucesso</p>";
-            header("Location: ../Usuario.php");
-        } else {
-            $_SESSION['msg'] = "<p style='color:red;'>Usuario não foi cadastrado com sucesso</p>";
+            if (mysqli_insert_id($conn)) {
+                $_SESSION['msg'] = "<p style='color:green;'>Usuario cadastrado com sucesso</p>";
+                header("Location: ../Usuario.php");
+            } else {
+                $_SESSION['msg'] = "<p style='color:red;'>Usuario não foi cadastrado com sucesso</p>";
+                header("Location: ../Usuario.php");
+            }
+        }else{
+            $_SESSION['msg'] = "<font color='#004aad'><h3>Por favor insira uma imagem que exista</h3></font>";
             header("Location: ../Usuario.php");
         }
     }
 } else {
-    $_SESSION['msg'] = "Email Invalido";
+    $_SESSION['msg'] = "<font color='#004aad'><h3>Email Invalido</h3></font>s";
     header("Location: ../Usuario.php");
 }

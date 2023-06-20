@@ -16,32 +16,39 @@ $genero = filter_input(INPUT_POST, 'genero', FILTER_SANITIZE_STRING);
 
 $imagem = $_FILES['imagemperfil']['tmp_name'];
 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-if (empty($imagem)) {
-    $sql = "UPDATE usuarios SET usu_nome = '$nome', usu_sobrenome = '$sobrenome', usu_email = '$email', usu_dtnasc = '$dtnasc', usu_cpf = '$cpf', usu_endereco = '$endereco', usu_cidade = '$cid', usu_estado = '$estado', usu_genero = '$genero' WHERE usu_cod = '$cod'";
-    $comando = mysqli_query($conn, $sql);
-    if (mysqli_affected_rows($conn)) {
-        $_SESSION['editado'] = "Usuario editado com sucesso";
-        unset($_SESSION['login']);
-        $_SESSION['login'] = $nome . " " . $sobrenome;
-        header("location:../Perfil.php");
+    if (empty($imagem)) {
+        $sql = "UPDATE usuarios SET usu_nome = '$nome', usu_sobrenome = '$sobrenome', usu_email = '$email', usu_dtnasc = '$dtnasc', usu_cpf = '$cpf', usu_endereco = '$endereco', usu_cidade = '$cid', usu_estado = '$estado', usu_genero = '$genero' WHERE usu_cod = '$cod'";
+        $comando = mysqli_query($conn, $sql);
+        if (mysqli_affected_rows($conn)) {
+            $_SESSION['editado'] = "Usuario editado com sucesso";
+            unset($_SESSION['login']);
+            $_SESSION['login'] = $nome . " " . $sobrenome;
+            header("location:../Perfil.php");
+        } else {
+            $_SESSION['naoeditado'] = "Usuario não editado";
+            header("location:../editarPerfil.php");
+        }
     } else {
-        $_SESSION['naoeditado'] = "Usuario não editado";
-        header("location:../editarPerfil.php");
+        $imageInfo = getimagesize($imagem);
+        if ($imageInfo !== false) {
+            $imagem = addslashes(file_get_contents($_FILES['imagemperfil']['tmp_name']));
+            $sql = "UPDATE usuarios SET usu_nome = '$nome', usu_sobrenome = '$sobrenome', usu_email = '$email', usu_dtnasc = '$dtnasc', usu_cpf = '$cpf', usu_endereco = '$endereco', usu_cidade = '$cid', usu_estado = '$estado', usu_genero = '$genero', usu_image = '$imagem' WHERE usu_cod = '$cod'";
+            $comando = mysqli_query($conn, $sql);
+            if (mysqli_affected_rows($conn)) {
+                $_SESSION['editado'] = "Usuario editado com sucesso";
+                unset($_SESSION['login']);
+                $_SESSION['login'] = $nome . " " . $sobrenome;
+                header("location:../Perfil.php");
+            } else {
+                $_SESSION['naoeditado'] = "Usuario não editado";
+                header("location:../editarPerfil.php");
+            }
+        }else{
+            $_SESSION['naoeditado'] = "<font color='#004aad'><h3>Por favor insira uma imagem que exista</h3></font>";
+            header("Location: ../editarPerfil.php");
+        }
     }
 } else {
-    $imagem = addslashes(file_get_contents($_FILES['imagemperfil']['tmp_name']));
-    $sql = "UPDATE usuarios SET usu_nome = '$nome', usu_sobrenome = '$sobrenome', usu_email = '$email', usu_dtnasc = '$dtnasc', usu_cpf = '$cpf', usu_endereco = '$endereco', usu_cidade = '$cid', usu_estado = '$estado', usu_genero = '$genero', usu_image = '$imagem' WHERE usu_cod = '$cod'";
-    $comando = mysqli_query($conn, $sql);
-    if (mysqli_affected_rows($conn)) {
-        $_SESSION['editado'] = "Usuario editado com sucesso";
-        unset($_SESSION['login']);
-        $_SESSION['login'] = $nome . " " . $sobrenome;
-        header("location:../Perfil.php");
-    } else {
-        $_SESSION['naoeditado'] = "Usuario não editado";
-        header("location:../editarPerfil.php");
-    }
-}}else{
     $_SESSION['naoeditado'] = "Email Invalido";
     header("Location: ../editarPerfil.php");
 }

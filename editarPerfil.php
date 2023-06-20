@@ -134,6 +134,10 @@
                             echo $_SESSION['editado'];
                             unset($_SESSION['editado']);
                         }
+                        if (isset($_SESSION['naoeditado'])) {
+                            echo "<center>".$_SESSION['naoeditado']."</center>";
+                            unset($_SESSION['naoeditado']);
+                        }
                         ?>
                         <?php
                         //mostrando a msg de login e senha inválidos!
