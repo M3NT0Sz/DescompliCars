@@ -108,14 +108,14 @@
                         </a>
                         <?php
                         if (isset($_SESSION['editado'])) {
-                            echo $_SESSION['editado'];
+                            echo "<h3><center>".$_SESSION['editado']."</center></h3>";
                             unset($_SESSION['editado']);
                         }
                         ?>
                         <?php
                         //mostrando a msg de login e senha inválidos!
                         if (isset($_SESSION['msgC'])) {
-                            echo $_SESSION['msgC'];
+                            echo "<h3><center>".$_SESSION['msgC']."</center></h3>";
                             unset($_SESSION['msgC']);
                         }
                         ?>

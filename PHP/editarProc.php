@@ -22,7 +22,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         if (mysqli_affected_rows($conn)) {
             $_SESSION['editado'] = "Usuario editado com sucesso";
             unset($_SESSION['login']);
-            $_SESSION['login'] = $nome . " " . $sobrenome;
+            $_SESSION['login'] = "<center>" . $nome . " " . $sobrenome . "</center>";
             header("location:../Perfil.php");
         } else {
             $_SESSION['naoeditado'] = "Usuario não editado";
@@ -37,7 +37,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             if (mysqli_affected_rows($conn)) {
                 $_SESSION['editado'] = "Usuario editado com sucesso";
                 unset($_SESSION['login']);
-                $_SESSION['login'] = $nome . " " . $sobrenome;
+                $_SESSION['login'] = "<center>" . $nome . " " . $sobrenome . "</center>";
                 header("location:../Perfil.php");
             } else {
                 $_SESSION['naoeditado'] = "Usuario não editado";

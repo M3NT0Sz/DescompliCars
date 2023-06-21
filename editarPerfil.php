@@ -60,7 +60,7 @@
                                 $imagem = base64_encode($row['usu_image']);
                                 echo "<center><img class=perfil src='data:image/jpeg;base64,$imagem'><br></center>";
                             }
-                            echo $_SESSION['login'];
+                            echo "<div style='display:flex;justify-content:center;text-align:center;'>".$_SESSION['login']."</div>";
                         } else if (isset($_SESSION['edit'])) {
                             foreach ($_SESSION['loginA'] as $codigo) {
                                 $codigo = $codigo['cod'];
@@ -71,7 +71,7 @@
                                 $imagem = base64_encode($row['usu_image']);
                                 echo "<center><img class=perfil src='data:image/jpeg;base64,$imagem'><br></center>";
                             }
-                            echo $_SESSION['edit'];
+                            echo "<div style='display:flex;justify-content:center;text-align:center;>".$_SESSION['edit']."</div>";
                         }
                         ?></h2>
                 </div>
@@ -166,13 +166,13 @@
                         <h1>Email:<input style="font-size: 20px;" type="text" name="email" value="<?php echo $row_usuario['usu_email'] ?>"></h1>
                     </div>
                     <div class="quadlado">
-                        <h1>Telefone:<input style="font-size: 20px;" class="phone" type="text" name="tel" maxlength="14" value="<?php echo $row_usuario['usu_tel'] ?>"></h1>
+                        <h1>Telefone:<input style="font-size: 20px;" class="phone" type="text" minlength="14" maxlength="14" name="tel" value="<?php echo $row_usuario['usu_tel'] ?>"></h1>
                     </div>
                     <div class="quadlado">
                         <h1>Data de Nascimento:<input style="font-size: 20px;" type="date" min="1900-01-01" max="2023-01-01" name="dtnasc" value="<?php echo $row_usuario['usu_dtnasc'] ?>"></h1>
                     </div>
                     <div class="quadlado">
-                        <h1>CPF:<input style="font-size: 20px;" type="text" class="cpf" name="cpf" maxlength="14" value="<?php echo $row_usuario['usu_cpf'] ?>"></h1>
+                        <h1>CPF:<input style="font-size: 20px;" type="text" class="cpf" minlength="14" maxlength="14" name="cpf" value="<?php echo $row_usuario['usu_cpf'] ?>"></h1>
                     </div>
                     <div class="quadlado">
                         <h1>Endereço:<input style="font-size: 20px;" type="text" name="endereco" value="<?php echo $row_usuario['usu_endereco'] ?>"></h1>

@@ -19,7 +19,7 @@
             'nome' => $row_usuario['usu_nome'],
             'sobrenome' => $row_usuario['usu_sobrenome']
         );
-        $_SESSION['login'] = $row_usuario['usu_nome'] ." ". $row_usuario['usu_sobrenome'] . "<input type=hidden name=codigo value=".$row_usuario['usu_cod'].">";
+        $_SESSION['login'] = "<center>".$row_usuario['usu_nome'] ." ". $row_usuario['usu_sobrenome'] . "</center><input type=hidden name=codigo value=".$row_usuario['usu_cod'].">";
         header("Location: ../Perfil.php");
     }
     else

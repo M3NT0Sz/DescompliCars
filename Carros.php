@@ -81,7 +81,7 @@ include_once("PHP/conexao.php");
         }
         $imagem = base64_encode($row['car_image']);
 
-        echo "<center><img src='data:image/jpeg;base64,$imagem'><br>
+        echo "<center>";?><img src="data:image/jpeg;base64,<?php echo $imagem?>"><?php echo "<br>
             <h1><font color=#004aad>$marca $modelo</font></h1>
             <div class=estrelas>";
         if ($media == "1") {
