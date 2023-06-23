@@ -60,7 +60,7 @@
                                 $imagem = base64_encode($row['usu_image']);
                                 echo "<center><img class=perfil src='data:image/jpeg;base64,$imagem'><br></center>";
                             }
-                            echo "<div style='display:flex;justify-content:center;text-align:center;'>".$_SESSION['login']."</div>";
+                            echo "<div style='display:flex;justify-content:center;text-align:center;'>" . $_SESSION['login'] . "</div>";
                         } else if (isset($_SESSION['edit'])) {
                             foreach ($_SESSION['loginA'] as $codigo) {
                                 $codigo = $codigo['cod'];
@@ -71,7 +71,7 @@
                                 $imagem = base64_encode($row['usu_image']);
                                 echo "<center><img class=perfil src='data:image/jpeg;base64,$imagem'><br></center>";
                             }
-                            echo "<div style='display:flex;justify-content:center;text-align:center;>".$_SESSION['edit']."</div>";
+                            echo "<div style='display:flex;justify-content:center;text-align:center;>" . $_SESSION['edit'] . "</div>";
                         }
                         ?></h2>
                 </div>
@@ -135,7 +135,7 @@
                             unset($_SESSION['editado']);
                         }
                         if (isset($_SESSION['naoeditado'])) {
-                            echo "<center>".$_SESSION['naoeditado']."</center>";
+                            echo "<center>" . $_SESSION['naoeditado'] . "</center>";
                             unset($_SESSION['naoeditado']);
                         }
                         ?>
@@ -151,80 +151,82 @@
                 </h2>
             </div>
         </div>
-        <div style="display: flex; justify-content: center; align-items: center; text-align: center; flex-direction: column; width: 100%; margin-left: 20px;">
-            <h1 style="color:#004aad; margin-top: 20px;">Editar</h1>
-            <hr>
-            <form style="width: 100%; display: flex; justify-content: center; align-items: center; text-align: center; flex-direction: column;" action="PHP/editarProc.php" method="post" enctype="multipart/form-data">
-                <div style="width: 100%; display: flex; justify-content: center; align-items: center; text-align: center; flex-direction: column;">
-                    <div class="quadlado">
-                        <h1>Nome:<input style="font-size: 20px;" type="text" name="nome" value="<?php echo $row_usuario['usu_nome'] ?>"></h1>
+        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; margin-left: 20px;">
+            <div style="background-color: white; box-shadow: 0 0 10px 0 #004aad; margin: 20px; border-radius: 20px; padding: 20px;">
+                <h1 style="color:#004aad; margin-top: 20px; display: flex; justify-content: center;">Editar</h1>
+                <hr>
+                <form style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;" action="PHP/editarProc.php" method="post" enctype="multipart/form-data">
+                    <div style="width: 500px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <div class="quadlado">
+                            <h1>Nome:<input style="font-size: 20px;" type="text" name="nome" value="<?php echo $row_usuario['usu_nome'] ?>"></h1>
+                        </div>
+                        <div class="quadlado">
+                            <h1>Sobrenome:<input style="font-size: 20px;" type="text" name="sobrenome" value="<?php echo $row_usuario['usu_sobrenome'] ?>"></h1>
+                        </div>
+                        <div class="quadlado">
+                            <h1>Email:<input style="font-size: 20px;" type="text" name="email" value="<?php echo $row_usuario['usu_email'] ?>"></h1>
+                        </div>
+                        <div class="quadlado">
+                            <h1>Telefone:<input style="font-size: 20px;" class="phone" type="text" minlength="14" maxlength="14" name="tel" value="<?php echo $row_usuario['usu_tel'] ?>"></h1>
+                        </div>
+                        <div class="quadlado">
+                            <h1>Data de Nascimento:<input style="font-size: 20px;" type="date" min="1900-01-01" max="2023-01-01" name="dtnasc" value="<?php echo $row_usuario['usu_dtnasc'] ?>"></h1>
+                        </div>
+                        <div class="quadlado">
+                            <h1>CPF:<input style="font-size: 20px;" type="text" class="cpf" minlength="14" maxlength="14" name="cpf" value="<?php echo $row_usuario['usu_cpf'] ?>"></h1>
+                        </div>
+                        <div class="quadlado">
+                            <h1>Endereço:<input style="font-size: 20px;" type="text" name="endereco" value="<?php echo $row_usuario['usu_endereco'] ?>"></h1>
+                        </div>
+                        <div class="quadlado">
+                            <h1>Cidade:<input style="font-size: 20px;" type="text" name="cidade" value="<?php echo $row_usuario['usu_cidade'] ?>"></h1>
+                        </div>
+                        <div class="quadlado">
+                            <h1>Estado:<input style="font-size: 20px;" type="text" maxlength="2" name="estado" value="<?php echo $row_usuario['usu_estado'] ?>"></h1>
+                        </div>
+                        <div class="quadlado">
+                            <h1>Genero: <select style="font-size: 20px;" name="genero">
+                                    <?php
+                                    if ($row_usuario['usu_genero'] == "Masculino") {
+                                        echo "<option value='Masculino'>Masculino</option>";
+                                        echo "<option value='Feminino'>Feminino</option>";
+                                        echo "<option value='Outros'>Outros</option>";
+                                    } else if ($row_usuario['usu_genero'] == "Feminino") {
+                                        echo "<option value='Feminino'>Feminino</option>";
+                                        echo "<option value='Masculino'>Masculino</option>";
+                                        echo "<option value='Outros'>Outros</option>";
+                                    } else {
+                                        echo "<option value='Outros'>Outros</option>";
+                                        echo "<option value='Feminino'>Feminino</option>";
+                                        echo "<option value='Masculino'>Masculino</option>";
+                                    }
+                                    ?>
+                                </select></h1>
+                        </div>
+                        <div class="quadlado">
+                            <h1>Insira sua foto<input style="font-size: 20px;" type="file" name="imagemperfil" accept="image/*"></h1>
+                        </div>
                     </div>
-                    <div class="quadlado">
-                        <h1>Sobrenome:<input style="font-size: 20px;" type="text" name="sobrenome" value="<?php echo $row_usuario['usu_sobrenome'] ?>"></h1>
+                    <input type="hidden" name="cod" value="<?php echo $row_usuario['usu_cod'] ?>">
+                    <div class="quadlado" style="display: flex; justify-content: center; align-items: center; text-align: center;">
+                        <button class="button-6" type="submit">Editar</button>
                     </div>
-                    <div class="quadlado">
-                        <h1>Email:<input style="font-size: 20px;" type="text" name="email" value="<?php echo $row_usuario['usu_email'] ?>"></h1>
-                    </div>
-                    <div class="quadlado">
-                        <h1>Telefone:<input style="font-size: 20px;" class="phone" type="text" minlength="14" maxlength="14" name="tel" value="<?php echo $row_usuario['usu_tel'] ?>"></h1>
-                    </div>
-                    <div class="quadlado">
-                        <h1>Data de Nascimento:<input style="font-size: 20px;" type="date" min="1900-01-01" max="2023-01-01" name="dtnasc" value="<?php echo $row_usuario['usu_dtnasc'] ?>"></h1>
-                    </div>
-                    <div class="quadlado">
-                        <h1>CPF:<input style="font-size: 20px;" type="text" class="cpf" minlength="14" maxlength="14" name="cpf" value="<?php echo $row_usuario['usu_cpf'] ?>"></h1>
-                    </div>
-                    <div class="quadlado">
-                        <h1>Endereço:<input style="font-size: 20px;" type="text" name="endereco" value="<?php echo $row_usuario['usu_endereco'] ?>"></h1>
-                    </div>
-                    <div class="quadlado">
-                        <h1>Cidade:<input style="font-size: 20px;" type="text" name="cidade" value="<?php echo $row_usuario['usu_cidade'] ?>"></h1>
-                    </div>
-                    <div class="quadlado">
-                        <h1>Estado:<input style="font-size: 20px;" type="text" maxlength="2" name="estado" value="<?php echo $row_usuario['usu_estado'] ?>"></h1>
-                    </div>
-                    <div class="quadlado">
-                        <h1>Genero: <select style="font-size: 20px;" name="genero">
-                                <?php
-                                if ($row_usuario['usu_genero'] == "Masculino") {
-                                    echo "<option value='Masculino'>Masculino</option>";
-                                    echo "<option value='Feminino'>Feminino</option>";
-                                    echo "<option value='Outros'>Outros</option>";
-                                } else if ($row_usuario['usu_genero'] == "Feminino") {
-                                    echo "<option value='Feminino'>Feminino</option>";
-                                    echo "<option value='Masculino'>Masculino</option>";
-                                    echo "<option value='Outros'>Outros</option>";
-                                } else {
-                                    echo "<option value='Outros'>Outros</option>";
-                                    echo "<option value='Feminino'>Feminino</option>";
-                                    echo "<option value='Masculino'>Masculino</option>";
-                                }
-                                ?>
-                            </select></h1>
-                    </div>
-                    <div class="quadlado">
-                        <h1>Insira sua foto<input style="font-size: 20px;" type="file" name="imagemperfil" accept="image/*"></h1>
-                    </div>
-                </div>
-                <input type="hidden" name="cod" value="<?php echo $row_usuario['usu_cod'] ?>">
+                </form>
                 <div class="quadlado" style="display: flex; justify-content: center; align-items: center; text-align: center;">
-                    <button class="button-6" type="submit">Editar</button>
-                </div>
-            </form>
-            <div class="quadlado" style="display: flex; justify-content: center; align-items: center; text-align: center;">
-                <input type="hidden" class="id" name="codigo" value=<?php echo $row_usuario['usu_cod'] ?>>
-                <script>
-                    function excluir() {
-                        if (confirm("Tem certeza que deseja excluir sua conta?")) {
-                            const input = document.getElementsByClassName("id");
-                            event.preventDefault();
-                            window.location.href = "PHP/excluir.php?codigo=" + input[0].value
-                        } else {
+                    <input type="hidden" class="id" name="codigo" value=<?php echo $row_usuario['usu_cod'] ?>>
+                    <script>
+                        function excluir() {
+                            if (confirm("Tem certeza que deseja excluir sua conta?")) {
+                                const input = document.getElementsByClassName("id");
+                                event.preventDefault();
+                                window.location.href = "PHP/excluir.php?codigo=" + input[0].value
+                            } else {
 
+                            }
                         }
-                    }
-                </script>
-                <button class="button-6" type="submit" onclick="excluir()">Excluir</button>
+                    </script>
+                    <button class="button-6" type="submit" onclick="excluir()">Excluir</button>
+                </div>
             </div>
             </form>
         </div>

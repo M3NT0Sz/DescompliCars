@@ -116,8 +116,19 @@ a{
     display: flex;
     flex-direction: row;
     margin-bottom: 15px;
-    justify-content: center;
     align-items: center;
+  }
+
+  .quadlado > h1{
+    width: 100%;
+  }
+
+  .quadlado > h1 > input{
+    width: 100%;
+  }
+
+  .quadlado > h1 > select{
+    width: 100%;
   }
 
   .quadedit{
