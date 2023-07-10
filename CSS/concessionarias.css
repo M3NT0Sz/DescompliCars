@@ -92,16 +92,16 @@ hr{
     background-color: #004aad;
 }
 
-.row{
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    width: 1000px;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
+.quadradoconce{
+    display: flex!important;
+    -ms-flex-wrap: wrap!important;
+    flex-wrap: wrap!important;
+    margin-right: -15px!important;
+    margin-left: -15px!important;
+    width: 100%!important;
+    align-items: center!important;
+    justify-content: center!important;
+    align-content: center!important;
 }
 
 .featured-box{

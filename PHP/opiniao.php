@@ -19,7 +19,7 @@
     <!--Fecha MenuBar-->
     <div class="quadradoa">
         <div class="quadedit">
-            <h1 style="padding-bottom: 10px;color:#004aad;">Cadastrar Opinião</h1>
+            <h1 style="padding-bottom: 10px;color:#004aad;"><center>Cadastrar Opinião</center></h1>
             <?php
             if (isset($_SESSION['erroopi'])) {
                 echo "<font color='#004aad'><h3>".$_SESSION['erroopi']."</h3></font>";

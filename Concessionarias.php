@@ -26,7 +26,7 @@
             <?php
             $marcas = "SELECT * FROM marcas ORDER BY mar_nome";
             $comando = mysqli_query($conn, $marcas);
-            echo "<div class=row>";
+            echo "<div class=quadradoconce>";
             while ($row = mysqli_fetch_array($comando)) {
                 $cod = $row['mar_cod'];
                 $marca = $row['mar_nome'];
